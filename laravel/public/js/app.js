@@ -1726,6 +1726,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -17721,7 +17724,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s\n}\n.fade-enter, .fade-leave-active {\n    opacity: 0\n}\nnav{\n    width: 100%;\n    padding: 30px 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s\n}\n.fade-enter, .fade-leave-active {\n    opacity: 0\n}\nnav{\n    width: 100%;\n    padding: 30px 0;\n.nav-insight{\n        width: 100%;\n        max-width : $widescreen;\n}\n}\n", ""]);
 
 // exports
 

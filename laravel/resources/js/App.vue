@@ -23,7 +23,10 @@
     nav{
         width: 100%;
         padding: 30px 0;
-
+        .nav-insight{
+            width: 100%;
+            max-width : $widescreen;
+        }
     }
 </style>
 

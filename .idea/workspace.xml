@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23010bf9-e784-437a-81b1-8c5ea17fb956" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/laravel/resources/js/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/js/components/Home.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/js/components/Nav.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/js/App.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,11 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laravel/resources/js/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state relative-caret-position="459">
+              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -132,6 +133,7 @@
         <option value="$PROJECT_DIR$/laravel/resources/js/app.js" />
         <option value="$PROJECT_DIR$/laravel/resources/views/layout.blade.php" />
         <option value="$PROJECT_DIR$/laravel/resources/js/App.vue" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -327,18 +329,18 @@
       <updated>1563978023737</updated>
       <workItem from="1563978024906" duration="1723000" />
       <workItem from="1563980086535" duration="29000" />
-      <workItem from="1563980160092" duration="8416000" />
+      <workItem from="1563980160092" duration="9340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10168000" />
+    <option name="totallyTimeSpent" value="11092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2553305" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -483,8 +485,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/resources/js/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        <state relative-caret-position="459">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
