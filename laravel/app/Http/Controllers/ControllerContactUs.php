@@ -11,28 +11,25 @@ use Validator;
 
 class ControllerContactUs extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
 
         //return redirect(route('contacts'));
     }
 
-    public function ship(Request $request){
-
-        $validator = Validator::make($request->all(), [
+    public function ship(Request $request)
+    {
+        $request->validate([
             'name' => 'required|max:127',
             'email' => 'required|max:127|email',
-            'text' => 'required|max:1023',
-            'captcha' => 'required|captcha',
+            'text' => 'required|max:1023'
         ]);
+        return response()->json(['success'=>'Done!']);
 
-        if ($validator->fails()) {
-
-        }
-        else {
-            $data = $request->all();
+        $data = $request->all();
 
             try {
-                $result = Mail::send('mail', ['data' => $data], function ($message) use ($data) {
+                Mail::send('mail', ['data' => $data], function ($message) use ($data) {
                     $mail_admin1 = env('MAIL_ADMIN1');
                     $mail_admin2 = env('MAIL_ADMIN2');
                     //$message->from($data['email']);
@@ -47,13 +44,13 @@ class ControllerContactUs extends Controller
                 // var_dump($e);
                 ///die('not success');
             }
-            return redirect('/#form');
-        }
+            return 'shipped';
+
 
         //$url = URL::route('home') . '#form';
         //return Redirect::to($url);
 
-        return redirect('/#form')->withErrors($validator)->withInput();
 
         //return redirect()->back();
     }
+}

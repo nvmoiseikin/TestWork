@@ -6,7 +6,6 @@ import "bootstrap-vue/dist/bootstrap-vue.css"
 
 Vue.use(BootstrapVue)
 
-
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 

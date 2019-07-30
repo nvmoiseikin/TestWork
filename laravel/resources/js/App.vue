@@ -92,6 +92,7 @@
     }
     @media(max-width: 769px){
         nav{
+            padding-bottom: 0;
             .nav-email, .nav-tel {
                 display: none !important;
             }
@@ -107,6 +108,7 @@
     @media(min-width: 769px) and (max-width: 1000px){
         nav{
             .nav-insight-right{
+
                 flex-wrap: wrap;
                 .nav-contacts, .nav-menu{
                     width: 100%;

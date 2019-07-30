@@ -171,23 +171,26 @@
           </b-carousel>
       </div>
       <div class="contactUs">
-          <form action="/contactUs" method="post" role="form" class="form" id="form">
-              <div class="form-title">Свяжитесь с нами</div>
-              {{ csrf_field() }}
+          <div class="contactUs-left"></div>
+          <form action="/contactUs" method="post" role="form" class="form" id="form" @submit.prevent="onSubmit">
+              <div class="form-title">СВЯЖИТЕСЬ С НАМИ</div>
               <div class="form-item">
-                  <div class="form-label">Ваше имя</div>
-                  <input type="text" class="form-control" id="name" name="name" v-bind="{{ old('name') }}" placeholder="Введите ваше имя">
+                  <input type="text" class="form-control" id="name" name="name" v-model="name" placeholder="ВВЕДИТЕ ВАШЕ  ИМЯ">
+                  <span v-if="allerrors.name" class="label-danger">{{ allerrors.name[0]}}</span>
               </div>
               <div class="form-item">
-                  <div class="form-label">Ваша почта</div>
-                  <input type="email" class="form-control" id="email" name="email" v-bind="{{ old('email') }}" placeholder="Введите вашу почту">
+                  <input type="email" class="form-control" id="email" name="email" v-model="email" placeholder="ВВЕДИТЕ ВАШУ ПОЧТУ">
+                  <span v-if="allerrors.email" class="label-danger">{{ allerrors.email[0]}}</span>
               </div>
               <div class="form-item">
-                  <div class="form-label">Ваш вопрос</div>
-                  <textarea class="form-control" id="text" name="text" rows="4" placeholder="Введите ваш вопрос">{{ old('text') }}</textarea>
+                  <textarea class="form-control" id="text" name="text" rows="4"  v-model="text" placeholder="ВВЕДИТЕ ТЕКСТ СООБЩЕНИЯ"></textarea>
+                  <span v-if="allerrors.text" class="label-danger">{{ allerrors.text[0]}}</span>
               </div>
-              <button type="submit" class="btn-submit">Отправить</button>
+              <button type="submit" class="btn-submit">ОТПРАВИТЬ</button>
+              <img class="home-logo-bottom" src="/site_img/logo-white.png">
+              <div class="clear-fix"></div>
           </form>
+          <div class="contactUs-right"></div>
       </div>
   </div>
 </template>
@@ -232,12 +235,15 @@
     }
     #carouselHomePartners{
         display: none;
+        max-width: 500px;
+        margin: 0 auto;
         .carousel-caption{
             position : static;
             width: 100%;
+            max-width: 500px;
             padding: 50px;
             .home-slide-img {
-                width: 50%;
+                width: 80%;
                 height: auto;
             }
         }
@@ -413,7 +419,17 @@
     .contactUs{
         width: 100%;
         background-color: #2F4052;
+        padding: 30px 0;
+        .home-logo-bottom{
+            width: 200px;
+            height: 50px;
+            float: left;
+            margin: 0 0 0 -250px;
+        }
         form{
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
             .form-title{
                 text-align: center;
                 width: 100%;
@@ -424,24 +440,72 @@
                 color: white;
             }
             .form-item{
-                width: 90%;
+                width: 100%;
                 max-width: 400px;
                 margin: 12px auto;
             }
-            input{
+            input, input:focus{
                 width: 100%;
                 height: 40px;
-                background-color: white;
+                background-color: #5a6268;
                 border-radius: 15px;
-                font-size: 16px;
+                font-size: 14px;
                 padding: 10px;
+                border: none;
+                outline: none;
+                color: white;
+                box-shadow: none;
+                &::-webkit-input-placeholder {color:white;}
+                &::-moz-placeholder          {color:white;}/* Firefox 19+ */
+                &:-moz-placeholder           {color:white;}/* Firefox 18- */
+                &:-ms-input-placeholder      {color:white;}
             }
-            textarea{
+            textarea, textarea:focus{
                 width: 100%;
-                background-color: white;
+                background-color: #5a6268;
                 border-radius: 15px;
-                font-size: 16px;
+                font-size: 14px;
+                border: none;
+                outline: none;
+                color: white;
+                box-shadow: none;
                 font-style: italic;
+                &::-webkit-input-placeholder {color:white;}
+                &::-moz-placeholder          {color:white;}/* Firefox 19+ */
+                &:-moz-placeholder           {color:white;}/* Firefox 18- */
+                &:-ms-input-placeholder      {color:white;}
+            }
+            input:focus, textarea:focus{
+                text-align: left;
+            }
+            input, textarea{
+                text-align: center;
+            }
+            .label-danger{
+                color: darkred;
+                font-family: Roboto;
+                font-size: 10px;
+                font-weight: 500;
+            }
+            .btn-submit{
+                display: block;
+                width: 88px;
+                height: 30px;
+                background: #00BC9C;
+                border-radius: 3px;
+                text-align: center;
+                text-decoration: none;
+                float: right;
+                margin: 20px 0;
+                border-style: none;
+                font-family: Roboto;
+                font-weight: 500;
+                line-height: 30px;
+                font-size: 12px;
+                color: white;
+                &:hover{
+                    color: white;
+                }
             }
         }
     }
@@ -458,6 +522,11 @@
                     line-height: 20px;
                     font-size: 16px;
                 }
+            }
+        }
+        .contactUs {
+            .home-logo-bottom {
+                display: none;
             }
         }
     }
@@ -524,7 +593,7 @@
             }
         }
         #carouselHomePartners .carousel-caption{
-            padding: 15px 50px;
+            padding: 15px 50px 30px;
         }
         .home-services{
             section {
@@ -544,7 +613,7 @@
         #carouselHomePartners{
             .carousel-caption{
                 .home-slide-img {
-                    width: 40%;
+                    width: 60%;
                     height: auto;
                 }
             }
@@ -557,6 +626,23 @@
 </style>
 <script>
     export default {
+        data(){
+            return{
+                name: "",
+                email: "",
+                allerrors: [],
+                text: ""
+            }
+        },
+        methods: {
+            onSubmit() {
+                this.axios.post("/contactUs", this.$data)
+
+                    .then(response => console.log(response))
+
+                    .catch((error) =>{ this.allerrors = error.response.data.errors})
+            }
+        },
         mounted() {
             console.log('Component mounted.')
         }

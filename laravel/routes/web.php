@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('layout');
 });
+
+Route::post('/contactUs', "ControllerContactUs@ship");
