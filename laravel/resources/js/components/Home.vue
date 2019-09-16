@@ -32,6 +32,28 @@
                       </div>
                   </div>
               </b-carousel-slide>
+              <b-carousel-slide>
+                  <div class="w-100 home-slide">
+                      <div class="home-slide-title">
+                          Монтаж
+                      </div>
+                      <div class="home-slide-p">
+                          Поможем с монтажем видео и аудио систем, систем управления, локальной вычислительной сети и wifi.
+                          Правильный монтаж оборудования и коммуникационных трасс исключает большое число ошибок в работе электронных систем.
+                      </div>
+                  </div>
+              </b-carousel-slide>
+              <b-carousel-slide>
+                  <div class="w-100 home-slide">
+                      <div class="home-slide-title">
+                          Монтаж
+                      </div>
+                      <div class="home-slide-p">
+                          Поможем с монтажем видео и аудио систем, систем управления, локальной вычислительной сети и wifi.
+                          Правильный монтаж оборудования и коммуникационных трасс исключает большое число ошибок в работе электронных систем.
+                      </div>
+                  </div>
+              </b-carousel-slide>
 
           </b-carousel>
       </div>
@@ -190,7 +212,6 @@
               <img class="home-logo-bottom" src="/site_img/logo-white.png">
               <div class="clear-fix"></div>
           </form>
-          <div class="contactUs-right"></div>
       </div>
   </div>
 </template>
@@ -241,9 +262,12 @@
             position : static;
             width: 100%;
             max-width: 500px;
-            padding: 50px;
+            height: 20vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             .home-slide-img {
-                width: 80%;
+                width: 60%;
                 height: auto;
             }
         }
@@ -556,7 +580,11 @@
                 margin: 10px;
             }
         }
-
+        .contactUs {
+            .contactUs-contacts-small {
+                display: block;
+            }
+        }
     }
     @media (max-width: 576px){
         .home-manager{
