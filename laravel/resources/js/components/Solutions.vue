@@ -153,7 +153,7 @@
     }
     .solutions-home, .solutions-business{
         width: 100%;
-        max-width: $widescreen;
+        max-width: 1900px;
         margin: 0 auto;
         &-title{
             display: none;

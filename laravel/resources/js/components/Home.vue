@@ -7,10 +7,11 @@
                   :interval="4000"
                   controls
                   indicators
+                  ref="homeSlider"
           >
               <!-- Text slides with image -->
               <b-carousel-slide>
-                  <div class="w-100 home-slide">
+                  <div class="w-100 home-slide" ref="highestHomeSlide">
                       <div class="home-slide-title">
                           Проектирование
                       </div>
@@ -22,7 +23,7 @@
                   </div>
               </b-carousel-slide>
               <b-carousel-slide>
-                  <div class="w-100 home-slide">
+                  <div class="w-100 home-slide home-slide-height">
                       <div class="home-slide-title">
                           Монтаж
                       </div>
@@ -33,24 +34,23 @@
                   </div>
               </b-carousel-slide>
               <b-carousel-slide>
-                  <div class="w-100 home-slide">
+                  <div class="w-100 home-slide home-slide-height">
                       <div class="home-slide-title">
-                          Монтаж
+                          Настройка
                       </div>
                       <div class="home-slide-p">
-                          Поможем с монтажем видео и аудио систем, систем управления, локальной вычислительной сети и wifi.
-                          Правильный монтаж оборудования и коммуникационных трасс исключает большое число ошибок в работе электронных систем.
+                          Настроим оборудование для построения систем управления, видеонаблюдения, охранной сигнализации, оповещения, звукоусиления, проекционных систем и систем видеоотображения.
+                          Только точная настройка оборудования позволит пользователю получить максимальный функционал системы, а так же избавит от ошибок.
                       </div>
                   </div>
               </b-carousel-slide>
               <b-carousel-slide>
-                  <div class="w-100 home-slide">
+                  <div class="w-100 home-slide home-slide-height">
                       <div class="home-slide-title">
-                          Монтаж
+                          Аудит
                       </div>
                       <div class="home-slide-p">
-                          Поможем с монтажем видео и аудио систем, систем управления, локальной вычислительной сети и wifi.
-                          Правильный монтаж оборудования и коммуникационных трасс исключает большое число ошибок в работе электронных систем.
+                          Поможем определиться с оборудованием. Проконсультируем по принятым решениям.
                       </div>
                   </div>
               </b-carousel-slide>
@@ -227,7 +227,7 @@
         overflow-x: hidden;
         width: 100%;
         .container{
-            max-width: $widescreen !important;
+            max-width: 1900px !important;
             padding: 0;
             width: 100%;
         }
@@ -240,6 +240,8 @@
         padding: 200px 100px 164px;
         background-color: #2F4052;
         .home-slide{
+            max-width: 1200px;
+            margin: 0 auto;
             font-weight: 600;
             font-family: Roboto;
             color: white;
@@ -562,7 +564,7 @@
                     font-size: 30px;
                 }
                 &-p{
-                    display: none;
+                    display: none
                 }
             }
         }
@@ -653,14 +655,22 @@
     }
 </style>
 <script>
+    import $ from 'jquery'
     export default {
         data(){
             return{
                 name: "",
                 email: "",
                 allerrors: [],
-                text: ""
+                text: "",
+                windowWidth: window.innerWidth
             }
+        },
+        created() {
+            window.addEventListener("resize", this.matchHeight);
+        },
+        destroyed() {
+            window.removeEventListener("resize", this.matchHeight);
         },
         methods: {
             onSubmit() {
@@ -669,10 +679,16 @@
                     .then(response => console.log(response))
 
                     .catch((error) =>{ this.allerrors = error.response.data.errors})
+            },
+            matchHeight(e) {
+                this.$refs.homeSlider.setSlide(0);
+                let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
+                $('#carouselHome .home-slide-height').css('height', heightSlider);
+                console.log("resize height:" + heightSlider);
             }
         },
         mounted() {
-            console.log('Component mounted.')
+            this.matchHeight()
         }
     }
 </script>

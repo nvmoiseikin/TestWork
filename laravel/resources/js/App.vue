@@ -1,26 +1,23 @@
 <template>
     <div id="app" class="container">
         <nav class="nav-wrap">
-            <div class="nav-insight tile is-ancestor">
-                <div class="nav-insight-left is-left is-3 tile is-parent">
+            <div class="nav-insight row">
+                <div class="nav-insight-left col">
                     <img src="/site_img/logo.png">
-                    <div class="is-pulled-right">
-                        <a  href="mailTo:example@gmail.com" class="nav-email-small ">example@gmail.com</a>
-                        <a href="telTo:+77777777777" class="nav-tel-small last-nav">+7 (777) 777 77 77</a>
+                </div>
+                <div class="nav-insight-right col row">
+                    <div class="nav-menu col">
+                        <router-link to="/" class="nav-menu-item" exact>О нас</router-link>
+                        <router-link to="/solutions/" class="nav-menu-item">Решения</router-link>
+                        <router-link to="/services/" class="nav-menu-item">Услуги</router-link>
+                        <router-link to="/contacts/" class="nav-menu-item">Контакты</router-link>
                     </div>
                 </div>
-                <div class="nav-insight-right is-right is-9 is-parent tile">
-                    <div class="nav-menu is-offset-1 is-6 is-parent tile">
-                        <router-link to="/" class="nav-menu-item is-3" exact>О нас</router-link>
-                        <router-link to="/solutions/" class="nav-menu-item is-3">Решения</router-link>
-                        <router-link to="/services/" class="nav-menu-item is-3">Услуги</router-link>
-                        <router-link to="/contacts/" class="nav-menu-item is-3">Контакты</router-link>
-                    </div>
-                    <div class="nav-contacts is-6 is-parent tile">
-                        <a  href="mailTo:example@gmail.com" class="nav-email is-6">example@gmail.com</a>
-                        <a href="telTo:+77777777777" class="nav-tel is-7">+7 (777) 777 77 77</a>
-                    </div>
+                <div class="nav-contacts col row">
+                    <a  href="mailTo:example@gmail.com" class="nav-email col-6">&#x2709; example@gmail.com</a>
+                    <a href="telTo:+77777777777" class="nav-tel col-6">&#61707; +7 (777) 777 77 77</a>
                 </div>
+
             </div>
             <b-nav-item-dropdown   variant="link" toggle-class="text-decoration-none" no-caret class="nav-insight-small">
                 <template slot="button-content"><img src="/site_img/logo.png"></template>
@@ -29,8 +26,8 @@
                 <b-dropdown-item href="#">Услуги <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#">Контакты <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#"></b-dropdown-item>
-                <b-dropdown-item href="#">&#x2709; example@gmail.com</b-dropdown-item>
-                <b-dropdown-item href="#">&#61707; +7 (777) 777 77 77</b-dropdown-item>
+                <b-dropdown-item href="mailTo:example@gmail.com">&#x2709; example@gmail.com</b-dropdown-item>
+                <b-dropdown-item href="telTo:+77777777777">&#61707; +7 (777) 777 77 77</b-dropdown-item>
             </b-nav-item-dropdown>
         </nav>
         <main>
@@ -61,11 +58,12 @@
     }
     nav{
         width: 100%;
-        padding: 30px 0;
+        padding: 15px 0;
         .nav-insight{
             margin: 0 auto !important;
             width: 100%;
             max-width : $widescreen;
+            justify-content: space-between;
         }
         .nav-insight-small {
             display: none;
@@ -75,12 +73,16 @@
             .dropdown-menu{
                 width: 100%;
                 transform: translate3d(0, 0, 0) !important;
-                top: 65px !important;
+                top: 45px !important;
                 border: none;
                 padding: 0 10%;
             }
             .dropdown-toggle{
                 margin: 10px 10%;
+                img{
+                  width: auto;
+                    height: 37px;
+                }
             }
             .dropdown-item{
                 font-family: Roboto;
@@ -96,6 +98,8 @@
             }
         }
         .nav-insight-left{
+            max-width: 200px;
+            width: 200px;
             height: 55px;
             img{
                 height: 55px;
@@ -108,6 +112,8 @@
         }
         .nav-insight-right{
             .nav-menu{
+                margin: 0 0 0 calc(0.15 * calc(100vw - 770px));
+                max-width: 520px;
                 display: flex;
                 justify-content: space-around;
                 flex-wrap: nowrap;
@@ -124,16 +130,24 @@
             color: #464646;
             line-height: 20px;
         }
+        .nav-tel, .nav-email{
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 55px;
+        }
+        .nav-tel{
+            text-align: left;
+        }
+        .nav-menu-item{
+            line-height: 55px;
+        }
         .nav-menu-item:hover, .nav-email:hover, .nav-tel:hover,
         .nav-email-small:hover, .nav-tel-small:hover{
             color: #2F8CA6;
             text-decoration: underline;
         }
         .nav-contacts{
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: nowrap;
-            box-sizing: border-box;
+            max-width: 360px;
         }
 
     }
@@ -198,7 +212,7 @@
     /*** MEDIA ****/
     @media(max-width: 769px){
         nav{
-            padding: 10px 0 !important;
+            padding: 0 0 !important;
             position: fixed;
             left: 0;
             top: 0;
@@ -210,7 +224,6 @@
             .nav-insight-small {
                 display: block;
             }
-            padding-bottom: 0;
             .nav-email, .nav-tel {
                 display: none !important;
             }
@@ -223,7 +236,7 @@
             }
         }
         main{
-            margin-top: 111px;
+            margin-top: 73px;
         }
         footer{
             height: 40px;
@@ -256,6 +269,12 @@
             }
             .nav-menu{
                 padding: 0 !important;
+            }
+            .nav-email, .nav-tel{
+                padding: 0;
+            }
+            .nav-tel{
+                text-align: center;
             }
         }
     }
