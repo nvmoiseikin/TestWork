@@ -12,10 +12,9 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 
 Vue.use(BootstrapVue);
 
-import Buefy from 'buefy';
-import 'buefy/dist/buefy.css';
+import FontAwesomeIcon from '@fortawesome/fontawesome'
 
-Vue.use(Buefy);
+Vue.use(FontAwesomeIcon);
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);

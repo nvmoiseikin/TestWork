@@ -15,7 +15,7 @@
                 </div>
                 <div class="nav-contacts col row">
                     <a  href="mailTo:example@gmail.com" class="nav-email col-6"><span><div>&#x2709;</div> example@gmail.com</span></a>
-                    <a href="telTo:+77777777777" class="nav-tel col-6"><span><div>&#61707;</div> +7 (777) 777 77 77</span></a>
+                    <a href="telTo:+77777777777" class="nav-tel col-6"><span><div><i class="fa fa-mobile-alt" aria-hidden="true"></i></div> +7 (777) 777 77 77</span></a>
                 </div>
 
             </div>
@@ -27,7 +27,7 @@
                 <b-dropdown-item href="#">КОНТАКТЫ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#"></b-dropdown-item>
                 <b-dropdown-item href="mailTo:example@gmail.com"><div class="menu-icon">&#x2709;</div> example@gmail.com</b-dropdown-item>
-                <b-dropdown-item href="telTo:+77777777777"><div class="menu-icon">&#61707;</div> +7 (777) 777 77 77</b-dropdown-item>
+                <b-dropdown-item href="telTo:+77777777777"><div class="menu-icon"><i class="fa fa-mobile-alt" aria-hidden="true"></i></div> +7 (777) 777 77 77</b-dropdown-item>
             </b-nav-item-dropdown>
         </nav>
         <main>

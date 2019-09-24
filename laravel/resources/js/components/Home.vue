@@ -3,7 +3,6 @@
       <div>
           <b-carousel
                   id="carouselHome"
-                  v-model="slide"
                   :interval="4000"
                   controls
                   indicators
@@ -11,14 +10,13 @@
           >
               <!-- Text slides with image -->
               <b-carousel-slide>
-                  <div class="w-100 home-slide" ref="highestHomeSlide">
+                  <div class="w-100 home-slide home-slide-height">
                       <div class="home-slide-title">
                           Проектирование
                       </div>
-                      <div class="home-slide-p">
+                      <div class="home-slide-p ">
                           Подготовим всю необходимую документацию по интеграции электронных систем управления, автоматизации, домашних кинотеатров, охранных систем и систем домашнего развлечения.
-
-                          Обязательная часть в интеграции любых систем. Детальная проработка помогает предотвратить неприятные неожиданности в дальнейшем.
+                          Детальная проработка помогает предотвратить неприятные неожиданности в дальнейшем.
                       </div>
                   </div>
               </b-carousel-slide>
@@ -34,7 +32,7 @@
                   </div>
               </b-carousel-slide>
               <b-carousel-slide>
-                  <div class="w-100 home-slide home-slide-height">
+                  <div class="w-100 home-slide" ref="highestHomeSlide">
                       <div class="home-slide-title">
                           Настройка
                       </div>
@@ -104,8 +102,7 @@
                   <div class="home-service-text-wrap">
                       <div class="home-service-title">ПРОЕКТИРОВАНИЕ</div>
                       <div class="home-service-text">Подготовим всю необходимую документацию по интеграции электронных систем управления, автоматизации, домашних кинотеатров, охранных систем и систем домашнего развлечения.
-
-                          Обязательная часть в интеграции любых систем. Детальная проработка помогает предотвратить неприятные неожиданности в дальнейшем.</div>
+                          Детальная проработка помогает предотвратить неприятные неожиданности в дальнейшем.</div>
                   </div>
               </section>
               <section  class="col-6">
@@ -144,7 +141,6 @@
             <img src="/site_img/home-partners.png" class="home-partners">
           <b-carousel
                   id="carouselHomePartners"
-                  v-model="slide"
                   :interval="4000"
                   class=""
                   controls
@@ -474,7 +470,7 @@
                 width: 100%;
                 height: 40px;
                 background-color: #5a6268;
-                border-radius: 15px;
+                border-radius: 5px;
                 font-size: 14px;
                 padding: 10px;
                 border: none;
@@ -489,7 +485,7 @@
             textarea, textarea:focus{
                 width: 100%;
                 background-color: #5a6268;
-                border-radius: 15px;
+                border-radius: 5px;
                 font-size: 14px;
                 border: none;
                 outline: none;
@@ -679,11 +675,14 @@
 
                     .catch((error) =>{ this.allerrors = error.response.data.errors})
             },
-            matchHeight(e) {
-                this.$refs.homeSlider.setSlide(0);
-                let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
-                $('#carouselHome .home-slide-height').css('height', heightSlider);
-                console.log("resize height:" + heightSlider);
+            matchHeight() {
+                this.$refs.homeSlider.setSlide(2);
+                setTimeout(() => {
+                    let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
+                    $('#carouselHome .home-slide-height').css('height', heightSlider)}, 50
+                );
+
+                //console.log("resize height:" + heightSlider);
             }
         },
         mounted() {
