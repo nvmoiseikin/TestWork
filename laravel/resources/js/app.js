@@ -28,7 +28,7 @@ import App from './App.vue';
 import Home from './components/Home.vue';
 import Solutions from './components/Solutions.vue';
 import Services from './components/Services.vue';
-import Nav from './components/Nav.vue';
+import SolutionsComponent from './components/SolutionsComponent.vue';
 const routes = [
     {
         name: 'Home',
@@ -44,7 +44,13 @@ const routes = [
         name: 'Services',
         path: '/services',
         component: Services
+    },
+    {
+        name: 'SolutionsComponent',
+        path: '/solutions/:componentName',
+        component: SolutionsComponent
     }
+
 ];
 
 const router = new VueRouter({ mode: 'hash', routes: routes});

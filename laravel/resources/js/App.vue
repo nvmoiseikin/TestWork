@@ -7,27 +7,27 @@
                 </div>
                 <div class="nav-insight-right col row">
                     <div class="nav-menu col">
-                        <router-link to="/" class="nav-menu-item" exact>О нас</router-link>
-                        <router-link to="/solutions/" class="nav-menu-item">Решения</router-link>
-                        <router-link to="/services/" class="nav-menu-item">Услуги</router-link>
-                        <router-link to="/contacts/" class="nav-menu-item">Контакты</router-link>
+                        <router-link to="/" class="nav-menu-item" exact>О НАС</router-link>
+                        <router-link to="/solutions/" class="nav-menu-item">РЕШЕНИЯ</router-link>
+                        <router-link to="/services/" class="nav-menu-item">УСЛУГИ</router-link>
+                        <router-link to="/contacts/" class="nav-menu-item">КОНТАКТЫ</router-link>
                     </div>
                 </div>
                 <div class="nav-contacts col row">
-                    <a  href="mailTo:example@gmail.com" class="nav-email col-6">&#x2709; example@gmail.com</a>
-                    <a href="telTo:+77777777777" class="nav-tel col-6">&#61707; +7 (777) 777 77 77</a>
+                    <a  href="mailTo:example@gmail.com" class="nav-email col-6"><span><div>&#x2709;</div> example@gmail.com</span></a>
+                    <a href="telTo:+77777777777" class="nav-tel col-6"><span><div>&#61707;</div> +7 (777) 777 77 77</span></a>
                 </div>
 
             </div>
             <b-nav-item-dropdown   variant="link" toggle-class="text-decoration-none" no-caret class="nav-insight-small">
                 <template slot="button-content"><img src="/site_img/logo.png"></template>
-                <b-dropdown-item href="/">О нас <div class="float-right">></div></b-dropdown-item>
-                <b-dropdown-item href="/#/solutions/">Решения <div class="float-right">></div></b-dropdown-item>
-                <b-dropdown-item href="#">Услуги <div class="float-right">></div></b-dropdown-item>
-                <b-dropdown-item href="#">Контакты <div class="float-right">></div></b-dropdown-item>
+                <b-dropdown-item href="/">О НАС <div class="float-right">></div></b-dropdown-item>
+                <b-dropdown-item href="/#/solutions/">РЕШЕНИЯ <div class="float-right">></div></b-dropdown-item>
+                <b-dropdown-item href="#">УСЛУГИ <div class="float-right">></div></b-dropdown-item>
+                <b-dropdown-item href="#">КОНТАКТЫ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#"></b-dropdown-item>
-                <b-dropdown-item href="mailTo:example@gmail.com">&#x2709; example@gmail.com</b-dropdown-item>
-                <b-dropdown-item href="telTo:+77777777777">&#61707; +7 (777) 777 77 77</b-dropdown-item>
+                <b-dropdown-item href="mailTo:example@gmail.com"><div class="menu-icon">&#x2709;</div> example@gmail.com</b-dropdown-item>
+                <b-dropdown-item href="telTo:+77777777777"><div class="menu-icon">&#61707;</div> +7 (777) 777 77 77</b-dropdown-item>
             </b-nav-item-dropdown>
         </nav>
         <main>
@@ -91,13 +91,24 @@
                 color: black;
                 line-height: 20px;
                 padding: 6px 50px 6px 25px;
+                .menu-icon{
+                    &:first-of-type{
+                        width: 17px;
+                    }
+                    font-size: 16px;
+                    font-weight: 600;
+                    width: 11px;
+                    margin-right: 5px;
+                    float: left;
+                }
             }
             .dropdown-item:hover{
                 color: #2F8CA6;
                 outline: none;
             }
         }
-        .nav-insight-left{
+        .nav-insight-left{;
+            box-sizing: content-box;
             max-width: 200px;
             width: 200px;
             height: 55px;
@@ -134,9 +145,30 @@
             font-size: 12px;
             font-weight: 500;
             line-height: 55px;
+            height: 55px;
+            span{
+                display: inline-block;
+                height: 55px;
+                text-align: right;
+            }
+            div{
+                display: block;
+                float: left;
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 0;
+            }
         }
         .nav-tel{
             text-align: left;
+            span{
+                width: 103px;
+            }
+        }
+        .nav-email{
+            span{
+                width: 137px;
+            }
         }
         .nav-menu-item{
             line-height: 55px;

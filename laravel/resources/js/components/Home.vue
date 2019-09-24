@@ -128,7 +128,7 @@
                   <img class="home-service-img" src="/site_img/service-4.png">
                   <div class="home-service-text-wrap">
                       <div class="home-service-title">АУДИТ</div>
-                      <div class="home-service-text">Поможем определиться с оборудованием. Проконсультируем по принятым решениям.Проектирование важнейшая часть и тд и тп про проектирование, какое оноважное и все такое</div>
+                      <div class="home-service-text">Поможем определиться с оборудованием. Проконсультируем по принятым решениям.</div>
                   </div>
               </section>
           </div>
@@ -495,7 +495,6 @@
                 outline: none;
                 color: white;
                 box-shadow: none;
-                font-style: italic;
                 &::-webkit-input-placeholder {color:white;}
                 &::-moz-placeholder          {color:white;}/* Firefox 19+ */
                 &:-moz-placeholder           {color:white;}/* Firefox 18- */
