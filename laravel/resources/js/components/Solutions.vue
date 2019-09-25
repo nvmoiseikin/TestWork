@@ -413,7 +413,6 @@
             }
         },
         mounted() {
-            if(slide - this.prevslide > 0 || slide === 0){}
         },
         computed:{
         }

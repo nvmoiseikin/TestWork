@@ -205,7 +205,7 @@
                   <span v-if="allerrors.text" class="label-danger">{{ allerrors.text[0]}}</span>
               </div>
               <button type="submit" class="btn-submit">ОТПРАВИТЬ</button>
-              <img class="home-logo-bottom" src="/site_img/logo-white.png">
+              <a href="#"><img class="home-logo-bottom" src="/site_img/logo-white.png"></a>
               <div class="clear-fix"></div>
           </form>
       </div>
@@ -401,7 +401,7 @@
                  text-align: left;
                  font-family: Roboto;
                  font-weight: 500;
-                 line-height: 18px;
+                 line-height: 22px;
                  font-size: 16px;
                  color: black;
                  float: left;

@@ -3,7 +3,7 @@
         <nav class="nav-wrap">
             <div class="nav-insight row">
                 <div class="nav-insight-left col">
-                    <img src="/site_img/logo.png">
+                    <a href="/"><img src="/site_img/logo.png"></a>
                 </div>
                 <div class="nav-insight-right col row">
                     <div class="nav-menu col">
@@ -162,7 +162,7 @@
         .nav-tel{
             text-align: left;
             span{
-                width: 103px;
+                width: 120px;
             }
         }
         .nav-email{
