@@ -15,44 +15,14 @@
             </div>
             <div id="carouselSolutionsHome">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Управление1</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей. В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Домашние кинотеатры2</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Wi-fi3</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Домашние кинотеатры4</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Управление5</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Wi-fi6</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Домашние кинотеатры7</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
+                    <router-link v-for="(data, index) in solutionData.home" :class='{"carousel-item":"true","active":(index==0)}' :to="data.path" :key="index">
+                        <img :src="firstPhoto(data.photos)">
+                        <div class="carousel-item-title">{{data.title}}</div>
+                        <div class="carousel-item-text">{{data.small_text}}</div>
+                    </router-link>
                 </div>
-                <div @click="prevSlide('carouselSolutionsHome')" class="arrow-left" id="prev"><div class="icon-left"></div></div>
-                <div @click="nextSlide('carouselSolutionsHome')" class="arrow-right" id="next"><div class="icon-right"></div></div>
+                <div @click="prevSlide('carouselSolutionsHome')" class="arrow-left"><div class="icon-left"></div></div>
+                <div @click="nextSlide('carouselSolutionsHome')" class="arrow-right"><div class="icon-right"></div></div>
             </div>
         </div>
         <div class="solutions-business-small">
@@ -68,41 +38,41 @@
             </div>
             <div id="carouselSolutionsBusiness">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <a  href="/#/solutions/управление" class="carousel-item active">
                         <img src="/site_img/smart-home.png">
                         <div class="carousel-item-title">Управление1</div>
                         <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
+                    </a>
+                    <a href="/#/solutions/управление" class="carousel-item">
                         <img src="/site_img/smart-home.png">
                         <div class="carousel-item-title">Системы оповещения2</div>
                         <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
+                    </a>
+                    <a href="/#/solutions/управление" class="carousel-item">
                         <img src="/site_img/smart-home.png">
                         <div class="carousel-item-title">Видеонаблюдения3</div>
                         <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
+                    </a>
+                    <a href="/#/solutions/управление" class="carousel-item">
                         <img src="/site_img/smart-home.png">
                         <div class="carousel-item-title">Системы оповещения4</div>
                         <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
+                    </a>
+                    <a href="/#/solutions/управление" class="carousel-item">
                         <img src="/site_img/smart-home.png">
                         <div class="carousel-item-title">Управление5</div>
                         <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
+                    </a>
+                    <a href="/#/solutions/управление" class="carousel-item">
                         <img src="/site_img/smart-home.png">
                         <div class="carousel-item-title">Системы оповещения6</div>
                         <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
-                    <div class="carousel-item">
+                    </a>
+                    <a href="/#/solutions/управление" class="carousel-item">
                         <img src="/site_img/smart-home.png">
                         <div class="carousel-item-title">Видеонаблюдения7</div>
                         <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </div>
+                    </a>
                 </div>
                 <div @click="prevSlide('carouselSolutionsBusiness')" class="arrow-left" id="prev"><div class="icon-left"></div></div>
                 <div @click="nextSlide('carouselSolutionsBusiness')" class="arrow-right" id="next"><div class="icon-right"></div></div>
@@ -115,7 +85,7 @@
 <style lang="scss">
     @import "~bulma";
     @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
-    .Solutions-page{
+    .Solutions-page {
         max-width: $widescreen;
         margin: 0 auto;
     }
@@ -176,7 +146,7 @@
             }
         }
         .content-title-hr{
-            width: calc(100% - 200px);
+            width: calc(100% - 220px);
             border-bottom: 2px solid black;
             height: 18px;
             float: left;
@@ -193,6 +163,9 @@
             overflow-x: hidden;;
         }
         .carousel-item{
+            &:hover{
+                text-decoration: none;
+            }
             width: 90%;
             color: black;
             text-align: center;
@@ -229,7 +202,7 @@
             position: absolute;
             top: 0;
             display: flex;
-            width: 25%;
+            width: 60px;
             flex-direction: column;
             justify-content: center;
             height: 100%;
@@ -306,7 +279,7 @@
             }
         }
 
-        .Solutions-page {
+        .Solutions-page{
             /* show 3 items */
             .carousel-inner .active,
             .carousel-inner .active + .carousel-item,
@@ -381,7 +354,11 @@
         data() {
             return {
                 prevslide: 0,
-                timerId: 0
+                timerId: 0,
+                solutionData: {
+                    home: '',
+                    business: ''
+                }
             };
         },
         methods: {
@@ -414,11 +391,24 @@
                     $('#' + carousel + ' .active').addClass('carousel-item-left').removeClass('carousel-item-next');
 
                 } , 50);
+            },
+            firstPhoto(data){
+                return data.split(" ")[0];
             }
         },
-        mounted() {
+        beforeMount: function(){
+            var that = this;
+            this.axios
+                .get('/solutionsHome/get')
+                .then(function(response) {
+                    that.solutionData.home = response.data[0];
+                    //that.solutionData.business = response.data[1];
+                });
+
         },
         computed:{
+
         }
+
     }
 </script>

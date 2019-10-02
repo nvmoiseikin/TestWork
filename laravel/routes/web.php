@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::post('/contactUs', "ControllerContactUs@ship");
+
+Route::get('solutions/get/{for}/{name}', 'ControllerSolutionItem@index');
+Route::get('solutionsHome/get', 'ControllerSolution@index');
