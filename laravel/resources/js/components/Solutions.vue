@@ -38,41 +38,11 @@
             </div>
             <div id="carouselSolutionsBusiness">
                 <div class="carousel-inner">
-                    <a  href="/#/solutions/управление" class="carousel-item active">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Управление1</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </a>
-                    <a href="/#/solutions/управление" class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Системы оповещения2</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </a>
-                    <a href="/#/solutions/управление" class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Видеонаблюдения3</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </a>
-                    <a href="/#/solutions/управление" class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Системы оповещения4</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </a>
-                    <a href="/#/solutions/управление" class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Управление5</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </a>
-                    <a href="/#/solutions/управление" class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Системы оповещения6</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </a>
-                    <a href="/#/solutions/управление" class="carousel-item">
-                        <img src="/site_img/smart-home.png">
-                        <div class="carousel-item-title">Видеонаблюдения7</div>
-                        <div class="carousel-item-text">В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей</div>
-                    </a>
+                    <router-link v-for="(data, index) in solutionData.business" :class='{"carousel-item":"true","active":(index==0)}' :to="data.path" :key="index">
+                        <img :src="firstPhoto(data.photos)">
+                        <div class="carousel-item-title">{{data.title}}</div>
+                        <div class="carousel-item-text">{{data.small_text}}</div>
+                    </router-link>
                 </div>
                 <div @click="prevSlide('carouselSolutionsBusiness')" class="arrow-left" id="prev"><div class="icon-left"></div></div>
                 <div @click="nextSlide('carouselSolutionsBusiness')" class="arrow-right" id="next"><div class="icon-right"></div></div>
@@ -88,68 +58,76 @@
     .Solutions-page {
         max-width: $widescreen;
         margin: 0 auto;
-    }
-    .solutions-title-small{
-        width: 100%;
-        font-family: Roboto;
-        font-size: 18px;
-        font-weight: 500;
-        color: #2F8CA6;
-        line-height: 40px;
-        text-align: center;
-        height: 40px;
-        background-color: #2F4052;
-    }
-    .solutions-title{
-        width: 100%;
-        font-family: Roboto;
-        font-size: 30px;
-        font-weight: 500;
-        color: #2F8CA6;
-        line-height: 36px;
-        text-align: center;
-        height: 36px;
-        margin: 25px 0;
-        display: none;
-    }
-    .solutions-home-small, .solutions-business-small{
-        width: 90%;
-        margin: 0 auto;
-        &-title{
+
+        .solutions-title-small {
+            width: 100%;
             font-family: Roboto;
             font-size: 18px;
+            font-weight: 500;
+            color: #2F8CA6;
+            line-height: 40px;
+            text-align: center;
+            height: 40px;
+            background-color: #2F4052;
+        }
+
+        .solutions-title {
+            width: 100%;
+            font-family: Roboto;
+            font-size: 30px;
             font-weight: 500;
             color: #2F8CA6;
             line-height: 36px;
             text-align: center;
             height: 36px;
-        }
-    }
-    .solutions-home, .solutions-business{
-        width: 100%;
-        max-width: 1900px;
-        margin: 0 auto;
-        &-title{
+            margin: 25px 0;
             display: none;
-            margin-bottom: 20px;
-            span{
-                display: block;
-                width: 200px;
+        }
+
+        .solutions-home-small, .solutions-business-small {
+            width: 90%;
+            margin: 0 auto;
+
+            &-title {
                 font-family: Roboto;
-                font-size: 30px;
+                font-size: 18px;
                 font-weight: 500;
                 color: #2F8CA6;
                 line-height: 36px;
                 text-align: center;
                 height: 36px;
-                float: left;
             }
         }
-        .content-title-hr{
-            width: calc(100% - 220px);
-            border-bottom: 2px solid black;
-            height: 18px;
-            float: left;
+
+        .solutions-home, .solutions-business {
+            width: 100%;
+            max-width: 1900px;
+            margin: 0 auto;
+
+            &-title {
+                display: none;
+                margin-bottom: 20px;
+
+                span {
+                    display: block;
+                    width: 200px;
+                    font-family: Roboto;
+                    font-size: 30px;
+                    font-weight: 500;
+                    color: #2F8CA6;
+                    line-height: 36px;
+                    text-align: center;
+                    height: 36px;
+                    float: left;
+                }
+            }
+
+            .content-title-hr {
+                width: calc(100% - 220px);
+                border-bottom: 2px solid black;
+                height: 18px;
+                float: left;
+            }
         }
     }
     #carouselSolutionsHome, #carouselSolutionsBusiness{
@@ -252,12 +230,14 @@
 
     }
     @media (min-width: 768px) {
-        .solutions-home-title, .solutions-business-title, .solutions-title{
-            display: block;
-        }
+        .Solutions-page {
+            .solutions-home-title, .solutions-business-title, .solutions-title {
+                display: block;
+            }
 
-        .solutions-home-small, .solutions-business-small, .solutions-title-small{
-            display: none;
+            .solutions-home-small, .solutions-business-small, .solutions-title-small {
+                display: none;
+            }
         }
 
         .Solutions-page {
@@ -402,7 +382,7 @@
                 .get('/solutionsHome/get')
                 .then(function(response) {
                     that.solutionData.home = response.data[0];
-                    //that.solutionData.business = response.data[1];
+                    that.solutionData.business = response.data[1];
                 });
 
         },

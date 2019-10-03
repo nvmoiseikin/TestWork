@@ -11,8 +11,9 @@
             <div class="solutions">
                 <div class="solutions-title">
                     <span>{{solutionData.title}}</span>
-                    <div class="content-title-hr"></div>
-                    <div class="clear-fix"></div>
+                    <div class="content-title-hr">
+                        <div class="content-title-hr-inside"></div>
+                    </div>
                 </div>
                 <div class="solutionsImg">
                     <div v-for="(photo, index) in photos" class="item active">
@@ -110,13 +111,13 @@
                 span {
                     display: block;
                     width: auto;
+                    max-width: 350px;
                     font-family: Roboto;
                     font-size: 30px;
                     font-weight: 500;
                     color: #2F8CA6;
                     line-height: 36px;
                     text-align: center;
-                    height: 36px;
                     margin: 0  0  0 20px;
                 }
             }
@@ -124,9 +125,15 @@
             .content-title-hr {
                 margin: 0 20px;
                 flex: 1 1 200px;
-                border-bottom: 2px solid black;
-                height: 18px;
-                float: left;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                &-inside{
+                    width: 100%;
+                    height: 1px;
+                    border-bottom: 2px solid black;
+                }
             }
         }
 
@@ -135,7 +142,6 @@
             width: 90%;
             position: relative;
             margin: 0 auto;
-            display: block;
             justify-content: space-between;
             .item {
                 margin: 15px auto;

@@ -18,7 +18,7 @@ protected $solution = [];
 public function index()
 {
     $solution[0] = Solution::where('for', 'Для дома')->get();
-    //$solution[1] = Solution::where('for', 'Для бизнеса')->get();
+    $solution[1] = Solution::where('for', 'Для бизнеса')->get();
     //return $for.'/'.$name;
     return  $solution;
 }
