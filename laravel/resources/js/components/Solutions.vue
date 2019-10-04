@@ -137,8 +137,9 @@
         position: relative;
         margin: 0 auto;
         .carousel-inner{
+            position: relative;
             height: auto;
-            overflow-x: hidden;;
+            overflow-x: hidden;
         }
         .carousel-item{
             &:hover{
@@ -148,6 +149,7 @@
             color: black;
             text-align: center;
             height: auto;
+            top: -100%;
             &-text{
                 font-family: Roboto;
                 font-size: 12px;
@@ -175,6 +177,7 @@
                 display: block;
                 height: auto;
             }
+
         }
         .arrow-left, .arrow-right{
             position: absolute;
@@ -195,33 +198,74 @@
 
         }
         .arrow-right{
-            right: 0;
+            right: -20px;
+            &:hover{
+                cursor: pointer;
+            }
             .icon-right{
-                align-self: flex-end;
+                align-self: center;
                 background-image: url('/site_img/next-icon-solutions.png');
-                background-position: right center
+                background-position: center center
             }
         }
         .arrow-left{
-            left: 0;
+            left: -20px;
+            &:hover{
+                cursor: pointer;
+            }
             .icon-left{
-                align-self: flex-start;
+                align-self: center;
                 background-image: url('/site_img/prev-icon-solutions.png');
-                background-position: left center;
+                background-position: center center;
             }
         }
-
+        .right{
+            animation: right .6s linear;
+        }
+        .right-first{
+            animation: right-first .6s linear;
+            display: block;
+            position: absolute;
+            top: 0 !important;
+            left: 0 !important;
+        }
+        @keyframes right {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(112%, 0, 0);}
+        }
+        @keyframes right-first {
+            0% {transform: translate3d(-112%, 0, 0);}
+            100% { transform: translate3d(0, 0, 0); }
+        }
+        .left{
+            animation: left .6s linear;
+        }
+        .left-last{
+            animation: left-last .6s linear;
+            display: block;
+            position: absolute;
+            top: 0 !important;
+            right: 0 !important;
+        }
+        @keyframes left {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-112%, 0, 0);}
+        }
+        @keyframes left-last {
+            0% {transform: translate3d(112%, 0, 0);}
+            100% { transform: translate3d(0, 0, 0); }
+        }
     }
 
     /*********  SLIDER ******/
     @media (max-width: 768px) {
         .Solutions-page {
             .active.carousel-item-left {
-                transform: translate3d(0, 0, 0);
+                //transform: translate3d(0, 0, 0);
             }
 
             .active.carousel-item-right {
-                transform: translate3d(0, 0, 0);
+                //transform: translate3d(0, 0, 0);
             }
             .carousel-item {
                 margin: 0 5% 20px !important;
@@ -260,67 +304,16 @@
         }
 
         .Solutions-page{
+
+
             /* show 3 items */
             .carousel-inner .active,
             .carousel-inner .active + .carousel-item,
-            .carousel-inner .active + .carousel-item + .carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
-                transition: none;
-            }
-
-            .carousel-inner .carousel-item-next,
-            .carousel-inner .carousel-item-next + .carousel-item,
-            .carousel-inner .carousel-item-next + .carousel-item + .carousel-item,
-            .carousel-inner .carousel-item-next + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-            }
-
-            .carousel-inner .carousel-item-prev,
-            .carousel-inner .carousel-item-prev + .carousel-item,
-            .carousel-inner .carousel-item-prev + .carousel-item + .carousel-item,
-            .carousel-inner .carousel-item-prev + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-            }
-
-            /* left or forward direction */
-            .active.carousel-item-left,
-            .active.carousel-item-left + .carousel-item,
-            .active.carousel-item-left + .carousel-item + .carousel-item,
-            .active.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
-            .active.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(0, 0, 0);
-                visibility: visible;
-                transition: transform 0.6s ease-in-out;
-            }
-
-            /* farthest right hidden item must be abso position for animations */
-            .carousel-inner .carousel-item-right.carousel-item-prev {
-                position: absolute;
-                top: 0;
-                left: 0;
+            .carousel-inner .active + .carousel-item + .carousel-item
+            {
                 display: block;
                 visibility: visible;
-            }
-
-            /* right or prev direction */
-            .active.carousel-item-right,
-            .active.carousel-item-right + .carousel-item,
-            .active.carousel-item-right + .carousel-item + .carousel-item,
-            .active.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
-            .active.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
                 transform: translate3d(0, 0, 0);
-                visibility: visible;
-                transition: transform 0.6s ease-in-out;
             }
 
         }
@@ -335,6 +328,8 @@
             return {
                 prevslide: 0,
                 timerId: 0,
+                items: 3,
+                slideDuration: 600,
                 solutionData: {
                     home: '',
                     business: ''
@@ -345,32 +340,43 @@
             nextSlide(carousel) {
 
                 var totalItems = $('#' + carousel + ' .carousel-item').length;
-                console.log(totalItems);
-                $('#' + carousel + ' .carousel-item-right, #' + carousel + ' .carousel-item-left').removeClass('carousel-item-right').removeClass('carousel-item-left');
-                $('#' + carousel + ' .carousel-item-prev, #' + carousel + ' .carousel-item-next').removeClass('carousel-item-prev').removeClass('carousel-item-next');
+                var x = '#' + carousel + ' .carousel-item.active, #' + carousel + ' .carousel-item.active + .carousel-item, #' + carousel +
+                    ' .carousel-item.active + .carousel-item + .carousel-item';
+                $('#' + carousel + ' .right, #' + carousel + ' .left').removeClass('right').removeClass('left');
+                $('#' + carousel + ' .right-first, #' + carousel + ' .left-last').removeClass('right-first').removeClass('left-last');
 
-                $('#' + carousel + ' .active').removeClass('active');
-                $('#' + carousel + ' .carousel-item').eq(totalItems-1).addClass('active').addClass('carousel-item-prev').prependTo('#' + carousel + ' .carousel-inner');
+                $(x).addClass("right");
+
+                $('#' + carousel + ' .carousel-item').eq(totalItems - 1).prependTo('#' + carousel + ' .carousel-inner');
+                $('#' + carousel + ' .carousel-item').eq(0).addClass("right-first");
 
                 setTimeout(function(){
-                    $('#' + carousel + ' .active').addClass('carousel-item-right').removeClass('carousel-item-prev');
-
-                } , 50);
+                    $('#' + carousel + ' .active').removeClass('active');
+                    $('#' + carousel + ' .carousel-item').eq(0).addClass('active');
+                    $('#' + carousel + ' .right-first').removeClass("right-first");
+                    $('#' + carousel + ' .right').removeClass("right");
+                } , 600);
             },
             prevSlide(carousel) {
 
                 var totalItems = $('#' + carousel + ' .carousel-item').length;
-                $('#' + carousel + ' .carousel-item-right, #' + carousel + ' .carousel-item-left').removeClass('carousel-item-right').removeClass('carousel-item-left');
-                $('#' + carousel + ' .carousel-item-prev, #' + carousel + ' .carousel-item-next').removeClass('carousel-item-prev').removeClass('carousel-item-next');
+                var x = '#' + carousel + ' .carousel-item.active, #' + carousel + ' .carousel-item.active + .carousel-item, #' + carousel +
+                    ' .carousel-item.active + .carousel-item + .carousel-item';
+                if (this.isMobile)  this.items = 1;
+                $('#' + carousel + ' .right, #' + carousel + ' .left').removeClass('right').removeClass('left');
+                $('#' + carousel + ' .right-first, #' + carousel + ' .left-last').removeClass('right-first').removeClass('left-last');
 
-                $('#' + carousel + ' .active').removeClass('active');
-                $('#' + carousel + ' .carousel-item').eq(0).appendTo('#' + carousel + ' .carousel-inner');
-                $('#' + carousel + ' .carousel-item').eq(0).addClass('active').addClass('carousel-item-next');
+                $(x).addClass("left");
+
+                $('#' + carousel + ' .carousel-item').eq(this.items).addClass('left-last');
 
                 setTimeout(function(){
-                    $('#' + carousel + ' .active').addClass('carousel-item-left').removeClass('carousel-item-next');
-
-                } , 50);
+                    $('#' + carousel + ' .carousel-item').eq(0).appendTo('#' + carousel + ' .carousel-inner');
+                    $('#' + carousel + ' .active').removeClass('active');
+                    $('#' + carousel + ' .carousel-item').eq(0).addClass('active');
+                    $('#' + carousel + ' .left-last').removeClass("left-last");
+                    $('#' + carousel + ' .left').removeClass("left");
+                } , 600);
             },
             firstPhoto(data){
                 return data.split(" ")[0];
@@ -386,8 +392,12 @@
                 });
 
         },
-        computed:{
-
+        computed: {
+            isMobile() {
+                if (window.innerWidth <= 768) {
+                    return true
+                } return false
+            }
         }
 
     }

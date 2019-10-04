@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23010bf9-e784-437a-81b1-8c5ea17fb956" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ControllerSolution.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ControllerSolution.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/js/components/SolutionsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/js/components/SolutionsComponent.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="73" column="49" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
+            <state relative-caret-position="535">
+              <caret line="86" column="84" selection-start-line="86" selection-start-column="84" selection-end-line="86" selection-end-column="84" />
               <folding>
                 <element signature="e#7#31#0#PHP" expanded="true" />
               </folding>
@@ -34,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/SolutionsComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
@@ -67,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="240" column="9" selection-start-line="240" selection-start-column="9" selection-end-line="240" selection-end-column="9" />
+            <state relative-caret-position="467">
+              <caret line="218" column="43" selection-start-line="218" selection-start-column="43" selection-end-line="218" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -149,9 +147,9 @@
         <option value="$PROJECT_DIR$/laravel/routes/web.php" />
         <option value="$PROJECT_DIR$/laravel/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/laravel/app/Http/Controllers/ControllerSolution.php" />
-        <option value="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue" />
         <option value="$PROJECT_DIR$/laravel/resources/js/components/SolutionsComponent.vue" />
+        <option value="$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue" />
+        <option value="$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php" />
       </list>
     </option>
   </component>
@@ -240,7 +238,7 @@
       <path value="$PROJECT_DIR$/laravel/vendor/sebastian/recursion-context" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="59" />
     <option name="width" value="1036" />
@@ -407,12 +405,12 @@
       <workItem from="1568283629252" duration="9309000" />
       <workItem from="1568363526370" duration="78815000" />
       <workItem from="1569686359194" duration="397000" />
-      <workItem from="1570025109165" duration="33893000" />
+      <workItem from="1570025109165" duration="61675000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207605000" />
+    <option name="totallyTimeSpent" value="235387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -676,16 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="73" column="49" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-          <folding>
-            <element signature="e#7#31#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/Http/Controllers/ControllerSolutionItem.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -696,17 +684,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="240" column="9" selection-start-line="240" selection-start-column="9" selection-end-line="240" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/SolutionsComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="126" column="32" selection-start-line="126" selection-start-column="32" selection-end-line="126" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="218" column="43" selection-start-line="218" selection-start-column="43" selection-end-line="218" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="86" column="84" selection-start-line="86" selection-start-column="84" selection-end-line="86" selection-end-column="84" />
+          <folding>
+            <element signature="e#7#31#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
