@@ -190,19 +190,28 @@
       </div>
       <div class="contactUs">
           <div class="contactUs-left"></div>
-          <form action="/contactUs" method="post" role="form" class="form" id="form" @submit.prevent="onSubmit">
+          <form action="/contactUs" method="post" role="form" class="form" id="form" @submit.prevent="validate">
               <div class="form-title">СВЯЖИТЕСЬ С НАМИ</div>
               <div class="form-item">
-                  <input type="text" class="form-control" id="name" name="name" v-model="name" placeholder="ВВЕДИТЕ ВАШЕ  ИМЯ">
+                  <input type="text" class="form-control" id="name" name="name" v-model="message.name" placeholder="ВВЕДИТЕ ВАШЕ  ИМЯ">
                   <span v-if="allerrors.name" class="label-danger">{{ allerrors.name[0]}}</span>
               </div>
               <div class="form-item">
-                  <input type="email" class="form-control" id="email" name="email" v-model="email" placeholder="ВВЕДИТЕ ВАШУ ПОЧТУ">
+                  <input type="email" class="form-control" id="email" name="email" v-model="message.email" placeholder="ВВЕДИТЕ ВАШУ ПОЧТУ">
                   <span v-if="allerrors.email" class="label-danger">{{ allerrors.email[0]}}</span>
               </div>
               <div class="form-item">
-                  <textarea class="form-control" id="text" name="text" rows="4"  v-model="text" placeholder="ВВЕДИТЕ ТЕКСТ СООБЩЕНИЯ"></textarea>
+                  <textarea class="form-control" id="text" name="text" rows="4"  v-model="message.text" placeholder="ВВЕДИТЕ ТЕКСТ СООБЩЕНИЯ"></textarea>
                   <span v-if="allerrors.text" class="label-danger">{{ allerrors.text[0]}}</span>
+              </div>
+              <div class="form-group">
+                  <vue-recaptcha
+                          ref="recaptcha"
+                          size="invisible"
+                          :sitekey="sitekey"
+                          @verify="onSubmit"
+                          @expired="onCaptchaExpired"
+                  />
               </div>
               <button type="submit" class="btn-submit">ОТПРАВИТЬ</button>
               <a href="#"><img class="home-logo-bottom" src="/site_img/logo-white.png"></a>
@@ -650,15 +659,25 @@
     }
 </style>
 <script>
-    import $ from 'jquery'
+    import $ from 'jquery';
+    import VueRecaptcha from 'vue-recaptcha';
     export default {
+        components: { VueRecaptcha },
         data(){
             return{
-                name: "",
-                email: "",
-                allerrors: [],
-                text: "",
-                windowWidth: window.innerWidth
+                message : {
+                    name: "",
+                    email: "",
+                    text: "",
+                    recaptchaToken: ""
+                },
+                allerrors :  {
+                    name: "",
+                    email: "",
+                    text: ""
+                },
+                windowWidth: window.innerWidth,
+                sitekey: "6LdAK7wUAAAAAKlUhxY5y2r85iRu-1WjUQSMrjJs"
             }
         },
         created() {
@@ -668,12 +687,18 @@
             window.removeEventListener("resize", this.matchHeight);
         },
         methods: {
-            onSubmit() {
-                this.axios.post("/contactUs", this.$data)
+            onSubmit(recaptchaToken) {
+                this.message.recaptchaToken = recaptchaToken;
+                console.log(recaptchaToken, this.message);
+                this.allerrors.name = '';
+                this.allerrors.email = '';
+                this.allerrors.text = '';
 
-                    .then(response => console.log(response))
+                this.axios.post("/contactUs", this.message)
 
-                    .catch((error) =>{ this.allerrors = error.response.data.errors})
+                    .then((response) => {console.log(response.data['success']); this.allerrors.success = response.data['success']})
+
+                    .catch((error) =>{  if (error.response.data.errors) this.allerrors = error.response.data.errors; })
             },
             matchHeight() {
                 this.$refs.homeSlider.setSlide(2);
@@ -683,10 +708,22 @@
                 );
 
                 //console.log("resize height:" + heightSlider);
+            },
+            onCaptchaExpired () {
+                this.$refs.recaptcha.reset()
+            },
+            validate () {
+                this.$refs.recaptcha.execute()
             }
         },
         mounted() {
-            this.matchHeight()
+            this.matchHeight();
+        },
+        beforeMount() {
+            const $script = document.createElement('script')
+            $script.async = true
+            $script.src = 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit'
+            document.head.appendChild($script)
         }
     }
 </script>

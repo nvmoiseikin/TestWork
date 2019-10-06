@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Exception;
 use Validator;
+use Illuminate\Http\Response;
+use GuzzleHttp\Client;
 //use App\Mail\ContactUsMail;
 
 class ControllerContactUs extends Controller
@@ -17,6 +19,19 @@ class ControllerContactUs extends Controller
         //return redirect(route('contacts'));
     }
 
+    protected function checkRecaptcha($token, $ip)
+    {
+        $response = (new Client)->post('https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => [
+                'secret'   => config('recaptcha.secret'),
+                'response' => $token,
+                'remoteip' => $ip,
+            ],
+        ]);
+        $response = json_decode((string)$response->getBody(), true);
+        return $response['success'];
+    }
+
     public function ship(Request $request)
     {
         $request->validate([
@@ -24,9 +39,15 @@ class ControllerContactUs extends Controller
             'email' => 'required|max:127|email',
             'text' => 'required|max:1023'
         ]);
-        return response()->json(['success'=>'Done!']);
 
-        $data = $request->all();
+
+        if (config('recaptcha.enabled') && !$this->checkRecaptcha( $request->recaptchaToken, $request->ip())) {
+            return  response()->json(['success' => 'Captcha is invalid.']);
+        }
+        else {
+
+
+            $data = $request->all();
 
             try {
                 Mail::send('mail', ['data' => $data], function ($message) use ($data) {
@@ -37,16 +58,17 @@ class ControllerContactUs extends Controller
                     $message->to($mail_admin1)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
                     $message->to($mail_admin2)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
 
-                    return redirect('/#form')->with('myflag', '1');
+                    return redirect('/#form')->with(['success' => 'shipped']);
+
+
                     //var_dump($data);
                 });
             } catch (Exception $e) {
-                // var_dump($e);
-                ///die('not success');
+
+                return response()->json(['success' => 'not shipped']);
             }
-            return 'shipped';
 
-
+        }
         //$url = URL::route('home') . '#form';
         //return Redirect::to($url);
 

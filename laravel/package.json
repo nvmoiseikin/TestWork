@@ -33,6 +33,7 @@
         "buefy": "^0.7.10",
         "vue-bootstrap-slider": "^2.1.8",
         "vue-popperjs": "^2.1.0",
+        "vue-recaptcha": "^1.2.0",
         "vue2-bootstrap-dropdown": "^0.1.2"
     }
 }

@@ -41,7 +41,7 @@
         </div>
         <footer row>
             <div class="col-12 col-md-4 offset-md-4 footer-copy">© 2019 Smart Division. Все права защищены.</div>
-            <a href="telTo:+74955041519" class="col-0 col-md-4 footer-tel">+7-(495)-504-15-19</a>
+            <a href="telTo:+74955041519" class="col-0 col-md-3 footer-tel">+7-(495)-504-15-19</a>
             <a href="#" class="to-start"></a>
         </footer>
     </div>
@@ -55,6 +55,15 @@
     }
     .fade-enter, .fade-leave-active {
         opacity: 0
+    }
+    .grecaptcha-badge {
+        z-index: 99999999999999999;
+    }
+    html{
+        width: 100vw;
+        .container{
+            margin: 0;
+        }
     }
     nav{
         position: fixed;
@@ -200,10 +209,11 @@
         background-color: #283645;
         height: 80px;
         position: relative;
+        z-index: 0;
         .to-start{
             position: absolute;
             top: 20px;
-            right: 20px;
+            right: 80px;
             width: 40px;
             height: 40px;
             background-image: url('/site_img/prev-icon.png');
@@ -254,6 +264,10 @@
 
     /*** MEDIA ****/
     @media(max-width: 769px){
+        .grecaptcha-badge {
+            transform : scale(0.5) translate3d(-22%, -100%, 0);
+            transition: none;
+        }
         nav{
             padding: 0 0 !important;
             .nav-insight {
