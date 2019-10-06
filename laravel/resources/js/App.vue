@@ -14,8 +14,8 @@
                     </div>
                 </div>
                 <div class="nav-contacts col row">
-                    <a  href="mailTo:example@gmail.com" class="nav-email col-6"><span><div>&#x2709;</div> example@gmail.com</span></a>
-                    <a href="telTo:+77777777777" class="nav-tel col-6"><span><div><i class="fa fa-mobile-alt" aria-hidden="true"></i></div> +7 (777) 777 77 77</span></a>
+                    <a  href="mailTo:example@gmail.com" class="nav-email col-6"><span><div>&#x2709;</div>example@gmail.com</span></a>
+                    <a href="telTo:+74955041519" class="nav-tel col-6"><span><div><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7-(495)-504-15-19</span></a>
                 </div>
 
             </div>
@@ -26,8 +26,8 @@
                 <b-dropdown-item href="#">УСЛУГИ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#">КОНТАКТЫ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#"></b-dropdown-item>
-                <b-dropdown-item href="mailTo:example@gmail.com"><div class="menu-icon">&#x2709;</div> example@gmail.com</b-dropdown-item>
-                <b-dropdown-item href="telTo:+77777777777"><div class="menu-icon"><i class="fa fa-mobile-alt" aria-hidden="true"></i></div> +7 (777) 777 77 77</b-dropdown-item>
+                <b-dropdown-item href="mailTo:example@gmail.com"><div class="menu-icon">&#x2709;</div>example@gmail.com</b-dropdown-item>
+                <b-dropdown-item href="telTo:+74955041519"><div class="menu-icon"><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7-(495)-504-15-19</b-dropdown-item>
             </b-nav-item-dropdown>
         </nav>
         <main>
@@ -37,11 +37,11 @@
         </main>
         <div class="contactUs-contacts-small">
             <a  href="mailTo:example@gmail.com" class="">example@gmail.com</a>
-            <a href="telTo:+77777777777" class="">+7 (777) 777 77 77</a>
+            <a href="telTo:+74955041519" class="">+7-(495)-504-15-19</a>
         </div>
         <footer row>
             <div class="col-12 col-md-4 offset-md-4 footer-copy">© 2019 Smart Division. Все права защищены.</div>
-            <a href="telTo:+77777777777" class="col-0 col-md-4 footer-tel">+7 (777) 777 77 77</a>
+            <a href="telTo:+74955041519" class="col-0 col-md-4 footer-tel">+7-(495)-504-15-19</a>
             <a href="#" class="to-start"></a>
         </footer>
     </div>
@@ -57,7 +57,12 @@
         opacity: 0
     }
     nav{
+        position: fixed;
+        left: 0;
+        top: 0;
         width: 100%;
+        background-color: white;
+        z-index: 1000;
         padding: 15px 0;
         .nav-insight{
             margin: 0 auto !important;
@@ -149,7 +154,7 @@
             span{
                 display: inline-block;
                 height: 55px;
-                text-align: right;
+                text-align: left;
             }
             div{
                 display: block;
@@ -157,17 +162,19 @@
                 font-size: 16px;
                 font-weight: 600;
                 margin-top: 0;
+                padding-right: 3px;
             }
         }
         .nav-tel{
             text-align: left;
             span{
-                width: 120px;
+                width: 100%;
             }
         }
         .nav-email{
+            padding-right: 0;
             span{
-                width: 137px;
+                width: 100%;
             }
         }
         .nav-menu-item{
@@ -182,6 +189,10 @@
             max-width: 360px;
         }
 
+    }
+    main{
+        margin-top: 103px;
+        min-height: calc(100vh - 183px);
     }
     footer{
         display: flex !important;
@@ -245,11 +256,6 @@
     @media(max-width: 769px){
         nav{
             padding: 0 0 !important;
-            position: fixed;
-            left: 0;
-            top: 0;
-            background-color: white;
-            z-index: 1000;
             .nav-insight {
                 display: none;
             }
@@ -269,6 +275,7 @@
         }
         main{
             margin-top: 73px;
+            min-height: calc(100vh - 219px);
         }
         footer{
             height: 40px;
@@ -293,7 +300,7 @@
     @media(min-width: 769px) and (max-width: 1000px){
         nav{
             .nav-insight-right{
-
+                padding-left: 0;
                 flex-wrap: wrap;
                 .nav-contacts, .nav-menu{
                     width: 100%;
