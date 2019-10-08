@@ -3,7 +3,7 @@
       <div>
           <b-carousel
                   id="carouselHome"
-                  :interval="4000"
+                  :interval="6000"
                   controls
                   indicators
                   fade
@@ -243,8 +243,11 @@
     /**** CAROUSELs ***/
     #carouselHome {
         width: 100%;
-        background-color: #2F4052;
+        .carousel-item{
+            transition-duration: 3s;
+        }
         .carousel-caption {
+            background-color: #2F4052;
             position: static;
             width: 100%;
             padding: 200px 100px 164px;
