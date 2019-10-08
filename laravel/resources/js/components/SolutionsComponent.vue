@@ -151,7 +151,8 @@
                     max-width: 450px;
                     margin: 0 auto;
                     display: block;
-                    height: auto;
+                    height: 48vw;
+                    max-height: 270px;
                 }
             }
 
@@ -172,6 +173,10 @@
                 .item {
                     width: 30%;
                     margin: 20px auto 60px;
+                    img{
+                        height: 16vw;
+                        max-height: 220px;
+                    }
                 }
             }
             .solutions-small, .solutions-for-small, .solutions-text-small {
