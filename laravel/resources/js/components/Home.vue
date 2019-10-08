@@ -241,15 +241,15 @@
 
     /**** CAROUSELs ***/
     #carouselHome {
-        max-width: $widescreen;
-        margin: 0 auto;
+        width: 100%;
+        background-color: #2F4052;
         .carousel-caption {
             position: static;
             width: 100%;
             padding: 200px 100px 164px;
-            background-color: #2F4052;
             background-size: cover;
-
+            margin: 0 auto;
+            max-width: $widescreen;
             .home-slide {
                 max-width: 1200px;
                 margin: 0 auto;
