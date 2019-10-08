@@ -235,16 +235,21 @@
             max-width: 1900px !important;
             padding: 0;
             width: 100%;
+            margin: 0 auto;
         }
     }
 
     /**** CAROUSELs ***/
-    #carouselHome .carousel-caption{
-        position : static;
-        width: 100%;
-        padding: 200px 100px 164px;
-        background-color: #2F4052;
-        background-size: cover;
+    #carouselHome {
+        max-width: $widescreen;
+        margin: 0 auto;
+        .carousel-caption {
+            position: static;
+            width: 100%;
+            padding: 200px 100px 164px;
+            background-color: #2F4052;
+            background-size: cover;
+
             .home-slide {
                 max-width: 1200px;
                 margin: 0 auto;
@@ -263,6 +268,7 @@
                     font-size: 24px;
                 }
             }
+        }
     }
     #carouselHomePartners{
         display: none;

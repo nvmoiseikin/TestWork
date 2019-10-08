@@ -175,7 +175,8 @@
                 max-width: 450px;
                 margin: 0 auto;
                 display: block;
-                height: auto;
+                height: 16vw;
+                max-height: 220px;
             }
 
         }
@@ -267,8 +268,12 @@
             .active.carousel-item-right {
                 //transform: translate3d(0, 0, 0);
             }
-            .carousel-item {
+            #carouselSolutionsHome .carousel-item,  #carouselSolutionsBusiness .carousel-item{
                 margin: 0 5% 20px !important;
+                img{
+                    height: 48vw;
+                    max-height: 270px;
+                }
             }
         }
 
