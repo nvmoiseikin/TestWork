@@ -6,7 +6,6 @@
                   :interval="6000"
                   controls
                   indicators
-                  fade
                   ref="homeSlider"
           >
               <!-- Text slides with image -->
@@ -229,6 +228,9 @@
     .clear-fix{
         clear: both;
     }
+    html{
+        -webkit-tap-highlight-color: transparent;
+    }
     body{
         overflow-x: hidden;
         width: 100%;
@@ -244,7 +246,7 @@
     #carouselHome {
         width: 100%;
         .carousel-item{
-            transition-duration: 3s;
+            transition-duration: 2s;
         }
         .carousel-caption {
             background-color: #2F4052;
