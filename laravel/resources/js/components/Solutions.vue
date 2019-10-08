@@ -149,7 +149,6 @@
             color: black;
             text-align: center;
             height: auto;
-            top: -100%;
             &-text{
                 font-family: Roboto;
                 font-size: 12px;
@@ -262,11 +261,9 @@
     @media (max-width: 768px) {
         .Solutions-page {
             .active.carousel-item-left {
-                //transform: translate3d(0, 0, 0);
             }
 
             .active.carousel-item-right {
-                //transform: translate3d(0, 0, 0);
             }
             #carouselSolutionsHome .carousel-item,  #carouselSolutionsBusiness .carousel-item{
                 margin: 0 5% 20px !important;
@@ -318,7 +315,7 @@
             {
                 display: block;
                 visibility: visible;
-                transform: translate3d(0, 0, 0);
+
             }
 
         }
@@ -360,7 +357,7 @@
                     $('#' + carousel + ' .carousel-item').eq(0).addClass('active');
                     $('#' + carousel + ' .right-first').removeClass("right-first");
                     $('#' + carousel + ' .right').removeClass("right");
-                } , 600);
+                } , 580);
             },
             prevSlide(carousel) {
 
@@ -381,7 +378,7 @@
                     $('#' + carousel + ' .carousel-item').eq(0).addClass('active');
                     $('#' + carousel + ' .left-last').removeClass("left-last");
                     $('#' + carousel + ' .left').removeClass("left");
-                } , 600);
+                } , 580);
             },
             firstPhoto(data){
                 return data.split(" ")[0];
