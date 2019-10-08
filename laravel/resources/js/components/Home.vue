@@ -724,9 +724,11 @@
                 this.$refs.recaptcha.execute()
             },
             mainSliderImg() {
+                var jpg = 'jpg';
                 for (var i = 0; i < $('#carouselHome .carousel-caption').length; i++){
                     console.log(i);
-                    $('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + ".jpg')");
+                    if (i == 1) jpg = 'jpeg';
+                    $('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + "." + jpg + "')");
                 }
             }
         },

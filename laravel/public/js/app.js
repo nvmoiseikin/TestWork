@@ -4611,9 +4611,12 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.recaptcha.execute();
     },
     mainSliderImg: function mainSliderImg() {
+      var jpg = 'jpg';
+
       for (var i = 0; i < jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .carousel-caption').length; i++) {
         console.log(i);
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + ".jpg')");
+        if (i == 1) jpg = 'jpeg';
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + "." + jpg + "')");
       }
     }
   },
