@@ -244,22 +244,25 @@
         width: 100%;
         padding: 200px 100px 164px;
         background-color: #2F4052;
-        .home-slide{
-            max-width: 1200px;
-            margin: 0 auto;
-            font-weight: 600;
-            font-family: Roboto;
-            color: white;
-            text-align: center;
-            &-title{
-                width: calc(100% + 200px);
-                margin-left: -100px;
-                font-size: 78px;
+        background-size: cover;
+            .home-slide {
+                max-width: 1200px;
+                margin: 0 auto;
+                font-weight: 600;
+                font-family: Roboto;
+                color: white;
+                text-align: center;
+
+                &-title {
+                    width: calc(100% + 200px);
+                    margin-left: -100px;
+                    font-size: 78px;
+                }
+
+                &-p {
+                    font-size: 24px;
+                }
             }
-            &-p{
-                font-size: 24px;
-            }
-        }
     }
     #carouselHomePartners{
         display: none;
@@ -704,7 +707,8 @@
                 this.$refs.homeSlider.setSlide(2);
                 setTimeout(() => {
                     let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
-                    $('#carouselHome .home-slide-height').css('height', heightSlider)}, 50
+                    $('#carouselHome .home-slide-height').css('height', heightSlider)
+                    this.$refs.homeSlider.setSlide(0);}, 50
                 );
 
                 //console.log("resize height:" + heightSlider);
@@ -714,10 +718,17 @@
             },
             validate () {
                 this.$refs.recaptcha.execute()
+            },
+            mainSliderImg() {
+                for (var i = 0; i < $('#carouselHome .carousel-caption').length; i++){
+                    console.log(i);
+                    $('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + ".jpg')");
+                }
             }
         },
         mounted() {
             this.matchHeight();
+            this.mainSliderImg();
         },
         beforeMount() {
             const $script = document.createElement('script')
