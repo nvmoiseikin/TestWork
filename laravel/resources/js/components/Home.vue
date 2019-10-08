@@ -248,6 +248,10 @@
             width: 100%;
             padding: 200px 100px 164px;
             background-size: cover;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 700px;
             .home-slide {
                 max-width: 1200px;
                 margin: 0 auto;
@@ -569,6 +573,7 @@
     }
     @media (max-width: 768px){
         #carouselHome .carousel-caption{
+            min-height: 0;
             padding: 125px 100px 125px;
             .home-slide{
                 &-title{
@@ -733,8 +738,8 @@
             }
         },
         mounted() {
-            this.matchHeight();
             this.mainSliderImg();
+            this.matchHeight();
         },
         beforeMount() {
             const $script = document.createElement('script')
