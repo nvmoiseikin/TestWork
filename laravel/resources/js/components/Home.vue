@@ -248,8 +248,6 @@
             width: 100%;
             padding: 200px 100px 164px;
             background-size: cover;
-            margin: 0 auto;
-            max-width: $widescreen;
             .home-slide {
                 max-width: 1200px;
                 margin: 0 auto;
