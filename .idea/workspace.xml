@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23010bf9-e784-437a-81b1-8c5ea17fb956" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/laravel/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/js/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/js/components/Home.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="575" column="25" selection-start-line="575" selection-start-column="25" selection-end-line="575" selection-end-column="25" />
+            <state relative-caret-position="136">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding>
                 <element signature="e#23382#23405#0" expanded="true" />
               </folding>
@@ -424,12 +423,12 @@
       <workItem from="1568283629252" duration="9309000" />
       <workItem from="1568363526370" duration="78815000" />
       <workItem from="1569686359194" duration="397000" />
-      <workItem from="1570025109165" duration="91799000" />
+      <workItem from="1570025109165" duration="92272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265511000" />
+    <option name="totallyTimeSpent" value="265984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -728,13 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="14" selection-start-line="9" selection-start-column="8" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -745,10 +737,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/Solutions.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="14" selection-start-line="9" selection-start-column="8" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/resources/js/components/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="575" column="25" selection-start-line="575" selection-start-column="25" selection-end-line="575" selection-end-column="25" />
+        <state relative-caret-position="136">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
             <element signature="e#23382#23405#0" expanded="true" />
           </folding>

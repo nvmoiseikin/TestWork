@@ -6,6 +6,7 @@
                   :interval="4000"
                   controls
                   indicators
+                  fade
                   ref="homeSlider"
           >
               <!-- Text slides with image -->
