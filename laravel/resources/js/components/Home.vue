@@ -6,49 +6,45 @@
                   :interval="6000"
                   controls
                   indicators
+                  :speed="800"
                   ref="homeSlider"
           >
               <!-- Text slides with image -->
               <b-carousel-slide>
-                  <div class="w-100 home-slide home-slide-height">
-                      <div class="home-slide-title">
-                          Проектирование
-                      </div>
-                      <div class="home-slide-p ">
-                          Подготовим всю необходимую документацию по интеграции электронных систем управления, автоматизации, домашних кинотеатров, охранных систем и систем домашнего развлечения.
-                          Детальная проработка помогает предотвратить неприятные неожиданности в дальнейшем.
-                      </div>
-                  </div>
-              </b-carousel-slide>
-              <b-carousel-slide>
-                  <div class="w-100 home-slide home-slide-height">
-                      <div class="home-slide-title">
-                          Монтаж
-                      </div>
-                      <div class="home-slide-p">
-                          Поможем с монтажем видео и аудио систем, систем управления, локальной вычислительной сети и wifi.
-                          Правильный монтаж оборудования и коммуникационных трасс исключает большое число ошибок в работе электронных систем.
-                      </div>
-                  </div>
-              </b-carousel-slide>
-              <b-carousel-slide>
                   <div class="w-100 home-slide" ref="highestHomeSlide">
                       <div class="home-slide-title">
-                          Настройка
+                          ТЕРРИТОРИЯ МАКСИМАЛЬНОГО КОМФОРТА
                       </div>
-                      <div class="home-slide-p">
-                          Настроим оборудование для построения систем управления, видеонаблюдения, охранной сигнализации, оповещения, звукоусиления, проекционных систем и систем видеоотображения.
-                          Настройка оборудования позволит пользователю получить максимальный функционал системы.
+                      <div class="home-slide-p ">
+
                       </div>
                   </div>
               </b-carousel-slide>
               <b-carousel-slide>
                   <div class="w-100 home-slide home-slide-height">
                       <div class="home-slide-title">
-                          Аудит
+                          ТЕХНОЛОГИИ ДЛЯ ЖИЗНИ
                       </div>
                       <div class="home-slide-p">
-                          Поможем определиться с оборудованием. Проконсультируем по принятым решениям.
+                      </div>
+                  </div>
+              </b-carousel-slide>
+              <b-carousel-slide>
+                  <div class="w-100 home-slide home-slide-height">
+                      <div class="home-slide-title">
+                          СЕМЕЙНЫЙ КИНОЗАЛ
+                      </div>
+                      <div class="home-slide-p">
+                      </div>
+                  </div>
+              </b-carousel-slide>
+              <b-carousel-slide>
+                  <div class="w-100 home-slide home-slide-height">
+                      <div class="home-slide-title">
+                          ЛУЧШИЕ МУЗЫКАНТЫ У ВАС ДОМА
+                      </div>
+                      <div class="home-slide-p">
+
                       </div>
                   </div>
               </b-carousel-slide>
@@ -245,19 +241,18 @@
     /**** CAROUSELs ***/
     #carouselHome {
         width: 100%;
-        .carousel-item{
-            transition-duration: 2s;
-        }
         .carousel-caption {
             background-color: #2F4052;
             position: static;
             width: 100%;
             padding: 200px 100px 164px;
-            background-size: cover;
+            background-size: 100% 100%;
+            min-height: 700px;
+            .home-slide, &{
             display: flex;
             justify-content: center;
             flex-direction: column;
-            min-height: 700px;
+            }
             .home-slide {
                 max-width: 1200px;
                 margin: 0 auto;
@@ -267,8 +262,8 @@
                 text-align: center;
 
                 &-title {
-                    width: calc(100% + 200px);
-                    margin-left: -100px;
+                    width: 100%;
+                    margin-left: 0;
                     font-size: 78px;
                 }
 
@@ -557,6 +552,11 @@
         }
     }
     /**** MEDIA ****/
+    @media (max-width: 1900px){
+        #carouselHome .carousel-caption{
+            min-height: 60vw;
+        }
+    }
     @media (max-width: 1000px){
         .home-services{
             section {
@@ -576,10 +576,18 @@
                 display: none;
             }
         }
+        #carouselHome .carousel-caption{
+            min-height: 40vw;
+            .home-slide{
+                &-title{
+                    font-size: 50px;
+                }
+            }
+        }
     }
     @media (max-width: 768px){
         #carouselHome .carousel-caption{
-            min-height: 0;
+            min-height: 60vw;
             padding: 125px 100px 125px;
             .home-slide{
                 &-title{
@@ -636,9 +644,10 @@
             }
         }
         #carouselHome .carousel-caption{
+            padding: 75px 50px 75px;
             .home-slide{
                 &-title{
-                    font-size: 24px;
+                    font-size: 22px;
                 }
                 &-p{
                 }
@@ -719,11 +728,11 @@
                     .catch((error) =>{  if (error.response.data.errors) this.allerrors = error.response.data.errors; })
             },
             matchHeight() {
-                this.$refs.homeSlider.setSlide(2);
+                this.$refs.homeSlider.setSlide(0);
                 setTimeout(() => {
                     let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
                     $('#carouselHome .home-slide-height').css('height', heightSlider)
-                    this.$refs.homeSlider.setSlide(0);}, 50
+                    }, 50
                 );
 
                 //console.log("resize height:" + heightSlider);
@@ -738,7 +747,7 @@
                 var jpg = 'jpg';
                 for (var i = 0; i < $('#carouselHome .carousel-caption').length; i++){
                     console.log(i);
-                    if (i == 1) jpg = 'jpeg';
+                    if (i == 2) jpg = 'jpeg';
                     $('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + "." + jpg + "')");
                 }
             }
