@@ -23,7 +23,7 @@
                 <template slot="button-content"><img src="/site_img/logo.png"></template>
                 <b-dropdown-item href="/">О НАС <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="/#/solutions/">РЕШЕНИЯ <div class="float-right">></div></b-dropdown-item>
-                <b-dropdown-item href="#">УСЛУГИ <div class="float-right">></div></b-dropdown-item>
+                <b-dropdown-item href="/#/services/">УСЛУГИ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#">КОНТАКТЫ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#"></b-dropdown-item>
                 <b-dropdown-item href="mailTo:example@gmail.com"><div class="menu-icon">&#x2709;</div>example@gmail.com</b-dropdown-item>
