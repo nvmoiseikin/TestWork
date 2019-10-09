@@ -242,7 +242,7 @@
     #carouselHome {
         width: 100%;
         .carousel-caption {
-            background-color: #2F4052;
+            background-color: black;
             position: static;
             width: 100%;
             padding: 200px 100px 164px;
@@ -552,11 +552,6 @@
         }
     }
     /**** MEDIA ****/
-    @media (max-width: 1900px){
-        #carouselHome .carousel-caption{
-            min-height: 60vw;
-        }
-    }
     @media (max-width: 1000px){
         .home-services{
             section {
@@ -577,7 +572,6 @@
             }
         }
         #carouselHome .carousel-caption{
-            min-height: 40vw;
             .home-slide{
                 &-title{
                     font-size: 50px;
@@ -587,7 +581,7 @@
     }
     @media (max-width: 768px){
         #carouselHome .carousel-caption{
-            min-height: 60vw;
+            min-height: 0;
             padding: 125px 100px 125px;
             .home-slide{
                 &-title{
@@ -753,7 +747,7 @@
             }
         },
         mounted() {
-            this.mainSliderImg();
+            //this.mainSliderImg();
             this.matchHeight();
         },
         beforeMount() {
