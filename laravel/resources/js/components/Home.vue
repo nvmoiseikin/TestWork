@@ -15,9 +15,7 @@
                       <div class="home-slide-title">
                           ТЕРРИТОРИЯ МАКСИМАЛЬНОГО КОМФОРТА
                       </div>
-                      <div class="home-slide-p ">
 
-                      </div>
                   </div>
               </b-carousel-slide>
               <b-carousel-slide>
@@ -246,16 +244,16 @@
             position: static;
             width: 100%;
             padding: 200px 100px 164px;
-            background-size: contain;
+            background-size: 100% 100%;
             background-position: center center;
             background-repeat: no-repeat;
-            min-height: 700px;
             .home-slide, &{
             display: flex;
             justify-content: center;
             flex-direction: column;
             }
             .home-slide {
+                min-height: 336px;
                 max-width: 1200px;
                 margin: 0 auto;
                 font-weight: 600;
@@ -584,7 +582,6 @@
     }
     @media (max-width: 768px){
         #carouselHome .carousel-caption{
-            min-height: 0;
             padding: 125px 100px 125px;
             .home-slide{
                 &-title{
@@ -730,7 +727,7 @@
                     let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
                     console.log(heightSlider);
                     $('#carouselHome .home-slide-height').css('height', heightSlider)
-                    }, 50
+                    }, 100
                 );
 
                 //console.log("resize height:" + heightSlider);
@@ -752,8 +749,9 @@
             }
         },
         mounted() {
-            this.mainSliderImg();
             this.matchHeight();
+            this.mainSliderImg();
+
         },
         beforeMount() {
             const $script = document.createElement('script')
