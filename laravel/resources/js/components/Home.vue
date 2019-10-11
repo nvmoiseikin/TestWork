@@ -745,6 +745,7 @@
                     if (i == 1 || i == 3) jpg = 'jpeg';
                     if (i == 2)  jpg = 'JPG';
                     $('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + "." + jpg + "')");
+                    if (i == 0) $('#carouselHome .carousel-caption').eq(i).css("background-position", "50% 30%");
                 }
             }
         },
