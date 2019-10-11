@@ -4616,6 +4616,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.homeSlider.setSlide(0);
       setTimeout(function () {
         var heightSlider = _this2.$refs.highestHomeSlide.clientHeight + 'px';
+        console.log(heightSlider);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .home-slide-height').css('height', heightSlider);
       }, 50); //console.log("resize height:" + heightSlider);
     },

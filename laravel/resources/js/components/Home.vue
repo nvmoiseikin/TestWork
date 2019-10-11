@@ -728,6 +728,7 @@
                 this.$refs.homeSlider.setSlide(0);
                 setTimeout(() => {
                     let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
+                    console.log(heightSlider);
                     $('#carouselHome .home-slide-height').css('height', heightSlider)
                     }, 50
                 );
