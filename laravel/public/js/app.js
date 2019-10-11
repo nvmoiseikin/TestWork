@@ -4615,7 +4615,7 @@ __webpack_require__.r(__webpack_exports__);
         var heightSlider = _this2.$refs.highestHomeSlide.clientHeight + 'px';
         console.log(heightSlider);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .home-slide-height').css('height', heightSlider);
-      }, 100); //console.log("resize height:" + heightSlider);
+      }, 500); //console.log("resize height:" + heightSlider);
     },
     onCaptchaExpired: function onCaptchaExpired() {
       this.$refs.recaptcha.reset();

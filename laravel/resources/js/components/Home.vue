@@ -727,7 +727,7 @@
                     let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
                     console.log(heightSlider);
                     $('#carouselHome .home-slide-height').css('height', heightSlider)
-                    }, 100
+                    }, 500
                 );
 
                 //console.log("resize height:" + heightSlider);
