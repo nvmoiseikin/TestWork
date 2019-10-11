@@ -244,7 +244,7 @@
             position: static;
             width: 100%;
             padding: 200px 100px 164px;
-            background-size: 100% 100%;
+            background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             .home-slide, &{
