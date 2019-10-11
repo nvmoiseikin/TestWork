@@ -43,6 +43,11 @@
                         <div class="carousel-item-title">{{data.title}}</div>
                         <div class="carousel-item-text">{{data.small_text}}</div>
                     </router-link>
+                    <router-link v-for="(data, index) in solutionData.business" class='carousel-item' :to="data.path" :key="index">
+                        <img :src="firstPhoto(data.photos)">
+                        <div class="carousel-item-title">{{data.title}}</div>
+                        <div class="carousel-item-text">{{data.small_text}}</div>
+                    </router-link>
                 </div>
                 <div @click="prevSlide('carouselSolutionsBusiness')" class="arrow-left" id="prev"><div class="icon-left"></div></div>
                 <div @click="nextSlide('carouselSolutionsBusiness')" class="arrow-right" id="next"><div class="icon-right"></div></div>

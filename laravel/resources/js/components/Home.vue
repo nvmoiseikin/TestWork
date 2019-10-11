@@ -246,7 +246,9 @@
             position: static;
             width: 100%;
             padding: 200px 100px 164px;
-            background-size: 100% 100%;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
             min-height: 700px;
             .home-slide, &{
             display: flex;
@@ -573,6 +575,7 @@
         }
         #carouselHome .carousel-caption{
             .home-slide{
+                min-height: 0;
                 &-title{
                     font-size: 50px;
                 }
@@ -741,13 +744,14 @@
                 var jpg = 'jpg';
                 for (var i = 0; i < $('#carouselHome .carousel-caption').length; i++){
                     console.log(i);
-                    if (i == 2) jpg = 'jpeg';
+                    if (i == 1 || i == 3) jpg = 'jpeg';
+                    if (i == 2)  jpg = 'JPG';
                     $('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + "." + jpg + "')");
                 }
             }
         },
         mounted() {
-            //this.mainSliderImg();
+            this.mainSliderImg();
             this.matchHeight();
         },
         beforeMount() {
