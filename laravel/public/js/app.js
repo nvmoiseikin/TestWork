@@ -4590,7 +4590,7 @@ __webpack_require__.r(__webpack_exports__);
     matchHeight: function matchHeight() {
       this.$refs.homeSlider.setSlide(0);
       setTimeout(function () {
-        var heightSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .carousel-item').eq(0)[0].clientHeight + 'px';
+        var heightSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .home-slide').eq(0)[0].clientHeight + 'px';
         console.log(heightSlider);
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#carouselHome .home-slide-height').css('height', heightSlider);
       }, 500); //console.log("resize height:" + heightSlider);
@@ -48545,17 +48545,16 @@ var render = function() {
             }
           },
           _vm._l(_vm.sliderData, function(data, index) {
-            return _c(
-              "b-carousel-slide",
-              {
-                key: index,
-                class: {
-                  "home-slide w-100": "true",
-                  "home-slide-height": index != 0
-                }
-              },
-              [
-                _c("div", { staticClass: "w-100 home-slide" }, [
+            return _c("b-carousel-slide", { key: index }, [
+              _c(
+                "div",
+                {
+                  class: {
+                    "home-slide w-100": "true",
+                    "home-slide-height": index != 0
+                  }
+                },
+                [
                   _c("div", { staticClass: "home-slide-title" }, [
                     _vm._v(
                       "\n                       " +
@@ -48563,9 +48562,9 @@ var render = function() {
                         "\n                    "
                     )
                   ])
-                ])
-              ]
-            )
+                ]
+              )
+            ])
           }),
           1
         )

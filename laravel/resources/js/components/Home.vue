@@ -11,8 +11,8 @@
           >
 
               <!-- Text slides with image -->
-              <b-carousel-slide v-for="(data, index) in sliderData" :class='{"home-slide w-100":"true","home-slide-height":(index!=0)}' :key="index">
-                  <div class="w-100 home-slide">
+              <b-carousel-slide v-for="(data, index) in sliderData"  :key="index">
+                  <div :class='{"home-slide w-100":"true","home-slide-height":(index!=0)}'>
                       <div class="home-slide-title">
                          {{data.title}}
                       </div>
@@ -704,10 +704,10 @@
             matchHeight() {
                 this.$refs.homeSlider.setSlide(0);
                 setTimeout(() => {
-                    let heightSlider =  $('#carouselHome .carousel-item').eq(0)[0].clientHeight + 'px';
+                    let heightSlider =  $('#carouselHome .home-slide').eq(0)[0].clientHeight + 'px';
                     console.log(heightSlider);
                     $('#carouselHome .home-slide-height').css('height', heightSlider);
-                    }, 1000
+                    }, 500
                 );
 
                 //console.log("resize height:" + heightSlider);
