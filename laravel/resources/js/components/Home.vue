@@ -707,7 +707,7 @@
                     let heightSlider =  $('#carouselHome .carousel-item').eq(0)[0].clientHeight + 'px';
                     console.log(heightSlider);
                     $('#carouselHome .home-slide-height').css('height', heightSlider);
-                    }, 500
+                    }, 1000
                 );
 
                 //console.log("resize height:" + heightSlider);
