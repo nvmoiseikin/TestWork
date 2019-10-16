@@ -9,42 +9,16 @@
                   :speed="800"
                   ref="homeSlider"
           >
+
               <!-- Text slides with image -->
-              <b-carousel-slide>
-                  <div class="w-100 home-slide" ref="highestHomeSlide">
+              <b-carousel-slide v-for="(data, index) in sliderData" :class='{"home-slide w-100":"true","home-slide-height":(index!=0)}' :key="index">
+                  <div class="w-100 home-slide">
                       <div class="home-slide-title">
-                          ТЕРРИТОРИЯ МАКСИМАЛЬНОГО КОМФОРТА
+                         {{data.title}}
                       </div>
 
                   </div>
-              </b-carousel-slide>
-              <b-carousel-slide>
-                  <div class="w-100 home-slide home-slide-height">
-                      <div class="home-slide-title">
-                          ТЕХНОЛОГИИ ДЛЯ ЖИЗНИ
-                      </div>
-                      <div class="home-slide-p">
-                      </div>
-                  </div>
-              </b-carousel-slide>
-              <b-carousel-slide>
-                  <div class="w-100 home-slide home-slide-height">
-                      <div class="home-slide-title">
-                          СЕМЕЙНЫЙ КИНОЗАЛ
-                      </div>
-                      <div class="home-slide-p">
-                      </div>
-                  </div>
-              </b-carousel-slide>
-              <b-carousel-slide>
-                  <div class="w-100 home-slide home-slide-height">
-                      <div class="home-slide-title">
-                          ЛУЧШИЕ МУЗЫКАНТЫ У ВАС ДОМА
-                      </div>
-                      <div class="home-slide-p">
 
-                      </div>
-                  </div>
               </b-carousel-slide>
 
           </b-carousel>
@@ -239,18 +213,23 @@
     /**** CAROUSELs ***/
     #carouselHome {
         width: 100%;
-        .carousel-caption {
-            background-color: black;
-            position: static;
-            width: 100%;
-            padding: 200px 100px 164px;
+        .carousel-item{
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+        }
+        .carousel-caption {
+            //background: linear-gradient(to top, rgba(0,0,0,0.70), rgba(0,0,0,0.50));
+            position: static;
+            width: 100%;
+            padding: 200px 100px 164px;
             .home-slide, &{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
             }
             .home-slide {
                 min-height: 336px;
@@ -686,6 +665,7 @@
         components: { VueRecaptcha },
         data(){
             return{
+                sliderData: "",
                 message : {
                     name: "",
                     email: "",
@@ -724,9 +704,9 @@
             matchHeight() {
                 this.$refs.homeSlider.setSlide(0);
                 setTimeout(() => {
-                    let heightSlider = this.$refs.highestHomeSlide.clientHeight + 'px';
+                    let heightSlider =  $('#carouselHome .carousel-item').eq(0)[0].clientHeight + 'px';
                     console.log(heightSlider);
-                    $('#carouselHome .home-slide-height').css('height', heightSlider)
+                    $('#carouselHome .home-slide-height').css('height', heightSlider);
                     }, 500
                 );
 
@@ -739,26 +719,36 @@
                 this.$refs.recaptcha.execute()
             },
             mainSliderImg() {
-                var jpg = 'jpg';
-                for (var i = 0; i < $('#carouselHome .carousel-caption').length; i++){
-                    console.log(i);
-                    if (i == 1 || i == 3) jpg = 'jpeg';
-                    if (i == 2)  jpg = 'JPG';
-                    $('#carouselHome .carousel-caption').eq(i).css("background-image", "url('/site_img/main" + i + "." + jpg + "')");
-                    if (i == 0) $('#carouselHome .carousel-caption').eq(i).css("background-position", "50% 30%");
+                for (var i = 0; i < 4; i++) {
+
+                    $('#carouselHome .carousel-item').eq(i).css("background-image", "url(" + this.sliderData[i].photo + ")");
+                    $('#carouselHome .carousel-caption').eq(i).css( "background", this.sliderData[i].cover_bg);
+                    $('#carouselHome .carousel-item').eq(i).css("background-position", this.sliderData[i].background_position);
                 }
+            },
+            getData(){
+                var that = this;
+                this.axios
+                    .get('HomeSlider/get')
+                    .then(function(response) {
+                        that.sliderData = response.data;
+                        setTimeout(function () { that.mainSliderImg();
+                    });
+                })
             }
         },
         mounted() {
-            this.matchHeight();
-            this.mainSliderImg();
+           this.matchHeight();
+            this.getData();
 
         },
         beforeMount() {
             const $script = document.createElement('script')
-            $script.async = true
-            $script.src = 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit'
-            document.head.appendChild($script)
+            $script.async = true;
+            $script.src = 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit';
+            document.head.appendChild($script);
+
+
         }
     }
 </script>
