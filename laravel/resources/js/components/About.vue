@@ -1,6 +1,6 @@
 <template>
     <div class="main-container">
-        <div class="main-container About-page">
+        <div class="About-page">
             <div  class='about'>
                 <div class="about-title-small">О нас</div>
                 <div class="about-title-wrap">

@@ -1,6 +1,6 @@
 <template>
-    <div class="main-container">
-        <div class="main-container Contacts-page">
+    <div class="main-container main-container-contacts">
+        <div class="Contacts-page">
             <div class="contacts-title-small">Наши контакты</div>
             <div class="contacts-title-wrap">
                 <div class="contacts-hr contacts-hr-left"></div>
@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="contactUs">
+        <div class="contactUs contacts-contactUs">
             <div class="contactUs-left"></div>
             <form action="/contactUs" method="post" role="form" class="form" id="form" @submit.prevent="validate">
                 <div class="form-title">СВЯЖИТЕСЬ С НАМИ</div>
@@ -53,9 +53,16 @@
     @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
     $title-color: #2F8CA6;
     $contacts-text-color: #00BC9C;
+    .main-container-contacts{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: inherit;
+    }
     .Contacts-page {
         max-width: $widescreen;
         margin: 0 auto;
+
         .contacts-title-small {
             display: none;
             width: 100%;
@@ -115,6 +122,7 @@
     }
     @media (max-width: 768px) {
         .Contacts-page {
+            width: 100%;
             .contacts-title-small {
                 display: block;
             }
