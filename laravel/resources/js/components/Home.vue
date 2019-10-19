@@ -69,31 +69,28 @@
                   <img class="home-service-img" src="/site_img/service-1.png">
                   <div class="home-service-text-wrap">
                       <div class="home-service-title">ПРОЕКТИРОВАНИЕ</div>
-                      <div class="home-service-text">Подготовим всю необходимую документацию по интеграции электронных систем управления, автоматизации, домашних кинотеатров, охранных систем и систем домашнего развлечения.
-                          Детальная проработка помогает предотвратить неприятные неожиданности в дальнейшем.</div>
+                      <div class="home-service-text">Подготовим всю необходимую документацию по интеграции инженерных систем. Спроектируем программное обеспечение для реализации уникальных проектов.</div>
                   </div>
               </section>
               <section  class="col-6">
                   <img class="home-service-img" src="/site_img/service-2.png">
                   <div class="home-service-text-wrap">
                       <div class="home-service-title">МОНТАЖ</div>
-                      <div class="home-service-text">Поможем с монтажем видео и аудио систем, систем управления, локальной вычислительной сети и wifi.
-                          Правильный монтаж оборудования и коммуникационных трасс исключает большое число ошибок в работе электронных систем.</div>
+                      <div class="home-service-text">Смонтируем компоненты  систем видео отображения, аудио трансляции, видео наблюдения, домашних кинотеатров, лвс и wifi, систем безопасности и контроля доступа.</div>
                   </div>
               </section>
               <section  class="col-6">
                   <img class="home-service-img" src="/site_img/service-3.png">
                   <div class="home-service-text-wrap">
                       <div class="home-service-title">НАСТРОЙКА</div>
-                      <div class="home-service-text">Настроим оборудование для построения систем управления, видеонаблюдения, охранной сигнализации, оповещения, звукоусиления, проекционных систем и систем видеоотображения.
-                          Настройка оборудования позволит пользователю получить максимальный функционал системы.</div>
+                      <div class="home-service-text">Настроим любое инженерное оборудование согласно требованиям производителя и поставленной задачи. Поможем в программировании систем управления  и автоматизации.</div>
                   </div>
               </section>
               <section  class="col-6">
                   <img class="home-service-img" src="/site_img/service-4.png">
                   <div class="home-service-text-wrap">
                       <div class="home-service-title">АУДИТ</div>
-                      <div class="home-service-text">Поможем определиться с оборудованием. Проконсультируем по принятым решениям.</div>
+                      <div class="home-service-text">Проконсультируем по принятым решениям. Поможем определиться с оборудованием. Расскажем о тенденциях на рынке.</div>
                   </div>
               </section>
           </div>
@@ -407,6 +404,9 @@
                  float: left;
                  .home-service-title{
                      color: $home-title-color;
+                 }
+                 .home-service-text{
+                     letter-spacing: 0.3px;
                  }
              }
 
@@ -740,15 +740,12 @@
         mounted() {
            this.matchHeight();
             this.getData();
-
         },
         beforeMount() {
             const $script = document.createElement('script')
             $script.async = true;
             $script.src = 'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit';
             document.head.appendChild($script);
-
-
         }
     }
 </script>

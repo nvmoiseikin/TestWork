@@ -27,6 +27,8 @@ import App from './App.vue';
 import Home from './components/Home.vue';
 import Solutions from './components/Solutions.vue';
 import Services from './components/Services.vue';
+import About from './components/About.vue';
+import Contact from './components/Contacts.vue';
 import SolutionsComponent from './components/SolutionsComponent.vue';
 const routes = [
     {
@@ -47,6 +49,14 @@ const routes = [
     {
         path: '/solutions/:componentName(.*)',
         component: SolutionsComponent
+    },
+    {
+        path: '/about',
+        component: About
+    },
+    {
+        path: '/contacts',
+        component: Contact
     }
 
 ];

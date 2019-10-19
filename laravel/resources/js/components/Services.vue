@@ -3,75 +3,21 @@
         <div class="main-container Services-page">
             <div class="services-title">Услуги</div>
             <div class="services-title-small">Услуги</div>
-            <div class="services-1">
-                <div class="services-1-title">
-                    <span>Проектирование</span>
+            <div v-for="(data, index) in serviceData" :class='"services-"+index'>
+                <div :class='"services-" + index + "-title"'>
+                    <span>{{data.title}}</span>
                     <div class="content-title-hr">
                         <div class="content-title-hr-inside"></div>
                     </div>
                 </div>
-                <div class="services-1-insight">
-                    <img src="/site_img/smart-home.png" class="services-img">
-                    <div class="services-1-small">
-                        <div class="services-1-small-title">
-                            <span>Проектирование</span>
+                <div :class='"services-" + index + "-insight"'>
+                    <img :src="data.photo" class="services-img">
+                    <div :class='"services-" + index + "-small"'>
+                        <div :class='"services-" + index + "-small-title"'>
+                            <span>{{data.title}}</span>
                         </div>
                     </div>
-                    <div class="services-text"><span>В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей. В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей.</span> </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="services-2">
-                <div class="services-2-title">
-                    <span>Монтаж</span>
-                    <div class="content-title-hr">
-                        <div class="content-title-hr-inside"></div>
-                    </div>
-                </div>
-                <div class="services-2-insight">
-                    <img src="/site_img/smart-home.png" class="services-img">
-                    <div class="services-2-small">
-                        <div class="services-2-small-title">
-                            <span>Монтаж</span>
-                        </div>
-                    </div>
-                    <div class="services-text"><span>В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей. В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей.</span> </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="services-3">
-                <div class="services-3-title">
-                    <span>Настройка</span>
-                    <div class="content-title-hr">
-                        <div class="content-title-hr-inside"></div>
-                    </div>
-                </div>
-                <div class="services-3-insight">
-                    <img src="/site_img/smart-home.png" class="services-img">
-                    <div class="services-3-small">
-                        <div class="services-3-small-title">
-                            <span>Настройка</span>
-                        </div>
-                    </div>
-                    <div class="services-text"><span>В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей. В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей.</span> </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="services-4">
-                <div class="services-4-title">
-                    <span>Аудит</span>
-                    <div class="content-title-hr">
-                        <div class="content-title-hr-inside"></div>
-                    </div>
-                </div>
-                <div class="services-4-insight">
-                    <img src="/site_img/smart-home.png" class="services-img">
-                    <div class="services-4-small">
-                        <div class="services-4-small-title">
-                            <span>Аудит</span>
-                        </div>
-                    </div>
-                    <div class="services-text"><span>В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей. В наших инсталляциях мы применяем только проверенные решения от ведущих мировых производителей.</span> </div>
+                    <div class="services-text"><span v-html="nl2br(data.text)"></span> </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -112,9 +58,9 @@
             display: none;
         }
 
-        .services-1, .services-2, .services-3, .services-4 {
+        .services-0, .services-1, .services-2, .services-3, .services-4 {
             width: 90%;
-            margin: 0 auto 40px;
+            margin: 20px auto 40px;
             &-title{
                 display: none;
             }
@@ -137,7 +83,7 @@
             .services-title{
                 display: block;
             }
-            .services-1, .services-2, .services-3, .services-4 {
+            .services-0, .services-1, .services-2, .services-3, .services-4 {
                 width: 100%;
                 max-width: 1200px;
                 margin: 0 auto 50px;
@@ -152,6 +98,11 @@
                     max-height: 240px;
                     span{
                         display: block;
+                        letter-spacing: 0.3px;
+                        font-family: Roboto;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 19px;
                     }
                 }
                 img {
@@ -196,7 +147,7 @@
             .services-title-small{
                 display: none;
             }
-            .services-1, .services-2, .services-3, .services-4 {
+            .services-0, .services-1, .services-2, .services-3, .services-4 {
                 &-small{
                     display: none;
                 }
@@ -207,6 +158,26 @@
 
 <script>
 
-    export default{
+    import $ from 'jquery'
+    export default {
+        data() {
+            return {
+                serviceData: []
+            };
+        },
+        methods: {
+            nl2br(data){
+                return data.replace(/(\r\n|\n\r|\r|\n)/g, "<br>");
+            }
+        },
+        beforeMount: function () {
+            var that = this;
+            this.axios
+                .get('/services/get')
+                .then(function (response) {
+                    that.serviceData = response.data;
+                });
+
+        }
     }
 </script>

@@ -20,3 +20,4 @@ Route::post('/contactUs', "ControllerContactUs@ship");
 Route::get('solutions/get/{for}/{name}', 'ControllerSolutionItem@index');
 Route::get('solutionsHome/get', 'ControllerSolution@index');
 Route::get('HomeSlider/get', 'ControllerHomeSlider@index');
+Route::get('services/get', 'ControllerService@index');
