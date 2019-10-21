@@ -16,12 +16,22 @@ import FontAwesomeIcon from '@fortawesome/fontawesome'
 
 Vue.use(FontAwesomeIcon);
 
+/*router */
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 Vue.use(VueAxios, axios);
+
+/* modal popup */
+import VModal from 'vue-js-modal'
+Vue.use(VModal)
+
+/* video player */
+import VueVideoPlayer from 'vue-video-player'
+import 'video.js/dist/video-js.css'
+Vue.use(VueVideoPlayer);
 
 import App from './App.vue';
 import Home from './components/Home.vue';

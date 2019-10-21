@@ -61,7 +61,7 @@
         z-index: 99999999999999999;
     }
     html{
-        width: 100vw;
+
         .container{
             margin: 0;
         }

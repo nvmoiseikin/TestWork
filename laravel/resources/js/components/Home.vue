@@ -9,7 +9,7 @@
                   :speed="800"
                   ref="homeSlider"
           >
-
+              <popup-video></popup-video>
               <!-- Text slides with image -->
               <b-carousel-slide v-for="(data, index) in sliderData"  :key="index">
                   <div :class='{"home-slide w-100":"true","home-slide-height":(index!=0)}'>
@@ -66,31 +66,43 @@
           </div>
           <div class="home-services row">
               <section  class="col-6">
-                  <img class="home-service-img" src="/site_img/service-1.png">
-                  <div class="home-service-text-wrap">
-                      <div class="home-service-title">ПРОЕКТИРОВАНИЕ</div>
-                      <div class="home-service-text">Подготовим всю необходимую документацию по интеграции инженерных систем. Спроектируем программное обеспечение для реализации уникальных проектов.</div>
+                  <div class="home-services-insight">
+                      <img class="home-service-img" src="/site_img/service-1.png">
+                      <div class="home-service-text-wrap">
+                          <div class="home-service-title">ПРОЕКТИРОВАНИЕ</div>
+                          <div class="home-service-text">Подготовим всю необходимую документацию по интеграции инженерных систем. Спроектируем программное обеспечение для реализации уникальных проектов.</div>
+                      </div>
+                      <div class="clear-fix"></div>
                   </div>
               </section>
               <section  class="col-6">
-                  <img class="home-service-img" src="/site_img/service-2.png">
-                  <div class="home-service-text-wrap">
-                      <div class="home-service-title">МОНТАЖ</div>
-                      <div class="home-service-text">Смонтируем компоненты  систем видео отображения, аудио трансляции, видео наблюдения, домашних кинотеатров, лвс и wifi, систем безопасности и контроля доступа.</div>
+                  <div class="home-services-insight">
+                      <img class="home-service-img" src="/site_img/service-2.png">
+                      <div class="home-service-text-wrap">
+                          <div class="home-service-title">МОНТАЖ</div>
+                          <div class="home-service-text">Смонтируем компоненты  систем видео отображения, аудио трансляции, видео наблюдения, домашних кинотеатров, лвс и wifi, систем безопасности и контроля доступа.</div>
+                      </div>
+                      <div class="clear-fix"></div>
                   </div>
               </section>
               <section  class="col-6">
-                  <img class="home-service-img" src="/site_img/service-3.png">
-                  <div class="home-service-text-wrap">
-                      <div class="home-service-title">НАСТРОЙКА</div>
-                      <div class="home-service-text">Настроим любое инженерное оборудование согласно требованиям производителя и поставленной задачи. Поможем в программировании систем управления  и автоматизации.</div>
+                  <div class="home-services-insight">
+                      <img class="home-service-img" src="/site_img/service-3.png">
+                      <div class="home-service-text-wrap">
+                          <div class="home-service-title">НАСТРОЙКА</div>
+                          <div class="home-service-text">Настроим любое инженерное оборудование согласно требованиям производителя и поставленной задачи. Поможем в программировании систем управления  и автоматизации.</div>
+                      </div>
+                      <div class="clear-fix"></div>
                   </div>
               </section>
               <section  class="col-6">
-                  <img class="home-service-img" src="/site_img/service-4.png">
-                  <div class="home-service-text-wrap">
-                      <div class="home-service-title">АУДИТ</div>
-                      <div class="home-service-text">Проконсультируем по принятым решениям. Поможем определиться с оборудованием. Расскажем о тенденциях на рынке.</div>
+                  <div class="home-services-insight">
+                      <img class="home-service-img" src="/site_img/service-4.png">
+                      <div class="home-service-text-wrap">
+                          <div class="home-service-title">АУДИТ</div>
+                          <div class="home-service-text">Проконсультируем по принятым решениям. Поможем определиться с оборудованием. Расскажем о тенденциях на рынке.</div>
+                      </div>
+                      <div class="clear-fix"></div>
                   </div>
               </section>
           </div>
@@ -214,6 +226,17 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+        }
+        .popup-container{
+            position: absolute;
+            font-weight: 500;
+            font-family: Roboto;
+            font-size: 30px;
+            line-height: 33px;
+            right: 20%;
+            bottom: 20%;
+            color : #2F8CA6;
+            z-index: 1000;
         }
         .carousel-caption {
             //background: linear-gradient(to top, rgba(0,0,0,0.70), rgba(0,0,0,0.50));
@@ -534,12 +557,18 @@
     @media (max-width: 1000px){
         .home-services{
             section {
+                .home-services-insight{
+                    margin: 0 auto;
+                    width: 70%;
+                    min-width: 250px;
+                }
                 .home-service-text{
                     display: none;
                 }
                 .home-service-text-wrap{
-                    text-align: center;
-                    padding: 25px 5px 0;
+                    width: auto;
+                    text-align: left;
+                    padding: 25px 5px 0 25px;
                     line-height: 20px;
                     font-size: 16px;
                 }
@@ -616,13 +645,25 @@
                 visibility: hidden;
             }
         }
-        #carouselHome .carousel-caption{
-            padding: 75px 50px 75px;
-            .home-slide{
-                &-title{
-                    font-size: 22px;
-                }
-                &-p{
+        #carouselHome {
+            .popup-container{
+                font-size: 20px;
+                line-height: 22px;
+                width: 100vw;
+                left: 0;
+                text-align: center;
+                bottom: 15%;
+            }
+            .carousel-caption {
+                padding: 75px 50px 75px;
+
+                .home-slide {
+                    &-title {
+                        font-size: 22px;
+                    }
+
+                    &-p {
+                    }
                 }
             }
         }
@@ -631,6 +672,9 @@
         }
         .home-services{
             section {
+                .home-services-insight{
+                    min-width: 140px;
+                }
                 .home-service-img{
                     margin: 15px 0;
                 }
@@ -638,7 +682,7 @@
                     display: none;
                 }
                 .home-service-text-wrap{
-                    padding: 20px 5px 0;
+                    padding: 20px 5px 0 12px;
                     line-height: 12px;
                     font-size: 10px;
                 }
@@ -661,8 +705,9 @@
 <script>
     import $ from 'jquery';
     import VueRecaptcha from 'vue-recaptcha';
+    import PopupVideo from './PopupVideo.vue';
     export default {
-        components: { VueRecaptcha },
+        components: { VueRecaptcha, PopupVideo },
         data(){
             return{
                 sliderData: "",

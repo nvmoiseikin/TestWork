@@ -131,7 +131,7 @@
                 }
 
                 .content-title-hr {
-                    margin: 0 20px;
+                    margin: 0  0 0 20px;
                     flex: 1 1 200px;
                     height: auto;
                     display: flex;
