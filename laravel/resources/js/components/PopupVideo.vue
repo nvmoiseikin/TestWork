@@ -6,7 +6,8 @@
         <modal
                 width="70%"
                 height="auto"
-                name="video">
+                name="video"
+                @before-close="hide">
             <video-player
                     ref="videoPlayer"
                     :options="playerOptions"
@@ -20,7 +21,6 @@
     @import "~bulma";
     @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
     .popup-container{
-        z-index : 100000 !important;
         .v--modal{
             color: black;
         }
@@ -67,9 +67,10 @@
         methods: {
             show () {
                 this.$modal.show('video');
+                $('.popup-container').css("z-index", '100000');
             },
             hide () {
-                this.$modal.hide('video');
+                $('.popup-container').css("z-index", "2");
             }
         }
     }
