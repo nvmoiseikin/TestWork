@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="nav-contacts col row">
-                    <a  href="mailTo:example@gmail.com" class="nav-email col-6"><span><div>&#x2709;</div>example@gmail.com</span></a>
+                    <a  href="mailTo:info@smartdivision.su" class="nav-email col-6"><span><div>&#x2709;</div>info@smartdivision.su</span></a>
                     <a href="telTo:+74955041519" class="nav-tel col-6"><span><div><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7-(495)-504-15-19</span></a>
                 </div>
 
@@ -27,7 +27,7 @@
                 <b-dropdown-item href="/#/services/">УСЛУГИ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="/#/contacts/">КОНТАКТЫ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#"></b-dropdown-item>
-                <b-dropdown-item href="mailTo:example@gmail.com"><div class="menu-icon">&#x2709;</div>example@gmail.com</b-dropdown-item>
+                <b-dropdown-item href="mailTo:info@smartdivision.su"><div class="menu-icon">&#x2709;</div>info@smartdivision.su</b-dropdown-item>
                 <b-dropdown-item href="telTo:+74955041519"><div class="menu-icon"><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7-(495)-504-15-19</b-dropdown-item>
             </b-nav-item-dropdown>
         </nav>
@@ -37,7 +37,7 @@
             </transition>
         </main>
         <div class="contactUs-contacts-small">
-            <a  href="mailTo:example@gmail.com" class="">example@gmail.com</a>
+            <a  href="mailTo:info@smartdivision.su" class="">info@smartdivision.su</a>
             <a href="telTo:+74955041519" class="">+7-(495)-504-15-19</a>
         </div>
         <footer row>
@@ -329,6 +329,10 @@
             }
             .nav-tel{
                 text-align: center;
+                max-width: 130px;
+            }
+            .nav-email{
+                min-width: 145px;
             }
         }
     }

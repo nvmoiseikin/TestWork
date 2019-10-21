@@ -236,7 +236,7 @@
             right: 20%;
             bottom: 20%;
             color : #2F8CA6;
-            z-index: 1000;
+            z-index: 2;
         }
         .carousel-caption {
             //background: linear-gradient(to top, rgba(0,0,0,0.70), rgba(0,0,0,0.50));
