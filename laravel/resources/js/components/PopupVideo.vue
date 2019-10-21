@@ -20,6 +20,7 @@
     @import "~bulma";
     @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
     .popup-container{
+        z-index : 100000 !important;
         .v--modal{
             color: black;
         }
