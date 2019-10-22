@@ -1,6 +1,7 @@
 <template>
     <div class="popup-container">
         <div class="popup-src" @click="show">
+            <i class="fas fa-play"></i>
             Смотреть видео
         </div>
         <modal
@@ -12,6 +13,7 @@
                     ref="videoPlayer"
                     :options="playerOptions"
                     :playsinline="true"
+                    @ready="playerIsReady"
             >
             </video-player>
         </modal>
@@ -50,11 +52,13 @@
         data() {
             return {
                 playerOptions: {
-                    muted: true,
+                    muted: 'false',
                     language: 'en',
-                    techOrder: ['html5', 'flvjs'],
                     playbackRates: [0.7, 1.0, 1.5, 2.0],
                     height: 'auto',
+                    autoplay: 'true',
+                    liveui: "true",
+                    loop: "true",
                     sources: [{
                         type: "video/mp4",
                         src: "/site_img/Landscape577.mp4"
@@ -64,6 +68,11 @@
                 }
             };
         },
+        computed: {
+            player() {
+                return this.$refs.videoPlayer.player;
+            }
+        },
         methods: {
             show () {
                 this.$modal.show('video');
@@ -71,6 +80,18 @@
             },
             hide () {
                 $('.popup-container').css("z-index", "2");
+            },
+            playerIsReady(player) {
+                console.log('example 2 ready!', player);
+                player.hotkeys({
+                    volumeStep: 0.1,
+                    seekStep: 5,
+                    enableModifiersForNumbers: true,
+                    fullscreenKey: function(event, player) {
+                        // override fullscreen to trigger when pressing the F key or Ctrl+Enter
+                        return ((event.which === 70) || (event.ctrlKey && event.which === 13));
+                    }
+                })
             }
         }
     }

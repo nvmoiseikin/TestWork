@@ -51,6 +51,7 @@
 <style lang="scss">
     @import "~bulma";
     @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:600,500');
     .fade-enter-active, .fade-leave-active {
         transition: opacity .5s
     }
@@ -206,7 +207,7 @@
     }
     footer{
         display: flex !important;
-        width: 100%;
+        width: 100vw;
         background-color: #283645;
         height: 80px;
         position: relative;

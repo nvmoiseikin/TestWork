@@ -11,9 +11,9 @@
                 </div>
                 <div class="about-text">
                     <img src="/site_img/only-logo.png" class="about-img">
-                    <span class="about-text-1">Мы дарим ценность технологий IOT более 10лет.</span>
-                    <span class="about-text-2">Усилиями лучших проектировшиков, програмистов инженеров создаем исключителное качество услуг.</span>
-                    <span class="about-text-3">Наша команда может реализовать самы смелые проекты интеграции инженерных систем.</span>
+                    <span class="about-text-1">Более 10 лет мы дарим ценность IoT-технологий.</span>
+                    <span class="about-text-2">Исключительное качество услуг созданное усилиями лучших программистов, проектировщиков и инженеров.</span>
+                    <span class="about-text-3">Доверьте нам самые смелые проекты интеграции инженерных систем.</span>
                 </div>
             </div>
         </div>
@@ -59,6 +59,7 @@
                     line-height: 27px;
                     margin: 40px auto;
                     color: grey;
+                    text-align: center;
                 }
 
                 .about-text-1 {

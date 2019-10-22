@@ -97,7 +97,7 @@
               </section>
               <section  class="col-6">
                   <div class="home-services-insight">
-                      <img class="home-service-img" src="/site_img/service-4.png">
+                      <img class="home-service-img  home-service-img-margin" src="/site_img/service-4.png">
                       <div class="home-service-text-wrap">
                           <div class="home-service-title">АУДИТ</div>
                           <div class="home-service-text">Проконсультируем по принятым решениям. Поможем определиться с оборудованием. Расскажем о тенденциях на рынке.</div>
@@ -229,11 +229,13 @@
         }
         .popup-container{
             position: absolute;
-            font-weight: 500;
-            font-family: Roboto;
+            font-weight: 600;
+            font-family: Montserrat;
             font-size: 30px;
             line-height: 33px;
-            right: 20%;
+            width: 100%;
+            left: 0;
+            text-align: center;
             bottom: 20%;
             color : #2F8CA6;
             z-index: 2;
@@ -572,6 +574,11 @@
                     line-height: 20px;
                     font-size: 16px;
                 }
+                .home-service-img{
+                    &-margin{
+                        margin-top: 10%;
+                    }
+                }
             }
         }
         .contactUs {
@@ -644,6 +651,7 @@
             .home-hr{
                 visibility: hidden;
             }
+
         }
         #carouselHome {
             .popup-container{
@@ -677,6 +685,9 @@
                 }
                 .home-service-img{
                     margin: 15px 0;
+                    &-margin{
+                        margin-top: 20px;
+                    }
                 }
                 .home-service-text{
                     display: none;
