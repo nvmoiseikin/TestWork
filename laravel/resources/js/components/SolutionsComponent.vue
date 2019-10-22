@@ -111,7 +111,6 @@
                 span {
                     display: block;
                     width: auto;
-                    max-width: 350px;
                     font-family: Roboto;
                     font-size: 30px;
                     font-weight: 500;

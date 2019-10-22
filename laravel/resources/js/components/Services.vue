@@ -94,15 +94,18 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    height: 20vw;
                     max-height: 240px;
+                    height: min-content;
+                    min-height: 240px;
                     span{
+
                         display: block;
                         letter-spacing: 0.3px;
                         font-family: Roboto;
                         font-size: 16px;
                         font-weight: 500;
-                        line-height: 19px;
+                        line-height: 21px;
+
                     }
                 }
                 img {
@@ -144,12 +147,28 @@
                     }
                 }
             }
+            .services-0{
+                &-insight {
+                    .services-text {
+                        max-height: 100000px;
+                    }
+                }
+            }
             .services-title-small{
                 display: none;
             }
             .services-0, .services-1, .services-2, .services-3, .services-4 {
                 &-small{
                     display: none;
+                }
+            }
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1800px) {
+        .Services-page {
+            .services-0, .services-1, .services-2, .services-3, .services-4 {
+                .services-text {
+                    min-height: calc(44.8px + 10.8vw)
                 }
             }
         }
