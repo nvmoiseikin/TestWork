@@ -11,7 +11,7 @@
             <div class="contacts-text">
                 <span>124683 Москва Зеленоград 1539 88</span>
                 <a  href="mailTo:info@smartdivision.su" class="">info@smartdivision.su</a>
-                <a href="telTo:+74955041519" class="">+7-(495)-504-15-19</a>
+                <a href="tel:+74955041519" class="">+7-(495)-504-15-19</a>
             </div>
         </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="main-container" id="SolutionComponent">
         <div class="Solutions-component-page">
             <div class="solutions-for">{{solutionData.for}}</div>
             <div class="solutions-for-small">{{solutionData.for}}</div>
@@ -15,12 +15,12 @@
                         <div class="content-title-hr-inside"></div>
                     </div>
                 </div>
-                <div class="solutionsImg">
-                    <div v-for="(photo, index) in photos" class="item active">
+                <div class="solutionsImg" id="solutionsImgCarouselSmall">
+                    <div v-for="(photo, index) in photos" :class='{"item":"true","active":(index==0), "notActive": (index!=0)}' >
                         <img :src="photo">
-                        <div v-if="index === 0" class="solutions-text-small">
+                       <!-- <div v-if="index === 0" class="solutions-text-small">
                             {{solutionData.text}}
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 {{solutionData.text}}
             </div>
         </div>
-
+        <solution-slider v-bind:category="getPath().split('/')[0]"></solution-slider>
     </div>
 </template>
 
@@ -39,7 +39,7 @@
         max-width: $widescreen;
         margin: 0 auto;
         .solutions-text {
-            display: none;
+            display: block;
             width: 80%;
             max-width: 800px;
             font-family: Roboto;
@@ -58,7 +58,6 @@
             color: #2F8CA6;
             line-height: 40px;
             text-align: center;
-            height: 40px;
             background-color: #2F4052;
         }
 
@@ -86,7 +85,6 @@
                 color: #2F8CA6;
                 line-height: 36px;
                 text-align: center;
-                height: 36px;
             }
         }
 
@@ -183,30 +181,84 @@
             }
         }
     }
-
+    @media (max-width: 768px) {
+        .Solutions-component-page {
+            #solutionsImgCarouselSmall{
+                position: relative;
+                height: 48vw;
+                max-height: 270px;
+                .item{
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    img{
+                        width: 90%;
+                        margin: 0 auto;
+                        max-width: 4500px;
+                    }
+                }
+                .active{
+                    opacity: 1;
+                    transition:  opacity .6s linear;
+                }
+                .notActive{
+                    opacity: 0;
+                    transition:  opacity .6s linear;
+                }
+            }
+        }
+    }
 </style>
 
 <script>
     import $ from 'jquery'
-    export default{
+    import SolutionSlider from './SolutionSlider';
+    export default {
+        name: "SolutionComponent",
+        components: { SolutionSlider },
         data() {
             return {
                 solutionData: "",
                 photos: [],
+                slideNumber: 0
             };
         },
         methods: {
-
+            getPath(){
+                let path = this.$route.params.componentName;
+                console.log(path);
+                return path;
+            },
+            fetchData () {
+                //this.solutionData = null;
+                // replace `getPost` with your data fetching util / API wrapper
+                var that = this;
+                this.axios
+                    .get('/solutions/get/' + this.getPath())
+                    .then(function(response) {
+                        that.solutionData = response.data;
+                        that.photos = that.solutionData.photos.split(" ");
+                    });
+                $("html, body").animate({ scrollTop: 0 }, "fast");
+            },
+            nextSlide(carousel){
+                let n = $("#" + carousel + ' .active').index("#" + carousel + ' .item');
+                console.log(n, $("#" + carousel + ' .item').length - 1);
+                if (n < $("#" + carousel + ' .item').length - 1 ) n = n + 1;
+                else n = 0;
+                console.log(n);
+                $("#" + carousel + ' .active').removeClass("active").addClass("notActive");
+                $("#" + carousel + ' .item').eq(n).removeClass("notActive").addClass("active");
+            }
         },
-        mounted: function(){
-            var that = this;
-            this.axios
-                .get('/solutions/get/' + this.$route.params.componentName)
-                .then(function(response) {
-                    that.solutionData = response.data;
-                    that.photos = that.solutionData.photos.split(" ");
-                });
-
+        created () {
+            this.fetchData();
+            setInterval(this.nextSlide, 5000,  'solutionsImgCarouselSmall');
+        },
+        watch: {
+            // call again the method if the route changes
+            '$route': 'fetchData'
         },
         computed:{
         }

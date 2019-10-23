@@ -9,7 +9,7 @@
                   :speed="800"
                   ref="homeSlider"
           >
-              <popup-video></popup-video>
+              <!--<popup-video></popup-video> -->
               <!-- Text slides with image -->
               <b-carousel-slide v-for="(data, index) in sliderData"  :key="index">
                   <div :class='{"home-slide w-100":"true","home-slide-height":(index!=0)}'>

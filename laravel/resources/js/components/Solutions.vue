@@ -333,6 +333,7 @@
 <script>
     import $ from 'jquery'
     export default{
+        name: 'Solutions',
         data() {
             return {
                 prevslide: 0,

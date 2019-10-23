@@ -57,6 +57,7 @@ const routes = [
         component: Services
     },
     {
+        name: 'SolutionsComponent',
         path: '/solutions/:componentName(.*)',
         component: SolutionsComponent
     },

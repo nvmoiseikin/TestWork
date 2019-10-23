@@ -13,7 +13,6 @@
                     ref="videoPlayer"
                     :options="playerOptions"
                     :playsinline="true"
-                    @ready="playerIsReady"
             >
             </video-player>
         </modal>
