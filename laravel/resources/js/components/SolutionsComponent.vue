@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="solutions-text">
-                {{solutionData.text}}
+                <p v-for="(textItem, index) in solutionData.text">{{textItem.p}}</p>
             </div>
         </div>
         <solution-slider v-bind:category="getPath().split('/')[0]"></solution-slider>
@@ -43,11 +43,15 @@
             width: 80%;
             max-width: 800px;
             font-family: Roboto;
-            font-size: 18px;
+            font-size: 22px;
             font-weight: 500;
             color: black;
-            line-height: 24px;
+            line-height: 27px;
             margin: 25px auto 80px;
+            p{
+                margin: 20px 0;
+                text-indent : 20px;
+            }
         }
 
         .solutions-for-small {
@@ -183,6 +187,11 @@
     }
     @media (max-width: 768px) {
         .Solutions-component-page {
+            .solutions-text {
+                font-family: Roboto;
+                font-size: 16px;
+                line-height: 20px;
+            }
             #solutionsImgCarouselSmall{
                 position: relative;
                 height: 48vw;
@@ -238,6 +247,8 @@
                     .get('/solutions/get/' + this.getPath())
                     .then(function(response) {
                         that.solutionData = response.data;
+                        that.solutionData.text = JSON.parse(that.solutionData.text);
+                        console.log(that.solutionData.text);
                         that.photos = that.solutionData.photos.split(" ");
                     });
                 $("html, body").animate({ scrollTop: 0 }, "fast");

@@ -15,7 +15,7 @@
                 </div>
                 <div class="nav-contacts col row">
                     <a  href="mailTo:info@smartdivision.su" class="nav-email col-6"><span><div>&#x2709;</div>info@smartdivision.su</span></a>
-                    <a href="tel:+74955041519" class="nav-tel col-6"><span><div><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7-(495)-504-15-19</span></a>
+                    <a href="tel:+74955041519" class="nav-tel col-6"><span><div><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7(495)504-15-19</span></a>
                 </div>
 
             </div>
@@ -28,7 +28,7 @@
                 <b-dropdown-item href="/#/contacts/">КОНТАКТЫ <div class="float-right">></div></b-dropdown-item>
                 <b-dropdown-item href="#"></b-dropdown-item>
                 <b-dropdown-item href="mailTo:info@smartdivision.su"><div class="menu-icon">&#x2709;</div>info@smartdivision.su</b-dropdown-item>
-                <b-dropdown-item href="tel:+74955041519"><div class="menu-icon"><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7-(495)-504-15-19</b-dropdown-item>
+                <b-dropdown-item href="tel:+74955041519"><div class="menu-icon"><i class="fa fa-mobile-alt" aria-hidden="true"></i></div>+7(495)504-15-19</b-dropdown-item>
             </b-nav-item-dropdown>
         </nav>
         <main>
@@ -38,11 +38,11 @@
         </main>
         <div class="contactUs-contacts-small">
             <a  href="mailTo:info@smartdivision.su" class="">info@smartdivision.su</a>
-            <a href="tel:+74955041519" class="">+7-(495)-504-15-19</a>
+            <a href="tel:+74955041519" class="">+7(495)504-15-19</a>
         </div>
         <footer row>
             <div class="col-12 col-md-4 offset-md-4 footer-copy">© 2019 Smart Division. Все права защищены.</div>
-            <a href="tel:+74955041519" class="col-0 col-md-3 footer-tel">+7-(495)-504-15-19</a>
+            <a href="tel:+74955041519" class="col-0 col-md-3 footer-tel">+7(495)504-15-19</a>
             <a href="#" class="to-start"></a>
         </footer>
     </div>
