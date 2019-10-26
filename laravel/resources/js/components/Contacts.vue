@@ -20,15 +20,15 @@
             <form action="/contactUs" method="post" role="form" class="form" id="form" @submit.prevent="validate">
                 <div class="form-title">СВЯЖИТЕСЬ С НАМИ</div>
                 <div class="form-item">
-                    <input type="text" class="form-control" id="name" name="name" v-model="message.name" placeholder="ВВЕДИТЕ ВАШЕ  ИМЯ">
+                    <input type="text" class="form-control" id="name" name="name" v-model="message.name" placeholder="ИМЯ">
                     <span v-if="allerrors.name" class="label-danger">{{ allerrors.name[0]}}</span>
                 </div>
                 <div class="form-item">
-                    <input type="email" class="form-control" id="email" name="email" v-model="message.email" placeholder="ВВЕДИТЕ ВАШУ ПОЧТУ">
+                    <input type="email" class="form-control" id="email" name="email" v-model="message.email" placeholder="ПОЧТА">
                     <span v-if="allerrors.email" class="label-danger">{{ allerrors.email[0]}}</span>
                 </div>
                 <div class="form-item">
-                    <textarea class="form-control" id="text" name="text" rows="4"  v-model="message.text" placeholder="ВВЕДИТЕ ТЕКСТ СООБЩЕНИЯ"></textarea>
+                    <textarea class="form-control" id="text" name="text" rows="4"  v-model="message.text" placeholder="СООБЩЕНИЕ"></textarea>
                     <span v-if="allerrors.text" class="label-danger">{{ allerrors.text[0]}}</span>
                 </div>
                 <div class="form-group">

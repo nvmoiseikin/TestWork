@@ -147,9 +147,13 @@
             overflow-x: hidden;
         }
         .carousel-item{
-            &:hover{
-                text-decoration: none;
-            }
+            position: relative;
+                &:hover{
+                    text-decoration: none;
+                    img{
+                        opacity: 0.5;
+                    }
+                }
             width: 90%;
             color: black;
             text-align: center;

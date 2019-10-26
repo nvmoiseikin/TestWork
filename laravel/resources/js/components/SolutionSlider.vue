@@ -33,6 +33,14 @@
 <style lang="scss">
     @import "~bulma";
     @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
+    @mixin slider-img-height-small {
+        height: 13vw;
+        max-height: 170px;
+    }
+    @mixin slider-img-height {
+        height: 43.6vw;
+        max-height: 250px;
+    }
     .solutionSlider-container {
         max-width: $widescreen;
         margin: 0 auto;
@@ -122,6 +130,10 @@
         .carousel-item{
             &:hover{
                 text-decoration: none;
+                cursor: pointer;
+                img{
+                    opacity: 0.5;
+                }
             }
             width: 80%;
             color: black;
@@ -152,8 +164,7 @@
                 max-width: 450px;
                 margin: 0 auto;
                 display: block;
-                height: 13vw;
-                max-height: 170px;
+                @include slider-img-height-small;
             }
 
         }
@@ -164,7 +175,7 @@
             width: 60px;
             flex-direction: column;
             justify-content: center;
-            height: 100%;
+            @include slider-img-height-small;
             .icon-left, .icon-right{
                 display: inline-block;
                 width: 60px;
@@ -246,9 +257,11 @@
             .solution-carousel .carousel-item{
                 margin: 0 10% 20px !important;
                 img{
-                    height: 42.6vw;
-                    max-height: 250px;
+                    @include slider-img-height;
                 }
+            }
+            .solution-carousel .arrow-left, .solution-carousel .arrow-right{
+                @include slider-img-height;
             }
         }
 

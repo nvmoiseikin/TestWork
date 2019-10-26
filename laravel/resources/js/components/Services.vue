@@ -17,7 +17,14 @@
                             <span>{{data.title}}</span>
                         </div>
                     </div>
-                    <div class="services-text"><span v-html="nl2br(data.text)"></span> </div>
+                    <div class="services-text">
+                        <span v-for="(textItem, index) in toJson(data.text)">
+                            <p v-if="textItem.p">{{textItem.p}}</p>
+                            <ul v-if="textItem.ul">
+                                <li :class="'li' + index" v-for="(li, index) in textItem.ul">{{li}}</li>
+                            </ul>
+                        </span>
+                    </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -97,15 +104,18 @@
                     max-height: 240px;
                     height: min-content;
                     min-height: 240px;
-                    span{
-
+                    p, li{
                         display: block;
                         letter-spacing: 0.3px;
                         font-family: Roboto;
                         font-size: 16px;
                         font-weight: 500;
                         line-height: 21px;
-
+                        text-indent: 20px;
+                        margin: 20px auto;
+                    }
+                    span{
+                        margin-top: -20px;
                     }
                 }
                 img {
@@ -187,6 +197,9 @@
         methods: {
             nl2br(data){
                 return data.replace(/(\r\n|\n\r|\r|\n)/g, "<br>");
+            },
+            toJson(data) {
+                return JSON.parse(data);
             }
         },
         beforeMount: function () {

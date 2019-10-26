@@ -42,7 +42,7 @@
             display: block;
             width: 80%;
             max-width: 800px;
-            font-family: Roboto;
+            font-family: Montserrat;
             font-size: 22px;
             font-weight: 500;
             color: black;
@@ -188,7 +188,6 @@
     @media (max-width: 768px) {
         .Solutions-component-page {
             .solutions-text {
-                font-family: Roboto;
                 font-size: 16px;
                 line-height: 20px;
             }
@@ -248,17 +247,14 @@
                     .then(function(response) {
                         that.solutionData = response.data;
                         that.solutionData.text = JSON.parse(that.solutionData.text);
-                        console.log(that.solutionData.text);
                         that.photos = that.solutionData.photos.split(" ");
                     });
                 $("html, body").animate({ scrollTop: 0 }, "fast");
             },
             nextSlide(carousel){
                 let n = $("#" + carousel + ' .active').index("#" + carousel + ' .item');
-                console.log(n, $("#" + carousel + ' .item').length - 1);
                 if (n < $("#" + carousel + ' .item').length - 1 ) n = n + 1;
                 else n = 0;
-                console.log(n);
                 $("#" + carousel + ' .active').removeClass("active").addClass("notActive");
                 $("#" + carousel + ' .item').eq(n).removeClass("notActive").addClass("active");
             }
