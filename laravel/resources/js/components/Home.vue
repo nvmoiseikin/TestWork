@@ -746,7 +746,6 @@
         methods: {
             onSubmit(recaptchaToken) {
                 this.message.recaptchaToken = recaptchaToken;
-                console.log(recaptchaToken, this.message);
                 this.allerrors.name = '';
                 this.allerrors.email = '';
                 this.allerrors.text = '';
@@ -761,7 +760,6 @@
                 this.$refs.homeSlider.setSlide(0);
                 setTimeout(() => {
                     let heightSlider =  $('#carouselHome .home-slide').eq(0)[0].clientHeight + 'px';
-                    console.log(heightSlider);
                     $('#carouselHome .home-slide-height').css('height', heightSlider);
                     }, 500
                 );

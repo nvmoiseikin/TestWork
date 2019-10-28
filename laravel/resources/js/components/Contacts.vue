@@ -171,7 +171,7 @@
         methods: {
             onSubmit(recaptchaToken) {
                 this.message.recaptchaToken = recaptchaToken;
-                console.log(recaptchaToken, this.message);
+
                 this.allerrors.name = '';
                 this.allerrors.email = '';
                 this.allerrors.text = '';

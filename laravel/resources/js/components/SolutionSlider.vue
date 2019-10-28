@@ -358,7 +358,6 @@
                 if ($('#' + carousel + ' .left').length > 0){
                     clearTimeout(this.timerId);
                     this.prevSlideEnd(carousel);
-                    console.log('end');
                 }
 
                 setTimeout(this.prevSlideStart, 0, carousel);
