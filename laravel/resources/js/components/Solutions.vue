@@ -18,7 +18,7 @@
                     <router-link v-for="(data, index) in solutionData.home" :class='{"carousel-item":"true","active":(index==0)}' :to="data.path" :key="index">
                         <img :src="firstPhoto(data.photos)">
                         <div class="carousel-item-title">{{data.title}}</div>
-                        <div class="carousel-item-text">{{data.small_text}}</div>
+                        <div class="carousel-item-text"  v-html="data.small_text"></div>
                     </router-link>
                 </div>
                 <div @click="prevSlide('carouselSolutionsHome')" class="arrow-left"><div class="icon-left"></div></div>
@@ -41,12 +41,12 @@
                     <router-link v-for="(data, index) in solutionData.business" :class='{"carousel-item":"true","active":(index==0)}' :to="data.path" :key="index">
                         <img :src="firstPhoto(data.photos)">
                         <div class="carousel-item-title">{{data.title}}</div>
-                        <div class="carousel-item-text">{{data.small_text}}</div>
+                        <div class="carousel-item-text" v-html="data.small_text"></div>
                     </router-link>
                     <router-link v-for="(data, index) in solutionData.business" class='carousel-item' :to="data.path" :key="index">
                         <img :src="firstPhoto(data.photos)">
                         <div class="carousel-item-title">{{data.title}}</div>
-                        <div class="carousel-item-text">{{data.small_text}}</div>
+                        <div class="carousel-item-text" v-html="data.small_text"></div>
                     </router-link>
                 </div>
                 <div @click="prevSlide('carouselSolutionsBusiness')" class="arrow-left" id="prev"><div class="icon-left"></div></div>

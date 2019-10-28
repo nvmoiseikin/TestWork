@@ -17,11 +17,11 @@
                 <div class="carousel-inner">
                     <div v-for="(data, index) in solutionData" :class='{"carousel-item":"true","active":(index==0)}' v-on:click="anotherSolution(data.path)" :key="index">
                         <img :src="firstPhoto(data.photos)" class="small-img">
-                        <div class="carousel-item-title">{{data.title}}</div>
+                        <div class="carousel-item-title"  v-html="data.title"></div>
                     </div>
                     <div v-for="(data, index) in solutionData" class='carousel-item' v-on:click="anotherSolution(data.path)" :key="index">
                         <img :src="firstPhoto(data.photos)" class="small-img">
-                        <div class="carousel-item-title">{{data.title}}</div>
+                        <div class="carousel-item-title" v-html="data.title"></div>
                     </div>
                 </div>
                 <div @click="prevSlide('carouselSolutionsSmall')" class="arrow-left"><div class="icon-left"></div></div>

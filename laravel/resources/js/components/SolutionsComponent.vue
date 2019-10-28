@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="solutions-text">
-                <p v-for="(textItem, index) in solutionData.text">{{textItem.p}}</p>
+                <p v-for="(textItem, index) in solutionData.text" v-html="textItem.p"></p>
             </div>
         </div>
         <solution-slider v-bind:category="getPath().split('/')[0]"></solution-slider>

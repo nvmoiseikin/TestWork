@@ -19,9 +19,9 @@
                     </div>
                     <div class="services-text">
                         <span v-for="(textItem, index) in toJson(data.text)">
-                            <p v-if="textItem.p">{{textItem.p}}</p>
+                            <p v-if="textItem.p" v-html="textItem.p"></p>
                             <ul v-if="textItem.ul">
-                                <li :class="'li' + index" v-for="(li, index) in textItem.ul">{{li}}</li>
+                                <li :class="'li' + index" v-for="(li, index) in textItem.ul" v-html="li"></li>
                             </ul>
                         </span>
                     </div>
@@ -107,7 +107,7 @@
                     p, li{
                         display: block;
                         letter-spacing: 0.3px;
-                        font-family: Roboto;
+                        font-family: Montserrat;
                         font-size: 16px;
                         font-weight: 500;
                         line-height: 21px;
