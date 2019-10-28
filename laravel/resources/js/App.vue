@@ -344,7 +344,9 @@
     import BDropdown from "buefy/src/components/dropdown/Dropdown";
     export default{
         components: {BDropdown},
-        data() {},
+        data() {
+            return {}
+        },
         mounted() {
             document.title = 'SmartDivision';
         }
