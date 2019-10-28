@@ -27,7 +27,7 @@ class HomeSeeder extends Seeder
         ]);
 
         HomeSlider::create([
-            'photo' => '/site_img/main2.JPG',
+            'photo' => '/site_img/main2.jpg',
             'title' => 'СЕМЕЙНЫЙ КИНОЗАЛ',
             'cover_bg' => 'linear-gradient(to top, rgba(0,0,0,0.70), rgba(0,0,0,0.50))',
             'background_position' => '',
