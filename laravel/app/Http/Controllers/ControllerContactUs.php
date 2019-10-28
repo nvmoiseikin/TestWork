@@ -48,21 +48,22 @@ class ControllerContactUs extends Controller
 
 
             $data = $request->all();
+            
+            Mail::send('mail', ['data' => $data], function ($message) use ($data) {
+                $mail_admin1 = env('MAIL_ADMIN1');
+                $mail_admin2 = env('MAIL_ADMIN2');
+                //$message->from($data['email']);
 
+                $message->to($mail_admin1)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
+                $message->to($mail_admin2)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
+
+                return response()->json(['success' => 'shipped']);
+
+
+                //var_dump($data);
+            });
             try {
-                Mail::send('mail', ['data' => $data], function ($message) use ($data) {
-                    $mail_admin1 = env('MAIL_ADMIN1');
-                    $mail_admin2 = env('MAIL_ADMIN2');
-                    //$message->from($data['email']);
 
-                    $message->to($mail_admin1)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
-                    $message->to($mail_admin2)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
-
-                    return response()->json(['success' => 'shipped']);
-
-
-                    //var_dump($data);
-                });
             } catch (Exception $e) {
 
                 return response()->json(['success' => 'not shipped']);
