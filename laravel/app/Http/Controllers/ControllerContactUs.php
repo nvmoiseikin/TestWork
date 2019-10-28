@@ -58,7 +58,7 @@ class ControllerContactUs extends Controller
                     $message->to($mail_admin1)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
                     $message->to($mail_admin2)->replyTo($data['email'], $data['name'])->subject('Вопрос с сайта');
 
-                    return redirect('/#form')->with(['success' => 'shipped']);
+                    return response()->json(['success' => 'shipped']);
 
 
                     //var_dump($data);
