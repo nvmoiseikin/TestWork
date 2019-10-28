@@ -32,7 +32,6 @@
 </template>
 <style lang="scss">
     @import "~bulma";
-    @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
     @mixin slider-img-height-small {
         height: 13vw;
         max-height: 170px;

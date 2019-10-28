@@ -50,7 +50,6 @@
 
 <style lang="scss">
     @import "~bulma";
-    @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
     $title-color: #2F8CA6;
     $contacts-text-color: #00BC9C;
     .main-container-contacts{

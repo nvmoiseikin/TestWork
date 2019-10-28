@@ -340,9 +340,13 @@
 </style>
 
 <script>
-
+    import $ from 'jquery'
     import BDropdown from "buefy/src/components/dropdown/Dropdown";
     export default{
-        components: {BDropdown}
+        components: {BDropdown},
+        data() {},
+        mounted() {
+            document.title = 'SmartDivision';
+        }
     }
 </script>
