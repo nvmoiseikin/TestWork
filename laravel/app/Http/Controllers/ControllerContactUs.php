@@ -48,7 +48,7 @@ class ControllerContactUs extends Controller
 
 
             $data = $request->all();
-            
+
             Mail::send('mail', ['data' => $data], function ($message) use ($data) {
                 $mail_admin1 = env('MAIL_ADMIN1');
                 $mail_admin2 = env('MAIL_ADMIN2');
