@@ -234,7 +234,6 @@
         methods: {
             getPath(){
                 let path = this.$route.params.componentName;
-                console.log(path);
                 return path;
             },
             fetchData () {

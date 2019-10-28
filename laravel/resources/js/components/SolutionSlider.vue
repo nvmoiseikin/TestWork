@@ -19,7 +19,7 @@
                         <img :src="firstPhoto(data.photos)" class="small-img">
                         <div class="carousel-item-title"  v-html="data.title"></div>
                     </div>
-                    <div v-for="(data, index) in solutionData" class='carousel-item' v-on:click="anotherSolution(data.path)" :key="index">
+                    <div v-for="(data, index2) in solutionData" class='carousel-item' v-on:click="anotherSolution(data.path)" :key="index2">
                         <img :src="firstPhoto(data.photos)" class="small-img">
                         <div class="carousel-item-title" v-html="data.title"></div>
                     </div>
@@ -409,7 +409,6 @@
             }
         },
         beforeMount: function(){
-            console.log(this.category);
             var that = this;
             this.axios
                 .get('/solutionsHome/get')
