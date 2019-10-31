@@ -21,8 +21,8 @@
                         <span v-for="(textItem, index) in toJson(data.text)">
                             <p v-if="textItem.p" v-html="textItem.p"></p>
                             <ul v-if="textItem.ul">
-                                <li :class="'li' + index" v-for="(li, index) in textItem.ul" v-html="li"></li>
-                            </ul>
+                        <li :class='{"li":"true", "liLogo":(indexIn!=0)}' v-for="(li, indexIn) in textItem.ul" v-html="li"></li>
+                    </ul>
                         </span>
                     </div>
                     <div class="clearfix"></div>
@@ -116,6 +116,21 @@
                     }
                     span{
                         margin-top: -20px;
+                    }
+                    .liLogo{
+                        position: relative;
+                        margin-left: 20px;
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            width: 14px;
+                            height: 14px;
+                            left: 0;
+                            top : 3.5px;
+                            background-image: url("/site_img/only-logo.png");
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                        }
                     }
                 }
                 img {
