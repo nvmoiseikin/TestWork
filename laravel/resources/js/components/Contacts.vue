@@ -9,7 +9,7 @@
                 <div class="clear-fix"></div>
             </div>
             <div class="contacts-text">
-                <span>г.Москва г.Зеленоград</span>
+                <span>г.Москва г.Зеленоград проезд&nbsp;4807 д.&nbsp;3 стр.&nbsp;8</span>
                 <a  href="mailTo:info@smartdivision.su" class="">info@smartdivision.su</a>
                 <a href="tel:+74955041519" class="">+7(495)504-15-19</a>
             </div>
