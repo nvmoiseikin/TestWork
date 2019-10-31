@@ -71,11 +71,10 @@ const routes = [
     }
 
 ];
-if ( process.env.APP_ENV == 'production' ) {
     Vue.config.productionTip = false;
     Vue.config.devtools = false;
     Vue.config.debug = false;
     Vue.config.silent = true;
-}
+
 const router = new VueRouter({ mode: 'hash', routes: routes});
 new Vue(Vue.util.extend({ router }, App)).$mount('#app');
