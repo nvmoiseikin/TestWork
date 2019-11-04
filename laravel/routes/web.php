@@ -22,4 +22,6 @@ Route::get('solutionsHome/get', 'ControllerSolution@index');
 Route::get('HomeSlider/get', 'ControllerHomeSlider@index');
 Route::get('services/get', 'ControllerService@index');
 
-Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+Route::get('/{vue?}', function () {
+    return view('layout');
+})->where('vue', '[\/\w\.-]*');
