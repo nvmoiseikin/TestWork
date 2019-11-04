@@ -24,4 +24,4 @@ Route::get('services/get', 'ControllerService@index');
 
 Route::get('/{vue?}', function () {
     return view('layout');
-})->where('vue', '[\/\w\.-]*');
+});
