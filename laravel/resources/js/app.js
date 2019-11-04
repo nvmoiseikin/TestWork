@@ -76,5 +76,5 @@ const routes = [
     Vue.config.debug = false;
     Vue.config.silent = true;
 
-const router = new VueRouter({ mode: 'hash', routes: routes});
+const router = new VueRouter({ mode: 'history', routes: routes});
 new Vue(Vue.util.extend({ router }, App)).$mount('#app');
