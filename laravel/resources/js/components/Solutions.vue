@@ -59,7 +59,6 @@
 
 <style lang="scss">
     @import "~bulma";
-    @import url('https://fonts.googleapis.com/css?family=Roboto:200,600,500');
     .Solutions-page {
         max-width: $widescreen;
         margin: 0 auto;
