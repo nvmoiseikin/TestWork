@@ -15,7 +15,7 @@
             </div>
             <div id="carouselSolutionsHome">
                 <div class="carousel-inner">
-                    <router-link v-for="(data, index) in solutionData.home" :class='{"carousel-item":"true","active":(index==0)}' :to="data.path" :key="index">
+                    <router-link v-for="(data, index) in solutionData.home" :class='{"carousel-item":"true","active":(index==0)}' :to="createPath(data.path)" :key="index">
                         <img :src="firstPhoto(data.photos)">
                         <div class="carousel-item-title">{{data.title}}</div>
                         <div class="carousel-item-text"  v-html="data.small_text"></div>
@@ -38,12 +38,12 @@
             </div>
             <div id="carouselSolutionsBusiness">
                 <div class="carousel-inner">
-                    <router-link v-for="(data, index) in solutionData.business" :class='{"carousel-item":"true","active":(index==0)}' :to="data.path" :key="index">
+                    <router-link v-for="(data, index) in solutionData.business" :class='{"carousel-item":"true","active":(index==0)}' :to="createPath(data.path)" :key="index">
                         <img :src="firstPhoto(data.photos)">
                         <div class="carousel-item-title">{{data.title}}</div>
                         <div class="carousel-item-text" v-html="data.small_text"></div>
                     </router-link>
-                    <router-link v-for="(data, index2) in solutionData.business" class='carousel-item' :to="data.path" :key="index2">
+                    <router-link v-for="(data, index2) in solutionData.business" class='carousel-item' :to="createPath(data.path)" :key="index2">
                         <img :src="firstPhoto(data.photos)">
                         <div class="carousel-item-title">{{data.title}}</div>
                         <div class="carousel-item-text" v-html="data.small_text"></div>
@@ -424,6 +424,9 @@
             },
             firstPhoto(data){
                 return data.split(" ")[0];
+            },
+            createPath(path){
+                return "/solutions/" + path;
             }
         },
         beforeMount: function(){
