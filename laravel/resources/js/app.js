@@ -34,12 +34,12 @@ import 'video.js/dist/video-js.css'
 Vue.use(VueVideoPlayer);
 
 import App from './App.vue';
-import Home from './components/Home.vue';
-import Solutions from './components/Solutions.vue';
-import Services from './components/Services.vue';
-import About from './components/About.vue';
-import Contact from './components/Contacts.vue';
-import SolutionsComponent from './components/SolutionsComponent.vue';
+const Home = () => import('./components/Home.vue');
+const Solutions = () => import('./components/Solutions.vue');
+const Services = () => import('./components/Services.vue');
+const About = () => import('./components/About.vue');
+const Contact = () => import('./components/Contacts.vue');
+const SolutionsComponent = () => import('./components/SolutionsComponent.vue');
 const routes = [
     {
         name: 'Home',

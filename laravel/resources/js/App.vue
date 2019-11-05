@@ -61,6 +61,22 @@
     .grecaptcha-badge {
         z-index: 99999999999999999;
     }
+    .clear-fix{
+        clear: both;
+    }
+    html{
+        -webkit-tap-highlight-color: transparent;
+    }
+    body{
+        overflow-x: hidden;
+        width: 100%;
+        .container{
+            max-width: 1900px !important;
+            padding: 0;
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
     html{
 
         .container{

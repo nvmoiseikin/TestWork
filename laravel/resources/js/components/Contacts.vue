@@ -119,6 +119,106 @@
             }
         }
     }
+    /**** FORM ****/
+    .contactUs{
+        width: 100%;
+        background-color: #2F4052;
+        padding: 30px 0;
+        .home-logo-bottom{
+            width: 200px;
+            height: 50px;
+            float: left;
+            margin: 0 0 0 -250px;
+        }
+        form{
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            .form-title{
+                text-align: center;
+                width: 100%;
+                font-family: Roboto;
+                font-weight: 500;
+                line-height: 18px;
+                font-size: 16px;
+                color: white;
+            }
+            .form-item{
+                width: 100%;
+                max-width: 400px;
+                margin: 12px auto;
+            }
+            input, input:focus{
+                width: 100%;
+                height: 40px;
+                background-color: #5a6268;
+                border-radius: 5px;
+                font-size: 14px;
+                padding: 10px;
+                border: none;
+                outline: none;
+                color: white;
+                box-shadow: none;
+                &::-webkit-input-placeholder {color:white;}
+                &::-moz-placeholder          {color:white;}/* Firefox 19+ */
+                &:-moz-placeholder           {color:white;}/* Firefox 18- */
+                &:-ms-input-placeholder      {color:white;}
+            }
+            textarea, textarea:focus{
+                width: 100%;
+                background-color: #5a6268;
+                border-radius: 5px;
+                font-size: 14px;
+                border: none;
+                outline: none;
+                color: white;
+                box-shadow: none;
+                &::-webkit-input-placeholder {color:white;}
+                &::-moz-placeholder          {color:white;}/* Firefox 19+ */
+                &:-moz-placeholder           {color:white;}/* Firefox 18- */
+                &:-ms-input-placeholder      {color:white;}
+            }
+            input:focus, textarea:focus{
+                text-align: left;
+            }
+            input, textarea{
+                text-align: center;
+            }
+            .label-danger{
+                color: darkred;
+                font-family: Roboto;
+                font-size: 10px;
+                font-weight: 500;
+            }
+            .btn-submit{
+                display: block;
+                width: 88px;
+                height: 30px;
+                background: #00BC9C;
+                border-radius: 3px;
+                text-align: center;
+                text-decoration: none;
+                float: right;
+                margin: 20px 0;
+                border-style: none;
+                font-family: Roboto;
+                font-weight: 500;
+                line-height: 30px;
+                font-size: 12px;
+                color: white;
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+    }
+    @media (max-width: 1000px) {
+        .contactUs {
+            .home-logo-bottom {
+                display: none;
+            }
+        }
+    }
     @media (max-width: 768px) {
         .Contacts-page {
             width: 100%;
