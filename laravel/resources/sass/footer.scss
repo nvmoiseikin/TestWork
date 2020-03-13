@@ -1,0 +1,83 @@
+@import '../sass/variables';
+.footer{
+    background-color: transparent !important;
+    padding: 0 !important;
+    &__title{
+        @include myFont("MuseoBold", 36px, 43px);
+        margin: 0 0 70px;
+        text-align: center;
+    }
+    &__formsWrap{
+        padding: 0 112px;
+        margin: 0;
+    }
+
+}
+@media(max-width: 991px){
+    .footer{
+        &__title{margin: 0 0 27px;}
+    }
+}
+@media(max-width: 769px){
+    .footer{
+        &__formsWrap{ padding:  0 8px; }
+    }
+}
+.form{
+    margin: 0;
+    &__group{
+        position: relative;
+        padding: 0 10px;
+        max-width: 400px;
+        margin: 0 auto 35px;
+    }
+    &__group_left{
+        margin-left: 0;
+        max-width: none;
+        padding: 0;
+    }
+    &__label{
+        @include myFont("MuseoSemiBold", 10px, 12px);
+        margin-bottom: 7px;
+    }
+    &__input{
+        @include myFont("MuseoRegular", 10px, 12px);
+        padding: 20px 30px;
+    }
+    &__formsLegend{
+        @include myFont("MuseoRegular", 10px, 12px);
+        margin-bottom: 40px;
+        width: auto;
+        span{
+            position: relative;
+        }
+    }
+    &__formsLegend span:after{
+        content: "";
+        position: absolute;
+        height: 2px;
+        background-color: black;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+    }
+    &__submit{
+        padding: 17px 30px;
+        background: #FFD241;
+        border-radius: 29.5px;
+        width: 280px;
+        height: 50px;
+        outline: none;
+        border: none;
+        div{
+            @include myFont("MuseoRegular", 12px, 14px);
+        }
+        img{
+            display: block;
+            width: 5px;
+            height: 9px;
+            margin: 3px 0 0 0;
+        }
+        margin: 0 0 150px;
+    }
+}

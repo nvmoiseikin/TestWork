@@ -1,0 +1,39 @@
+.header{
+    height: 70px;
+    background: #FFD241;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    &__icon{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 23px;
+        margin-right: 23px;
+        &Line{
+            height: 5px;
+            background-color: black;
+        }
+    }
+}
+.main{
+    &__title{
+        font-family: "MuseoBold";
+        font-size: 36px;
+        line-height: 43px;
+        margin: 46px 0 46px;
+        text-align: center;
+    }
+    &__toursWrap{
+        padding: 0 112px;
+        margin: 0;
+    }
+}
+@media(max-width: 769px){
+    .main{
+        &__toursWrap{ padding:  0 8px; }
+        &__title{margin: 34px 0 50px;}
+    }
+}

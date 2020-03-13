@@ -1,0 +1,84 @@
+.checkbox{
+    display: flex !important;
+    justify-content: space-around;
+    &__insight{
+        width: 25%;
+    }
+    &__label{
+        @include myFont("MuseoRegular", 10px, 12px);
+        margin-bottom: 7px;
+        text-align: center;
+        width: 100%;
+    }
+    #label_1_1{
+        margin-top: -12px;
+    }
+    &__label_small{
+        @include myFont("MuseoRegular", 10px, 15px);
+        margin-top: 2px;
+        text-align: left;
+        display: block;
+        float: left;
+        width: calc(100% - 40px);
+    }
+    &__input + label {
+        display: block;
+        width: 40px;
+        height: 40px;
+        color: #FFD241;
+        @include myFont("MuseoSemiBold", 20px, 40px);
+        background-color: transparent;
+        position: relative;
+        border: 1px solid #E7E7E7;
+        border-radius: 3px;
+        margin: 0 auto;
+    }
+    &__input:checked + label:before{
+        display: block;
+        content: "";
+        width: 40px;
+        height: 40px;
+        background-image: url("/site_img/checked.png");
+        position: absolute;
+        background-repeat: no-repeat;
+        left: 10px;
+        top: 16px;
+    }
+    &__input_small + label {
+        float: left;
+        display: block;
+        width: 15px;
+        height: 15px;
+        color: #FFD241;
+        @include myFont("MuseoSemiBold", 20px, 12px);
+        background-color: transparent;
+        position: relative;
+        border: 1px solid #E7E7E7;
+        border-radius: 3px;
+        margin: 0 15px 35px 0;
+    }
+    &__input_small:checked + label:before{
+        display: block;
+        content: "";
+        width: 15px;
+        height: 15px;
+        background-image: url("/site_img/checked.png");
+        position: absolute;
+        background-repeat: no-repeat;
+        left: 2px;
+        top: 3px;
+        //background-size: 37.5% 37.5%;
+        background-size: 50% 50%;
+    }
+    &__desc{
+        @include myFont("MuseoThin", 10px, 12px);
+        padding: 11px 0 40px;
+        color: #C1C1C1;
+    }
+    &__desc_2{
+        padding: 11px 0 33px;
+    }
+    &__desc_3{
+        padding: 0 0 5px;
+    }
+}

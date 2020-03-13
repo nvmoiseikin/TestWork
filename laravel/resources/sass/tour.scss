@@ -1,0 +1,77 @@
+@import '../sass/variables';
+.tour{
+    position: relative;
+    padding: 0 10px;
+    max-width: 400px;
+    margin: 0 auto 55px;
+    &__imageWrap{
+        position: relative;
+        //-moz-box-sizing: content-box;
+    }
+    &__image{
+        width: 100%;
+        height: auto;
+    }
+    &__price{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        width: 160px;
+        height: 50px;
+        @include myFont("MuseoBold", 18px, 50px);
+        background: #FFD241;
+        text-align: center;
+    }
+    &__country{
+        @include myFont("MuseoSemiBold", 9px, 11px);
+        margin: 7px 0 10px;
+        color: #C5B223;
+    }
+    &__name{
+        @include myFont("MuseoSemiBold", 18px, 22px);
+        margin-bottom: 20px;
+    }
+    &__places{
+        @include myFont("MuseoSemiBold", 9px, 13px);
+        margin-bottom: 15px;
+        color: #8C8C8C;
+        opacity: 0.7;
+    }
+    &__desc{
+        @include myFont("MuseoSemiBold", 9px, 11px);
+        margin-bottom: 12px;
+    }
+    &__alert{
+        @include myFont("MuseoRegular", 9px, 17px);
+        background-color: #CB0037;
+        border-radius: 3px;
+        width: 130px;
+        text-align: center;
+        height: 17px;
+        color: white;
+    }
+}
+@media(max-width: 769px){
+    .tour:not(:last-child){margin: 0 auto 30px;}
+}
+@media(max-width: 991px){
+    .tour:last-child:after{
+        content: "";
+        position: absolute;
+        height: 2px;
+        background-color: #C4C4C4;
+        bottom: -30px;
+        left: 10px;
+        right: 10px;
+    }
+    .tour:first-child:before{
+        content: "";
+        position: absolute;
+        height: 2px;
+        background-color: #C4C4C4;
+        top: -27px;
+        left: 10px;
+        right: 10px;
+    }
+}
