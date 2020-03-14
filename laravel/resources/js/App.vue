@@ -157,7 +157,11 @@
                 </form>
             </div>
         </footer>
+        <my-nav>
+
+        </my-nav>
     </div>
+
 </template>
 
 <style lang="scss">
@@ -183,6 +187,7 @@
             padding: 0;
             margin: 0 auto;
             overflow: hidden;
+            position: relative;
         }
     }
     .hidden{
@@ -199,15 +204,30 @@
             display: none;
         }
     }
+    .active{
+        display: block !important;
+    }
 </style>
 
 <script>
-    import $ from 'jquery'
+    import $ from 'jquery';
+    import MyNav from './components/MyNav.vue';
     export default{
-        data() {
+        components: { MyNav },
+        data: function(){
             return {}
         },
-        mounted() {
+        mounted:  function(){
+            $(".footer, .main").click(function(e){
+                console.log(e.target, e);
+                $(".nav").removeClass("nav_active");
+            });
+            $(".header__icon").click(function(e){
+                $(".nav").addClass("nav_active");
+            });
+        },
+        methods: {
+
         }
     }
 </script>

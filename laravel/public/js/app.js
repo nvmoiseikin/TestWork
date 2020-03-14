@@ -3641,6 +3641,15 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_MyNav_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/MyNav.vue */ "./resources/js/components/MyNav.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3845,11 +3854,353 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    MyNav: _components_MyNav_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {};
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(".footer, .main").click(function (e) {
+      console.log(e.target, e);
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".nav").removeClass("nav_active");
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(".header__icon").click(function (e) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".nav").addClass("nav_active");
+    });
+  },
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DatePicker.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      n: 0
+    };
+  },
+  methods: {
+    Calendar2: function Calendar2(id, year, month) {
+      var Dlast = new Date(year, month + 1, 0).getDate(),
+          D = new Date(year, month, Dlast),
+          DNlast = new Date(D.getFullYear(), D.getMonth(), Dlast).getDay(),
+          DNfirst = new Date(D.getFullYear(), D.getMonth(), 1).getDay(),
+          calendar = '<tr>',
+          month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+
+      if (DNfirst != 0) {
+        for (var i = 1; i < DNfirst; i++) {
+          calendar += '<td>';
+        }
+      } else {
+        for (var i = 0; i < 6; i++) {
+          calendar += '<td>';
+        }
+      }
+
+      for (var i = 1; i <= Dlast; i++) {
+        if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+          calendar += '<td class="actives" data-id="0">' + i;
+        } else {
+          calendar += '<td>' + i;
+        }
+
+        if (new Date(D.getFullYear(), D.getMonth(), i).getDay() == 0) {
+          calendar += '<tr>';
+        }
+      }
+
+      for (var i = DNlast; i < 7; i++) {
+        calendar += '<td>&nbsp;';
+      }
+
+      document.querySelector('#' + id + ' tbody').innerHTML = calendar;
+      document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
+      document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
+      document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.year = D.getFullYear();
+
+      if (document.querySelectorAll('#' + id + ' tbody tr').length < 6) {
+        // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
+        document.querySelector('#' + id + ' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+      }
+
+      this.selectDate();
+    },
+    selectDate: function selectDate() {
+      var that = this;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("tbody td").click(function (e) {
+        console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target));
+        var el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target);
+        var active = jquery__WEBPACK_IMPORTED_MODULE_0___default()("tbody td.actives");
+
+        if (el.hasClass("actives")) {
+          el.removeClass("actives");
+        } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()("tbody td.actives").length < 2) {
+          el.addClass("actives");
+          el.attr("data-id", ++that.n);
+        } else {
+          var first = +jquery__WEBPACK_IMPORTED_MODULE_0___default()(active[0]).attr("data-id") < +jquery__WEBPACK_IMPORTED_MODULE_0___default()(active[1]).attr("data-id") ? active[0] : active[1];
+          console.log(+jquery__WEBPACK_IMPORTED_MODULE_0___default()(active[0]).attr("data-id"), +jquery__WEBPACK_IMPORTED_MODULE_0___default()(active[1]).attr("data-id"));
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(first).removeClass("actives");
+          el.addClass("actives");
+          el.attr("data-id", ++that.n);
+        }
+      });
+    }
+  },
+  mounted: function mounted() {
+    var that = this;
+    this.Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth()); // переключатель минус месяц
+
+    document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function () {
+      that.Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) - 1);
+    }; // переключатель плюс месяц
+
+
+    document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
+      that.Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) + 1);
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyNav.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DatePicker_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DatePicker.vue */ "./resources/js/components/DatePicker.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    DatePicker: _DatePicker_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    var that = this;
+    this.dropdownInDropdown();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(".nav__close").click(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".nav").removeClass("nav_active");
+      this.closeAll();
+    });
+  },
+  methods: {
+    dropdownButtons: function dropdownButtons(id) {
+      //this.closeAll();
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#" + id).find(".dropdown__icon").toggleClass("open");
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#" + id).find(".dropdown__content").toggleClass("active");
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("#" + id).find(".dropdown__item").removeClass("active");
+    },
+    dropdownInDropdown: function dropdownInDropdown() {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".dropdown__item").click(function (e) {
+        console.log(e, e.target, jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.currentTarget));
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".dropdown__itemInItem").removeClass("active");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.currentTarget).find(".dropdown__itemInItem").toggleClass("active");
+      });
+    },
+    closeAll: function closeAll() {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".dropdown .active").removeClass("active");
+    }
+  }
 });
 
 /***/ }),
@@ -30961,7 +31312,45 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Rob
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat:600,500);", ""]);
 
 // module
-exports.push([module.i, "@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.header {\n  height: 70px;\n  background: #FFD241;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n  align-items: flex-end;\n}\n.header__icon {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  width: 30px;\n  height: 23px;\n  margin-right: 23px;\n}\n.header__iconLine {\n  height: 5px;\n  background-color: black;\n}\n.main__title {\n  font-family: \"MuseoBold\";\n  font-size: 36px;\n  line-height: 43px;\n  margin: 46px 0 46px;\n  text-align: center;\n}\n.main__toursWrap {\n  padding: 0 112px;\n  margin: 0;\n}\n@media (max-width: 769px) {\n.main__toursWrap {\n    padding: 0 8px;\n}\n.main__title {\n    margin: 34px 0 50px;\n}\n}\n@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.tour {\n  position: relative;\n  padding: 0 10px;\n  max-width: 400px;\n  margin: 0 auto 55px;\n}\n.tour__imageWrap {\n  position: relative;\n}\n.tour__image {\n  width: 100%;\n  height: auto;\n}\n.tour__price {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  z-index: 100;\n  width: 160px;\n  height: 50px;\n  font-family: \"MuseoBold\";\n  font-size: 18px;\n  line-height: 50px;\n  background: #FFD241;\n  text-align: center;\n}\n.tour__country {\n  font-family: \"MuseoSemiBold\";\n  font-size: 9px;\n  line-height: 11px;\n  margin: 7px 0 10px;\n  color: #C5B223;\n}\n.tour__name {\n  font-family: \"MuseoSemiBold\";\n  font-size: 18px;\n  line-height: 22px;\n  margin-bottom: 20px;\n}\n.tour__places {\n  font-family: \"MuseoSemiBold\";\n  font-size: 9px;\n  line-height: 13px;\n  margin-bottom: 15px;\n  color: #8C8C8C;\n  opacity: 0.7;\n}\n.tour__desc {\n  font-family: \"MuseoSemiBold\";\n  font-size: 9px;\n  line-height: 11px;\n  margin-bottom: 12px;\n}\n.tour__alert {\n  font-family: \"MuseoRegular\";\n  font-size: 9px;\n  line-height: 17px;\n  background-color: #CB0037;\n  border-radius: 3px;\n  width: 130px;\n  text-align: center;\n  height: 17px;\n  color: white;\n}\n@media (max-width: 769px) {\n.tour:not(:last-child) {\n    margin: 0 auto 30px;\n}\n}\n@media (max-width: 991px) {\n.tour:last-child:after {\n    content: \"\";\n    position: absolute;\n    height: 2px;\n    background-color: #C4C4C4;\n    bottom: -30px;\n    left: 10px;\n    right: 10px;\n}\n.tour:first-child:before {\n    content: \"\";\n    position: absolute;\n    height: 2px;\n    background-color: #C4C4C4;\n    top: -27px;\n    left: 10px;\n    right: 10px;\n}\n}\n@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.footer {\n  background-color: transparent !important;\n  padding: 0 !important;\n}\n.footer__title {\n  font-family: \"MuseoBold\";\n  font-size: 36px;\n  line-height: 43px;\n  margin: 0 0 70px;\n  text-align: center;\n}\n.footer__formsWrap {\n  padding: 0 112px;\n  margin: 0;\n}\n@media (max-width: 991px) {\n.footer__title {\n    margin: 0 0 27px;\n}\n}\n@media (max-width: 769px) {\n.footer__formsWrap {\n    padding: 0 8px;\n}\n}\n.form {\n  margin: 0;\n}\n.form__group {\n  position: relative;\n  padding: 0 10px;\n  max-width: 400px;\n  margin: 0 auto 35px;\n}\n.form__group_left {\n  margin-left: 0;\n  max-width: none;\n  padding: 0;\n}\n.form__label {\n  font-family: \"MuseoSemiBold\";\n  font-size: 10px;\n  line-height: 12px;\n  margin-bottom: 7px;\n}\n.form__input {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 12px;\n  padding: 20px 30px;\n}\n.form__formsLegend {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 12px;\n  margin-bottom: 40px;\n  width: auto;\n}\n.form__formsLegend span {\n  position: relative;\n}\n.form__formsLegend span:after {\n  content: \"\";\n  position: absolute;\n  height: 2px;\n  background-color: black;\n  bottom: -5px;\n  left: 0;\n  right: 0;\n}\n.form__submit {\n  padding: 17px 30px;\n  background: #FFD241;\n  border-radius: 29.5px;\n  width: 280px;\n  height: 50px;\n  outline: none;\n  border: none;\n  margin: 0 0 150px;\n}\n.form__submit div {\n  font-family: \"MuseoRegular\";\n  font-size: 12px;\n  line-height: 14px;\n}\n.form__submit img {\n  display: block;\n  width: 5px;\n  height: 9px;\n  margin: 3px 0 0 0;\n}\n.checkbox {\n  display: flex !important;\n  justify-content: space-around;\n}\n.checkbox__insight {\n  width: 25%;\n}\n.checkbox__label {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 12px;\n  margin-bottom: 7px;\n  text-align: center;\n  width: 100%;\n}\n.checkbox #label_1_1 {\n  margin-top: -12px;\n}\n.checkbox__label_small {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 15px;\n  margin-top: 2px;\n  text-align: left;\n  display: block;\n  float: left;\n  width: calc(100% - 40px);\n}\n.checkbox__input + label {\n  display: block;\n  width: 40px;\n  height: 40px;\n  color: #FFD241;\n  font-family: \"MuseoSemiBold\";\n  font-size: 20px;\n  line-height: 40px;\n  background-color: transparent;\n  position: relative;\n  border: 1px solid #E7E7E7;\n  border-radius: 3px;\n  margin: 0 auto;\n}\n.checkbox__input:checked + label:before {\n  display: block;\n  content: \"\";\n  width: 40px;\n  height: 40px;\n  background-image: url(\"/site_img/checked.png\");\n  position: absolute;\n  background-repeat: no-repeat;\n  left: 10px;\n  top: 16px;\n}\n.checkbox__input_small + label {\n  float: left;\n  display: block;\n  width: 15px;\n  height: 15px;\n  color: #FFD241;\n  font-family: \"MuseoSemiBold\";\n  font-size: 20px;\n  line-height: 12px;\n  background-color: transparent;\n  position: relative;\n  border: 1px solid #E7E7E7;\n  border-radius: 3px;\n  margin: 0 15px 35px 0;\n}\n.checkbox__input_small:checked + label:before {\n  display: block;\n  content: \"\";\n  width: 15px;\n  height: 15px;\n  background-image: url(\"/site_img/checked.png\");\n  position: absolute;\n  background-repeat: no-repeat;\n  left: 2px;\n  top: 3px;\n  background-size: 50% 50%;\n}\n.checkbox__desc {\n  font-family: \"MuseoThin\";\n  font-size: 10px;\n  line-height: 12px;\n  padding: 11px 0 40px;\n  color: #C1C1C1;\n}\n.checkbox__desc_2 {\n  padding: 11px 0 33px;\n}\n.checkbox__desc_3 {\n  padding: 0 0 5px;\n}\n.clear-fix {\n  clear: both;\n}\nhtml {\n  -webkit-tap-highlight-color: transparent;\n}\nbody {\n  overflow-x: hidden;\n  width: 100%;\n  color: black !important;\n}\nbody .container {\n  max-width: 1024px !important;\n  padding: 0;\n  margin: 0 auto;\n  overflow: hidden;\n}\n.hidden {\n  visibility: hidden;\n}\n.alert-color {\n  color: #CB0037;\n}\n.alert-border {\n  border: 1px solid #CB0037 !important;\n}\n@media (max-width: 991px) {\n.hidden {\n    display: none;\n}\n}", ""]);
+exports.push([module.i, "@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.header {\n  height: 70px;\n  background: #FFD241;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-around;\n  align-items: flex-end;\n}\n.header__icon {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  width: 30px;\n  height: 23px;\n  margin-right: 23px;\n}\n.header__iconLine {\n  height: 5px;\n  background-color: black;\n}\n.main__title {\n  font-family: \"MuseoBold\";\n  font-size: 36px;\n  line-height: 43px;\n  margin: 46px 0 46px;\n  text-align: center;\n}\n.main__toursWrap {\n  padding: 0 112px;\n  margin: 0;\n}\n@media (max-width: 769px) {\n.main__toursWrap {\n    padding: 0 8px;\n}\n.main__title {\n    margin: 34px 0 50px;\n}\n}\n@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.tour {\n  position: relative;\n  padding: 0 10px;\n  max-width: 400px;\n  margin: 0 auto 55px;\n}\n.tour__imageWrap {\n  position: relative;\n}\n.tour__image {\n  width: 100%;\n  height: auto;\n}\n.tour__price {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  z-index: 100;\n  width: 160px;\n  height: 50px;\n  font-family: \"MuseoBold\";\n  font-size: 18px;\n  line-height: 50px;\n  background: #FFD241;\n  text-align: center;\n}\n.tour__country {\n  font-family: \"MuseoSemiBold\";\n  font-size: 9px;\n  line-height: 11px;\n  margin: 7px 0 10px;\n  color: #C5B223;\n}\n.tour__name {\n  font-family: \"MuseoSemiBold\";\n  font-size: 18px;\n  line-height: 22px;\n  margin-bottom: 20px;\n}\n.tour__places {\n  font-family: \"MuseoSemiBold\";\n  font-size: 9px;\n  line-height: 13px;\n  margin-bottom: 15px;\n  color: #8C8C8C;\n  opacity: 0.7;\n}\n.tour__desc {\n  font-family: \"MuseoSemiBold\";\n  font-size: 9px;\n  line-height: 11px;\n  margin-bottom: 12px;\n}\n.tour__alert {\n  font-family: \"MuseoRegular\";\n  font-size: 9px;\n  line-height: 17px;\n  background-color: #CB0037;\n  border-radius: 3px;\n  width: 130px;\n  text-align: center;\n  height: 17px;\n  color: white;\n}\n@media (max-width: 769px) {\n.tour:not(:last-child) {\n    margin: 0 auto 30px;\n}\n}\n@media (max-width: 991px) {\n.tour:last-child:after {\n    content: \"\";\n    position: absolute;\n    height: 2px;\n    background-color: #C4C4C4;\n    bottom: -30px;\n    left: 10px;\n    right: 10px;\n}\n.tour:first-child:before {\n    content: \"\";\n    position: absolute;\n    height: 2px;\n    background-color: #C4C4C4;\n    top: -27px;\n    left: 10px;\n    right: 10px;\n}\n}\n@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.footer {\n  background-color: transparent !important;\n  padding: 0 !important;\n}\n.footer__title {\n  font-family: \"MuseoBold\";\n  font-size: 36px;\n  line-height: 43px;\n  margin: 0 0 70px;\n  text-align: center;\n}\n.footer__formsWrap {\n  padding: 0 112px;\n  margin: 0;\n}\n.form {\n  margin: 0;\n}\n.form__group {\n  position: relative;\n  padding: 0 10px;\n  max-width: 400px;\n  margin: 0 auto 35px;\n}\n.form__group_left {\n  max-width: 800px;\n}\n.form__label {\n  font-family: \"MuseoSemiBold\";\n  font-size: 10px;\n  line-height: 12px;\n  margin-bottom: 7px;\n}\n.form__input {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 12px;\n  padding: 20px 30px;\n}\n.form__formsLegend {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 12px;\n  margin-bottom: 40px;\n  width: auto;\n}\n.form__formsLegend span {\n  position: relative;\n}\n.form__formsLegend span:after {\n  content: \"\";\n  position: absolute;\n  height: 2px;\n  background-color: black;\n  bottom: -5px;\n  left: 0;\n  right: 0;\n}\n.form__submit {\n  display: block;\n  padding: 17px 30px;\n  background: #FFD241;\n  border-radius: 29.5px;\n  width: 280px;\n  height: 50px;\n  outline: none;\n  border: none;\n  margin: 0 0 150px 10px;\n}\n.form__submit div {\n  font-family: \"MuseoRegular\";\n  font-size: 12px;\n  line-height: 14px;\n}\n.form__submit img {\n  display: block;\n  width: 5px;\n  height: 9px;\n  margin: 3px 0 0 0;\n}\n@media (max-width: 991px) {\n.footer__title {\n    margin: 0 0 27px;\n}\n.form {\n    display: block;\n}\n.form__submit {\n    margin: 0 auto 70px;\n}\n.form__group_left {\n    max-width: 400px;\n}\n}\n@media (max-width: 769px) {\n.footer__formsWrap {\n    padding: 0 8px;\n}\n}\n.checkbox {\n  display: flex !important;\n  justify-content: space-around;\n}\n.checkbox__insight {\n  width: 25%;\n}\n.checkbox__label {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 12px;\n  margin-bottom: 7px;\n  text-align: center;\n  width: 100%;\n}\n.checkbox #label_1_1 {\n  margin-top: -12px;\n}\n.checkbox__label_small {\n  font-family: \"MuseoRegular\";\n  font-size: 10px;\n  line-height: 15px;\n  margin-top: 2px;\n  text-align: left;\n  display: block;\n  float: left;\n  width: calc(100% - 40px);\n}\n.checkbox__input + label {\n  display: block;\n  width: 40px;\n  height: 40px;\n  color: #FFD241;\n  font-family: \"MuseoSemiBold\";\n  font-size: 20px;\n  line-height: 40px;\n  background-color: transparent;\n  position: relative;\n  border: 1px solid #E7E7E7;\n  border-radius: 3px;\n  margin: 0 auto;\n}\n.checkbox__input:checked + label:before {\n  display: block;\n  content: \"\";\n  width: 40px;\n  height: 40px;\n  background-image: url(\"/site_img/checked.png\");\n  position: absolute;\n  background-repeat: no-repeat;\n  left: 10px;\n  top: 16px;\n}\n.checkbox__input_small + label {\n  float: left;\n  display: block;\n  width: 15px;\n  height: 15px;\n  color: #FFD241;\n  font-family: \"MuseoSemiBold\";\n  font-size: 20px;\n  line-height: 12px;\n  background-color: transparent;\n  position: relative;\n  border: 1px solid #E7E7E7;\n  border-radius: 3px;\n  margin: 0 15px 35px 0;\n}\n.checkbox__input_small:checked + label:before {\n  display: block;\n  content: \"\";\n  width: 15px;\n  height: 15px;\n  background-image: url(\"/site_img/checked.png\");\n  position: absolute;\n  background-repeat: no-repeat;\n  left: 2px;\n  top: 3px;\n  background-size: 50% 50%;\n}\n.checkbox__desc {\n  font-family: \"MuseoThin\";\n  font-size: 10px;\n  line-height: 12px;\n  padding: 11px 0 40px;\n  color: #C1C1C1;\n}\n.checkbox__desc_2 {\n  padding: 11px 0 33px;\n}\n.checkbox__desc_3 {\n  padding: 0 0 5px;\n}\n.clear-fix {\n  clear: both;\n}\nhtml {\n  -webkit-tap-highlight-color: transparent;\n}\nbody {\n  overflow-x: hidden;\n  width: 100%;\n  color: black !important;\n}\nbody .container {\n  max-width: 1024px !important;\n  padding: 0;\n  margin: 0 auto;\n  overflow: hidden;\n  position: relative;\n}\n.hidden {\n  visibility: hidden;\n}\n.alert-color {\n  color: #CB0037;\n}\n.alert-border {\n  border: 1px solid #CB0037 !important;\n}\n@media (max-width: 991px) {\n.hidden {\n    display: none;\n}\n}\n.active {\n  display: block !important;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.calendar {\n  width: 100%;\n  text-align: center;\n  border-spacing: 7px 7px;\n  border-collapse: separate !important;\n}\n.calendar__wrap {\n  margin: -15px 0 0;\n  padding: 0 24px 18px;\n}\n.calendar__title {\n  font-family: \"MuseoRegular\";\n  font-size: 12px;\n  line-height: 14px;\n  margin: 21px 0 0;\n}\n.calendar td {\n  text-align: center !important;\n}\n.calendar .actives {\n  background: #FFD241;\n}\n#calendar2 thead tr:last-child {\n  font-family: \"MuseoRegular\";\n  font-size: 12px;\n  line-height: 20px;\n}\n#calendar2 thead tr:nth-child(1) td:nth-child(2) {\n  font-family: \"MuseoSemiBold\";\n  font-size: 14px;\n  line-height: 30px;\n}\n#calendar2 thead tr:nth-child(1) td:nth-child(1):hover, #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {\n  cursor: pointer;\n}\n#calendar2 tbody td {\n  font-family: \"MuseoRegular\";\n  font-size: 12px;\n  line-height: 20px;\n  vertical-align: center;\n  border-radius: 50%;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n@font-face {\n  font-family: \"MuseoThin\";\n  src: url(\"/fonts/MuseoSansCyrl_0.otf\");\n}\n@font-face {\n  font-family: \"MuseoRegular\";\n  src: url(\"/fonts/MuseoSansCyrl_1.otf\");\n}\n@font-face {\n  font-family: \"MuseoSemiBold\";\n  src: url(\"/fonts/MuseoSansCyrl_2.otf\");\n}\n@font-face {\n  font-family: \"MuseoBold\";\n  src: url(\"/fonts/MuseoSansCyrl_3.otf\");\n}\n.nav {\n  overflow: auto;\n  position: fixed;\n  z-index: 1000;\n  right: calc(50% - 512px);\n  top: -1000%;\n  width: 500px;\n  max-width: 100%;\n  height: 100vh;\n  background-color: #FFD241;\n}\n.nav_active {\n  top: 0;\n}\n.nav__close {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  width: 20px;\n  height: auto;\n}\n.nav__dropdownWrap {\n  margin: 100px 0 0;\n}\n.dropdown {\n  display: block !important;\n  width: 80%;\n  max-width: 280px;\n  max-height: 500px;\n  overflow: auto;\n  border-radius: 29.5px;\n  background-color: white;\n  position: relative;\n  margin: 20px auto 20px;\n  z-index: 10000;\n}\n.dropdown__header {\n  width: 100%;\n  height: 50px;\n}\n.dropdown__content {\n  display: none;\n}\n.dropdown__item {\n  padding: 0 30px;\n  font-family: \"MuseoSemiBold\";\n  font-size: 14px;\n  line-height: 30px;\n}\n.dropdown__item:last-child {\n  margin-bottom: 20px;\n}\n.dropdown__itemInItem {\n  padding: 0 0 0 13px;\n  font-family: \"MuseoRegular\";\n  font-size: 14px;\n  line-height: 30px;\n  display: none;\n}\n.dropdown__item_thin {\n  font-family: \"MuseoRegular\";\n  font-size: 14px;\n  line-height: 30px;\n  padding: 0 0 0 45px;\n}\n.dropdown__search, .dropdown__searchTour {\n  width: 100%;\n  margin: 14px auto 30px;\n  height: 50px;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 29.5px;\n  max-width: 280px;\n  font-family: \"MuseoRegular\";\n  font-size: 12px;\n  line-height: 50px;\n  text-align: center;\n}\n.dropdown__menu {\n  width: 100%;\n  max-width: 280px;\n  font-family: \"MuseoBold\";\n  font-size: 18px;\n  line-height: 37px;\n  text-align: center;\n  margin: 30px auto 100px;\n}\n.dropdown .dropdown__label {\n  position: absolute;\n  top: 17px;\n  font-family: \"MuseoRegular\";\n  font-size: 12px;\n  line-height: 14px;\n  left: 30px;\n}\n.dropdown .dropdown__icon {\n  position: absolute;\n  top: 23px;\n  width: 7px;\n  right: 30px;\n}\n@media (max-width: 1024px) {\n.nav {\n    right: 0;\n}\n}", ""]);
 
 // exports
 
@@ -46811,6 +47200,66 @@ options.transform = transform
 options.insertInto = undefined;
 
 var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./DatePicker.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./MyNav.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -74731,6 +75180,565 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container w-100", attrs: { id: "app" } },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("my-nav")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "header w-100" }, [
+      _c("div", { staticClass: "header__icon" }, [
+        _c("div", { staticClass: "header__iconLine w-100" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "header__iconLine w-100" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "header__iconLine w-100" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("main", { staticClass: "main w-100" }, [
+      _c("div", { staticClass: "main__title w-100" }, [_vm._v("ЗИМБАБВЕ")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "main__toursWrap w-100 row" }, [
+        _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
+          _c("div", { staticClass: "tour__imageWrap" }, [
+            _c("img", {
+              staticClass: "tour__image",
+              attrs: { src: "site_img/tourImage1.jpg" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "tour__price" }, [_vm._v("от 118 112 Р")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__country" }, [_vm._v("ИТАЛИЯ")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__name" }, [
+            _vm._v("Под небом Тосканы")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__places" }, [
+            _vm._v(
+              "Сансеполькро — (Перуджа) — Ассизи — Губбио — (Сиена) — Ла Верна — Ангиари — Монтерки — Ареццо — Кортона — (Пиенца) - (Монтепульчано)"
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__desc" }, [
+            _vm._v("8 дней / 7 ночей Русский язык "),
+            _c("br"),
+            _vm._v("27.04.19 - 04.05.19и еще 15 дат")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__alert" }, [
+            _vm._v("Авиаперелет включен!")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
+          _c("div", { staticClass: "tour__imageWrap" }, [
+            _c("img", {
+              staticClass: "tour__image",
+              attrs: { src: "site_img/tourImage2.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "tour__price" }, [_vm._v("140 715 Р")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__country" }, [_vm._v("ИСЛАНДИЯ")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__name" }, [
+            _vm._v("Майские каникулы в Исландии")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__places" }, [
+            _vm._v(
+              "Рейкьявик — Тингвеллир — Гюдльфосс — Скафтафедль — Сельяландсфосс — Скоугафосс — Йёкюльсаурлоун — Голубая Лагуна — Снайфельсйёкутль — Arnarstapi — Рейкьявик"
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__desc" }, [
+            _vm._v("8 дней / 7 ночей Русский язык "),
+            _c("br"),
+            _vm._v("27.04.19 - 04.05.19")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
+          _c("div", { staticClass: "tour__imageWrap" }, [
+            _c("img", {
+              staticClass: "tour__image",
+              attrs: { src: "site_img/tourImage3.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "tour__price" }, [_vm._v("37 302 Р")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__country" }, [_vm._v("ТУРЦИЯ")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__name" }, [_vm._v("Открытие Турции")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__places" }, [
+            _vm._v(
+              "Стамбул — Анкара — Каппадокия — Конья — Памуккале — Эфес — Кушадасы — Пергам — Ассос — Троя — Стамбул"
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__desc" }, [
+            _vm._v("8 дней / 7 ночей Русский язык "),
+            _c("br"),
+            _vm._v("28.04.19 - 05.05.19 и еще 3 даты")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
+          _c("div", { staticClass: "tour__imageWrap" }, [
+            _c("img", {
+              staticClass: "tour__image",
+              attrs: { src: "site_img/tourImage4.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "tour__price" }, [_vm._v("145 000 Р")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__country" }, [
+            _vm._v("НОРВЕГИЯ, ШПИЦБЕРГЕН")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__name" }, [
+            _vm._v("От Свальбарда до Груманта")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__desc" }, [
+            _vm._v("8 дней / 7 ночей Русский язык "),
+            _c("br"),
+            _vm._v("27.04.19 - 04.05.19и еще 15 дат")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tour__alert" }, [
+            _vm._v("Авиаперелет включен!")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "footer" }, [
+      _c("div", { staticClass: "footer__title" }, [
+        _vm._v("Заявка на подбор путеешествия")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "footer__formsWrap" }, [
+        _c(
+          "form",
+          {
+            staticClass: "form row w-100",
+            attrs: { method: "POST", action: "" }
+          },
+          [
+            _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
+              _c("div", { staticClass: "form__formsLegend" }, [
+                _c("span", [_vm._v("НЕМНОГО О ВАС")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form__label" }, [
+                _vm._v("ИМЯ "),
+                _c("span", { staticClass: "alert-color" }, [_vm._v("*")])
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control form__input",
+                attrs: { type: "text", name: "name" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
+              _c("div", { staticClass: "form__formsLegend hidden" }, [
+                _c("span", [_vm._v("НЕМНОГО О ВАС")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form__label" }, [_vm._v("ТЕЛЕФОН")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control form__input",
+                attrs: {
+                  type: "text",
+                  name: "phone",
+                  placeholder: "+7___ ___ __ __"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
+              _c("div", { staticClass: "form__formsLegend" }, [
+                _c("span", [_vm._v("О ПУТЕШЕСТВИИ")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form__label" }, [
+                _vm._v("КУДА И КОГДА ХОТИТЕ ПОЕХАТЬ? "),
+                _c("span", { staticClass: "alert-color" }, [_vm._v("*")])
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control form__input alert-border",
+                attrs: {
+                  type: "text",
+                  name: "desc",
+                  placeholder: "Континент, страна или город"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
+              _c("div", { staticClass: "form__formsLegend hidden" }, [
+                _c("span", [_vm._v("НЕМНОГО О ВАС")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form__label" }, [_vm._v("КОГДА?")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control form__input",
+                attrs: {
+                  type: "text",
+                  name: "date",
+                  placeholder: "Даты или временной интервал"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
+              _c("div", { staticClass: "form__formsLegend" }, [
+                _c("span", [_vm._v("УДОБНЫЙ СПОСОБ СВЯЗИ")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "checkbox" }, [
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c("div", { staticClass: "checkbox__label" }, [
+                    _vm._v("VIBER")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_0_0",
+                      type: "checkbox",
+                      value: "VIBER",
+                      name: "communication",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_0_0" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c("div", { staticClass: "checkbox__label" }, [
+                    _vm._v("WHATSAPP")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_0_1",
+                      type: "checkbox",
+                      value: "WHATSAPP",
+                      name: "communication",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_0_1" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c("div", { staticClass: "checkbox__label" }, [
+                    _vm._v("ПОЧТА")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_0_2",
+                      type: "checkbox",
+                      value: "ПОЧТА",
+                      name: "communication",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_0_2" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c("div", { staticClass: "checkbox__label" }, [
+                    _vm._v("ТЕЛЕФОН")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_0_3",
+                      type: "checkbox",
+                      value: "ТЕЛЕФОН",
+                      name: "communication",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_0_3" } })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
+              _c("div", { staticClass: "form__formsLegend hidden" }, [
+                _c("span", [_vm._v("ОТКУДА УЗНАЛИ О НАС")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "checkbox" }, [
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c("div", { staticClass: "checkbox__label" }, [
+                    _vm._v("ИНТЕРНЕТ")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_1_0",
+                      type: "checkbox",
+                      value: "ИНТЕРНЕТ",
+                      name: "adv",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_1_0" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "checkbox__label",
+                      attrs: { id: "label_1_1" }
+                    },
+                    [_vm._v("РЕКОМЕНДОВАЛИ ДРУЗЬЯ")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_1_1",
+                      type: "checkbox",
+                      value: "РЕКОМЕНДОВАЛИ ДРУЗЬЯ",
+                      name: "adv",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_1_1" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c("div", { staticClass: "checkbox__label" }, [
+                    _vm._v("СОЦ. СЕТИ")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_1_2",
+                      type: "checkbox",
+                      value: "СОЦ. СЕТИ",
+                      name: "adv",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_1_2" } })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "checkbox__insight" }, [
+                  _c("div", { staticClass: "checkbox__label" }, [
+                    _vm._v("УЖЕ ЕЗДИЛ")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "checkbox__input",
+                    attrs: {
+                      id: "checkbox_1_3",
+                      type: "checkbox",
+                      value: "УЖЕ ЕЗДИЛ",
+                      name: "adv",
+                      hidden: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "checkbox_1_3" } })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "article",
+              { staticClass: "form__group form__group_left w-100" },
+              [
+                _c("div", { staticClass: " w-100" }, [
+                  _c("div", { staticClass: " w-100" }, [
+                    _c("input", {
+                      staticClass: "checkbox__input checkbox__input_small",
+                      attrs: {
+                        id: "checkbox_2_0",
+                        type: "checkbox",
+                        value: "subscription",
+                        name: "subscription",
+                        hidden: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "checkbox_2_0" } }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "checkbox__label_small checkbox__label" },
+                      [
+                        _vm._v(
+                          "Получать свежие предложения по электронной почте\n                                "
+                        ),
+                        _c("div", { staticClass: "checkbox__desc" }, [
+                          _vm._v(
+                            "Каждую неделю мы делаем для вас обзор лучших экспедиций, статей и лайфхаков для путешественников. Если вдруг вам не понравится, вы сможете отписаться в любой момент."
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "clear-fix" })
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "article",
+              { staticClass: "form__group form__group_left w-100" },
+              [
+                _c("div", { staticClass: " w-100" }, [
+                  _c("div", { staticClass: " w-100" }, [
+                    _c("input", {
+                      staticClass: "checkbox__input checkbox__input_small",
+                      attrs: {
+                        id: "checkbox_3_0",
+                        type: "checkbox",
+                        value: "agreement",
+                        name: "agreement",
+                        hidden: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", {
+                      staticClass: "alert-border",
+                      attrs: { for: "checkbox_3_0" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "checkbox__label_small checkbox__label" },
+                      [
+                        _c("div", [
+                          _vm._v(
+                            "С обработкой своих персональных данных согласен."
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "checkbox__desc checkbox__desc_2" },
+                          [
+                            _vm._v(
+                              "Отправляя заявку я подтверждаю согласие с условиями Пользовательского соглашения"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "checkbox__desc checkbox__desc_3" },
+                          [
+                            _c("span", { staticClass: "alert-color" }, [
+                              _vm._v("*")
+                            ]),
+                            _vm._v("Поля, которые надо обязательно заполнить")
+                          ]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "clear-fix" })
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "form__submit", attrs: { type: "submit" } },
+              [
+                _c("div", { staticStyle: { float: "left" } }, [
+                  _vm._v("ОТПРАВИТЬ")
+                ]),
+                _c("img", {
+                  staticStyle: { float: "right" },
+                  attrs: { src: "site_img/arrow.png" }
+                })
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=template&id=fa816ef2&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DatePicker.vue?vue&type=template&id=fa816ef2& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -74738,523 +75746,331 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container w-100", attrs: { id: "app" } }, [
-      _c("header", { staticClass: "header w-100" }, [
-        _c("div", { staticClass: "header__icon" }, [
-          _c("div", { staticClass: "header__iconLine w-100" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "header__iconLine w-100" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "header__iconLine w-100" })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("main", { staticClass: "main w-100" }, [
-        _c("div", { staticClass: "main__title w-100" }, [_vm._v("ЗИМБАБВЕ")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "main__toursWrap w-100 row" }, [
-          _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
-            _c("div", { staticClass: "tour__imageWrap" }, [
-              _c("img", {
-                staticClass: "tour__image",
-                attrs: { src: "site_img/tourImage1.jpg" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "tour__price" }, [
-                _vm._v("от 118 112 Р")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__country" }, [_vm._v("ИТАЛИЯ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__name" }, [
-              _vm._v("Под небом Тосканы")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__places" }, [
-              _vm._v(
-                "Сансеполькро — (Перуджа) — Ассизи — Губбио — (Сиена) — Ла Верна — Ангиари — Монтерки — Ареццо — Кортона — (Пиенца) - (Монтепульчано)"
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__desc" }, [
-              _vm._v("8 дней / 7 ночей Русский язык "),
-              _c("br"),
-              _vm._v("27.04.19 - 04.05.19и еще 15 дат")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__alert" }, [
-              _vm._v("Авиаперелет включен!")
-            ])
+    return _c("div", { staticClass: "calendar__wrap" }, [
+      _c("table", { staticClass: "calendar", attrs: { id: "calendar2" } }, [
+        _c("thead", [
+          _c("tr", [
+            _c("td", [_vm._v("<")]),
+            _c("td", { attrs: { colspan: "5" } }),
+            _c("td", [_vm._v(">")])
           ]),
-          _vm._v(" "),
-          _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
-            _c("div", { staticClass: "tour__imageWrap" }, [
-              _c("img", {
-                staticClass: "tour__image",
-                attrs: { src: "site_img/tourImage2.png" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "tour__price" }, [_vm._v("140 715 Р")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__country" }, [_vm._v("ИСЛАНДИЯ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__name" }, [
-              _vm._v("Майские каникулы в Исландии")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__places" }, [
-              _vm._v(
-                "Рейкьявик — Тингвеллир — Гюдльфосс — Скафтафедль — Сельяландсфосс — Скоугафосс — Йёкюльсаурлоун — Голубая Лагуна — Снайфельсйёкутль — Arnarstapi — Рейкьявик"
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__desc" }, [
-              _vm._v("8 дней / 7 ночей Русский язык "),
-              _c("br"),
-              _vm._v("27.04.19 - 04.05.19")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
-            _c("div", { staticClass: "tour__imageWrap" }, [
-              _c("img", {
-                staticClass: "tour__image",
-                attrs: { src: "site_img/tourImage3.png" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "tour__price" }, [_vm._v("37 302 Р")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__country" }, [_vm._v("ТУРЦИЯ")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__name" }, [
-              _vm._v("Открытие Турции")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__places" }, [
-              _vm._v(
-                "Стамбул — Анкара — Каппадокия — Конья — Памуккале — Эфес — Кушадасы — Пергам — Ассос — Троя — Стамбул"
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__desc" }, [
-              _vm._v("8 дней / 7 ночей Русский язык "),
-              _c("br"),
-              _vm._v("28.04.19 - 05.05.19 и еще 3 даты")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("article", { staticClass: "tour col-lg-6 col-md-12" }, [
-            _c("div", { staticClass: "tour__imageWrap" }, [
-              _c("img", {
-                staticClass: "tour__image",
-                attrs: { src: "site_img/tourImage4.png" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "tour__price" }, [_vm._v("145 000 Р")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__country" }, [
-              _vm._v("НОРВЕГИЯ, ШПИЦБЕРГЕН")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__name" }, [
-              _vm._v("От Свальбарда до Груманта")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__desc" }, [
-              _vm._v("8 дней / 7 ночей Русский язык "),
-              _c("br"),
-              _vm._v("27.04.19 - 04.05.19и еще 15 дат")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tour__alert" }, [
-              _vm._v("Авиаперелет включен!")
-            ])
+          _c("tr", [
+            _c("td", [_vm._v("Пн")]),
+            _c("td", [_vm._v("Вт")]),
+            _c("td", [_vm._v("Ср")]),
+            _c("td", [_vm._v("Чт")]),
+            _c("td", [_vm._v("Пт")]),
+            _c("td", [_vm._v("Сб")]),
+            _c("td", [_vm._v("Вс")])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("footer", { staticClass: "footer" }, [
-        _c("div", { staticClass: "footer__title" }, [
-          _vm._v("Заявка на подбор путеешествия")
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "footer__formsWrap" }, [
+        _c("tbody")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "calendar__title" }, [
+        _vm._v("Выберите дату не позднее которой хотите вернуться")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=template&id=518a2e08&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MyNav.vue?vue&type=template&id=518a2e08& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("nav", { staticClass: "nav" }, [
+    _c("img", {
+      staticClass: "nav__close",
+      attrs: { src: "/site_img/close.png" }
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "nav__dropdownWrap w-100" }, [
+      _c(
+        "div",
+        { staticClass: "dropdown", attrs: { id: "dropdownCountries" } },
+        [
           _c(
-            "form",
+            "div",
             {
-              staticClass: "form row w-100",
-              attrs: { method: "POST", action: "" }
+              staticClass: "dropdown__header",
+              on: {
+                click: function($event) {
+                  return _vm.dropdownButtons("dropdownCountries")
+                }
+              }
             },
             [
-              _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
-                _c("div", { staticClass: "form__formsLegend" }, [
-                  _c("span", [_vm._v("НЕМНОГО О ВАС")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form__label" }, [
-                  _vm._v("ИМЯ "),
-                  _c("span", { staticClass: "alert-color" }, [_vm._v("*")])
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control form__input",
-                  attrs: { type: "text", name: "name" }
-                })
+              _c("div", { staticClass: "dropdown__label" }, [
+                _vm._v("Страны ")
               ]),
               _vm._v(" "),
-              _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
-                _c("div", { staticClass: "form__formsLegend hidden" }, [
-                  _c("span", [_vm._v("НЕМНОГО О ВАС")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form__label" }, [_vm._v("ТЕЛЕФОН")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control form__input",
-                  attrs: {
-                    type: "text",
-                    name: "phone",
-                    placeholder: "+7___ ___ __ __"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
-                _c("div", { staticClass: "form__formsLegend" }, [
-                  _c("span", [_vm._v("О ПУТЕШЕСТВИИ")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form__label" }, [
-                  _vm._v("КУДА И КОГДА ХОТИТЕ ПОЕХАТЬ? "),
-                  _c("span", { staticClass: "alert-color" }, [_vm._v("*")])
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control form__input alert-border",
-                  attrs: {
-                    type: "text",
-                    name: "desc",
-                    placeholder: "Континент, страна или город"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
-                _c("div", { staticClass: "form__formsLegend hidden" }, [
-                  _c("span", [_vm._v("НЕМНОГО О ВАС")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form__label" }, [_vm._v("КОГДА?")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control form__input",
-                  attrs: {
-                    type: "text",
-                    name: "date",
-                    placeholder: "Даты или временной интервал"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
-                _c("div", { staticClass: "form__formsLegend" }, [
-                  _c("span", [_vm._v("УДОБНЫЙ СПОСОБ СВЯЗИ")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "checkbox" }, [
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c("div", { staticClass: "checkbox__label" }, [
-                      _vm._v("VIBER")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_0_0",
-                        type: "checkbox",
-                        value: "VIBER",
-                        name: "communication",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_0_0" } })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c("div", { staticClass: "checkbox__label" }, [
-                      _vm._v("WHATSAPP")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_0_1",
-                        type: "checkbox",
-                        value: "WHATSAPP",
-                        name: "communication",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_0_1" } })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c("div", { staticClass: "checkbox__label" }, [
-                      _vm._v("ПОЧТА")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_0_2",
-                        type: "checkbox",
-                        value: "ПОЧТА",
-                        name: "communication",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_0_2" } })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c("div", { staticClass: "checkbox__label" }, [
-                      _vm._v("ТЕЛЕФОН")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_0_3",
-                        type: "checkbox",
-                        value: "ТЕЛЕФОН",
-                        name: "communication",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_0_3" } })
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("article", { staticClass: "form__group col-lg-6 col-md-12" }, [
-                _c("div", { staticClass: "form__formsLegend hidden" }, [
-                  _c("span", [_vm._v("ОТКУДА УЗНАЛИ О НАС")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "checkbox" }, [
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c("div", { staticClass: "checkbox__label" }, [
-                      _vm._v("ИНТЕРНЕТ")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_1_0",
-                        type: "checkbox",
-                        value: "ИНТЕРНЕТ",
-                        name: "adv",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_1_0" } })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "checkbox__label",
-                        attrs: { id: "label_1_1" }
-                      },
-                      [_vm._v("РЕКОМЕНДОВАЛИ ДРУЗЬЯ")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_1_1",
-                        type: "checkbox",
-                        value: "РЕКОМЕНДОВАЛИ ДРУЗЬЯ",
-                        name: "adv",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_1_1" } })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c("div", { staticClass: "checkbox__label" }, [
-                      _vm._v("СОЦ. СЕТИ")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_1_2",
-                        type: "checkbox",
-                        value: "СОЦ. СЕТИ",
-                        name: "adv",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_1_2" } })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "checkbox__insight" }, [
-                    _c("div", { staticClass: "checkbox__label" }, [
-                      _vm._v("УЖЕ ЕЗДИЛ")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "checkbox__input",
-                      attrs: {
-                        id: "checkbox_1_3",
-                        type: "checkbox",
-                        value: "УЖЕ ЕЗДИЛ",
-                        name: "adv",
-                        hidden: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "checkbox_1_3" } })
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "article",
-                { staticClass: "form__group form__group_left w-100" },
-                [
-                  _c("div", { staticClass: " w-100" }, [
-                    _c("div", { staticClass: " w-100" }, [
-                      _c("input", {
-                        staticClass: "checkbox__input checkbox__input_small",
-                        attrs: {
-                          id: "checkbox_2_0",
-                          type: "checkbox",
-                          value: "subscription",
-                          name: "subscription",
-                          hidden: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("label", { attrs: { for: "checkbox_2_0" } }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "checkbox__label_small checkbox__label"
-                        },
-                        [
-                          _vm._v(
-                            "Получать свежие предложения по электронной почте\n                                "
-                          ),
-                          _c("div", { staticClass: "checkbox__desc" }, [
-                            _vm._v(
-                              "Каждую неделю мы делаем для вас обзор лучших экспедиций, статей и лайфхаков для путешественников. Если вдруг вам не понравится, вы сможете отписаться в любой момент."
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "clear-fix" })
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "article",
-                { staticClass: "form__group form__group_left w-100" },
-                [
-                  _c("div", { staticClass: " w-100" }, [
-                    _c("div", { staticClass: " w-100" }, [
-                      _c("input", {
-                        staticClass: "checkbox__input checkbox__input_small",
-                        attrs: {
-                          id: "checkbox_3_0",
-                          type: "checkbox",
-                          value: "agreement",
-                          name: "agreement",
-                          hidden: ""
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("label", {
-                        staticClass: "alert-border",
-                        attrs: { for: "checkbox_3_0" }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "checkbox__label_small checkbox__label"
-                        },
-                        [
-                          _c("div", [
-                            _vm._v(
-                              "С обработкой своих персональных данных согласен."
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "checkbox__desc checkbox__desc_2" },
-                            [
-                              _vm._v(
-                                "Отправляя заявку я подтверждаю согласие с условиями Пользовательского соглашения"
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "checkbox__desc checkbox__desc_3" },
-                            [
-                              _c("span", { staticClass: "alert-color" }, [
-                                _vm._v("*")
-                              ]),
-                              _vm._v("Поля, которые надо обязательно заполнить")
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "clear-fix" })
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "form__submit", attrs: { type: "submit" } },
-                [
-                  _c("div", { staticStyle: { float: "left" } }, [
-                    _vm._v("ОТПРАВИТЬ")
-                  ]),
-                  _c("img", {
-                    staticStyle: { float: "right" },
-                    attrs: { src: "site_img/arrow.png" }
-                  })
-                ]
-              )
+              _c("img", {
+                staticClass: "dropdown__icon",
+                attrs: { src: "/site_img/dropdownClose.png" }
+              })
             ]
-          )
-        ])
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown", attrs: { id: "dropdownType" } }, [
+        _c(
+          "div",
+          {
+            staticClass: "dropdown__header",
+            on: {
+              click: function($event) {
+                return _vm.dropdownButtons("dropdownType")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "dropdown__label" }, [
+              _vm._v("Тип путешествия")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "dropdown__icon",
+              attrs: { src: "/site_img/dropdownClose.png" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1)
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown", attrs: { id: "dropdownDate" } }, [
+        _c(
+          "div",
+          {
+            staticClass: "dropdown__header",
+            on: {
+              click: function($event) {
+                return _vm.dropdownButtons("dropdownDate")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "dropdown__label" }, [_vm._v("Даты")]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "dropdown__icon",
+              attrs: { src: "/site_img/dropdownClose.png" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__content" }, [_c("date-picker")], 1)
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__search" }, [_vm._v("Найти")]),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__searchTour" }, [
+        _vm._v("Подберите мне тур")
       ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dropdown__content" }, [
+      _c("div", { staticClass: "dropdown__item" }, [
+        _vm._v("\n                    Южная Америка\n                    "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Аргентина")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Бразилия")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Уругвай")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Перу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Чили")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Эквадор")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item" }, [
+        _vm._v("\n                    Северная Америка\n                    "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Аргентина")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Бразилия")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Уругвай")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Перу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Чили")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Эквадор")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item" }, [
+        _vm._v(
+          "\n                    Арктика и Антарктика\n                    "
+        ),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Аргентина")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Бразилия")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Уругвай")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Перу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Чили")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Эквадор")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item" }, [
+        _vm._v("\n                    Африка\n                    "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Аргентина")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Бразилия")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Уругвай")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Перу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Чили")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Эквадор")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item" }, [
+        _vm._v(
+          "\n                    Австралия и Океания\n                    "
+        ),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Аргентина")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Бразилия")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Уругвай")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Перу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Чили")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Эквадор")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item" }, [
+        _vm._v(
+          "\n                    Европа Россия Азия\n                    "
+        ),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Аргентина")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [
+          _vm._v("Бразилия")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Уругвай")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Перу")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Чили")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown__itemInItem" }, [_vm._v("Эквадор")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dropdown__content" }, [
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v("\n                    Активный\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v("\n                    Майские\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v("\n                    На авто\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v("\n                    На корабле\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v("\n                    Новый год\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v("\n                    Поход\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v("\n                   Серфинг Эксклюзив\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "dropdown__item dropdown__item_thin" }, [
+        _vm._v(
+          "\n                    Экскурсионный Экспедиция\n                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dropdown__menu" }, [
+      _vm._v("\n            ПУТЕШЕСТВИЯ "),
+      _c("br"),
+      _vm._v("О НАС "),
+      _c("br"),
+      _vm._v("ОТЗЫВЫ "),
+      _c("br"),
+      _vm._v("БЛОГ\n        ")
     ])
   }
 ]
@@ -90763,6 +91579,181 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]({
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a(vue__WEBPACK_IMPORTED_MODULE_0___default.a.util.extend({
   router: router
 }, _App_vue__WEBPACK_IMPORTED_MODULE_13__["default"])).$mount('#app');
+
+/***/ }),
+
+/***/ "./resources/js/components/DatePicker.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/DatePicker.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DatePicker_vue_vue_type_template_id_fa816ef2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DatePicker.vue?vue&type=template&id=fa816ef2& */ "./resources/js/components/DatePicker.vue?vue&type=template&id=fa816ef2&");
+/* harmony import */ var _DatePicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DatePicker.vue?vue&type=script&lang=js& */ "./resources/js/components/DatePicker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _DatePicker_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DatePicker.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _DatePicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DatePicker_vue_vue_type_template_id_fa816ef2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DatePicker_vue_vue_type_template_id_fa816ef2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DatePicker.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/DatePicker.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/DatePicker.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./DatePicker.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss& ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./DatePicker.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/DatePicker.vue?vue&type=template&id=fa816ef2&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/DatePicker.vue?vue&type=template&id=fa816ef2& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_template_id_fa816ef2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./DatePicker.vue?vue&type=template&id=fa816ef2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DatePicker.vue?vue&type=template&id=fa816ef2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_template_id_fa816ef2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DatePicker_vue_vue_type_template_id_fa816ef2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MyNav.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/components/MyNav.vue ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MyNav_vue_vue_type_template_id_518a2e08___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyNav.vue?vue&type=template&id=518a2e08& */ "./resources/js/components/MyNav.vue?vue&type=template&id=518a2e08&");
+/* harmony import */ var _MyNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyNav.vue?vue&type=script&lang=js& */ "./resources/js/components/MyNav.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MyNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MyNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _MyNav_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MyNav.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _MyNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MyNav_vue_vue_type_template_id_518a2e08___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MyNav_vue_vue_type_template_id_518a2e08___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MyNav.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MyNav.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/MyNav.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./MyNav.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss& ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./MyNav.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MyNav.vue?vue&type=template&id=518a2e08&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/MyNav.vue?vue&type=template&id=518a2e08& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_template_id_518a2e08___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./MyNav.vue?vue&type=template&id=518a2e08& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MyNav.vue?vue&type=template&id=518a2e08&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_template_id_518a2e08___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyNav_vue_vue_type_template_id_518a2e08___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

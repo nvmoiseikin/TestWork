@@ -1,0 +1,97 @@
+@import '../sass/variables';
+.nav{
+    overflow: auto;
+    position: fixed;
+    z-index: 1000;
+    right: calc(50% - 512px);
+    top: -1000%;
+    width: 500px;
+    max-width: 100%;
+    height: 100vh;
+    background-color: #FFD241;
+    &_active{
+        top: 0;
+    }
+    &__close{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 20px;
+        height: auto;
+    }
+    &__dropdownWrap{
+        margin: 100px 0 0;
+    }
+}
+.dropdown{
+    display: block !important;
+    width: 80%;
+    max-width: 280px;
+    max-height: 500px;
+    overflow: auto;
+    border-radius: 29.5px;
+    background-color: white;
+    position: relative;
+    margin: 20px auto 20px;
+    &__header{
+        width: 100%;
+        height: 50px;
+    }
+    &__content{
+        display: none;
+    }
+    &__item{
+        padding: 0 30px;
+        @include myFont("MuseoSemiBold", 14px, 30px);
+    }
+    &__item:last-child{
+        margin-bottom: 20px;
+    }
+    &__itemInItem{
+        padding: 0  0  0 13px;
+        @include myFont("MuseoRegular", 14px, 30px);
+        display: none;
+    }
+    &__item_thin {
+        @include myFont("MuseoRegular", 14px, 30px);
+        padding: 0  0  0 45px;
+    }
+    &__search, &__searchTour{
+        width: 100%;
+        margin: 14px auto 30px;
+        height: 50px;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 29.5px;
+        max-width: 280px;
+        @include myFont("MuseoRegular", 12px, 50px);
+        text-align: center;
+    }
+    &__menu{
+        width: 100%;
+        max-width: 280px;
+        @include myFont("MuseoBold", 18px, 37px);
+        text-align: center;
+        margin: 30px auto 100px;
+    }
+    z-index: 10000;
+}
+.dropdown{
+    .dropdown__label{
+        position: absolute;
+        top: 17px;
+        @include myFont("MuseoRegular", 12px, 14px);
+        left: 30px;
+    }
+    .dropdown__icon{
+        position: absolute;
+        top: 23px;
+        width: 7px;
+        right: 30px;
+    }
+}
+@media(max-width: 1024px){
+    .nav{
+        right: 0;
+    }
+}

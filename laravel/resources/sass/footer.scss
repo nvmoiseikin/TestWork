@@ -13,16 +13,7 @@
     }
 
 }
-@media(max-width: 991px){
-    .footer{
-        &__title{margin: 0 0 27px;}
-    }
-}
-@media(max-width: 769px){
-    .footer{
-        &__formsWrap{ padding:  0 8px; }
-    }
-}
+
 .form{
     margin: 0;
     &__group{
@@ -32,9 +23,9 @@
         margin: 0 auto 35px;
     }
     &__group_left{
-        margin-left: 0;
-        max-width: none;
-        padding: 0;
+        //margin-left: 0;
+       // padding: 0;
+        max-width: 800px;
     }
     &__label{
         @include myFont("MuseoSemiBold", 10px, 12px);
@@ -62,6 +53,7 @@
         right: 0;
     }
     &__submit{
+        display: block;
         padding: 17px 30px;
         background: #FFD241;
         border-radius: 29.5px;
@@ -78,6 +70,30 @@
             height: 9px;
             margin: 3px 0 0 0;
         }
-        margin: 0 0 150px;
+        margin: 0 0 150px 10px;
+    }
+}
+@media(max-width: 991px){
+    .footer{
+        &__title{margin: 0 0 27px;}
+    }
+    .form{
+        display: block;
+        &__submit{
+            margin: 0 auto 70px;
+        }
+        &__group_left{
+            max-width: 400px;
+        }
+    }
+}
+@media(max-width: 769px){
+    .footer{
+        &__formsWrap{ padding:  0 8px; }
+    }
+    .form{
+
+        &__group_left{
+        }
     }
 }
